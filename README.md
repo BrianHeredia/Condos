@@ -1,2 +1,0 @@
-# Condos
-CondosApp development

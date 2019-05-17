@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" >
   <img src="../../../assets/icons/Condo.png" alt="logo">
   <h1 class="Title">CONDOS</h1>
   <h2 class="Title2">Inicio de Sesión</h2>
-  <form>
-     E-mail: <br> <input  class="ip1" type="text" name="fname">
-    Contraseña: <br> <input class="ip1" type="text" name="lname">
+  <form (submit)="onSubmitLogIn()" >
+    E-mail: <br> <input  id="email" type="text" name="fname" [(ngModel)]="email">
+    Contraseña: <br> <input id="password" type="text" name="lname" [(ngModel)]="password">
     <input class="OK" type="submit" value="OK">
   </form>
-  <p>¿No tienes cuenta? <br> <a href="#"> Registrate</a> </p>
+  <p>¿No tienes cuenta? <br> <a href=""> Registrate</a> </p>
 </div>

@@ -50,9 +50,7 @@ form{
     align-items: center;
 }
 
-.ip1{
-    /*margin-bottom: 0em;    */
-}
+
 
 .OK{
     width: 60px;
@@ -67,6 +65,9 @@ form{
 
 }
 
+.text{
+    margin-bottom: 0;
+}
 
 img{
     width: 100px;

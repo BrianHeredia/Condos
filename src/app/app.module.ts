@@ -5,10 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SingupComponent } from './components/singup/singup.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SingupComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

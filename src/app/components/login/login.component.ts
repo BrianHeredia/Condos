@@ -8,7 +8,6 @@ import { AuthService } from '../../services/auth.service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   public email: string;
   public password: string;
   constructor(
@@ -19,8 +18,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   onSubmitLogIn(){
+    
     this.authService.loginEmail(this.email, this.password)
     .then((res)=>{
+      console.log('inicio exitoso');
       this.router.navigate(['/']);
     }).catch((err) =>{
       console.log('epaa',err);

@@ -22,6 +22,7 @@
     "@angular/pwa": "^0.12.4",
     "@angular/router": "~7.2.0",
     "@angular/service-worker": "~7.2.0",
+    "angular2-flash-messages": "^3.0.1",
     "cli": "^1.0.1",
     "core-js": "^2.5.4",
     "firebase": "^6.0.2",

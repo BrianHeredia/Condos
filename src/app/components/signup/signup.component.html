@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="custom">
+    <img class="logo" src="../../../assets/icons/Condo.png" alt="logo">
+    <h1 class="Title">ONDOS</h1>
+  </div>
+  <h2 class="Title2">Registro de Usuario</h2>
+  <form (submit)="onSubmitAddUser()">
+      Nombre: <br> <input type="text" [(ngModel)]="first" name="nombre">
+      Apellido: <br> <input type="text" [(ngModel)]="last" name="apellido">
+      Cédula: <br> <input type="text" [(ngModel)]="cedula" name="cedula">
+      E-mail: <br> <input type="email" [(ngModel)]="email" name="email">
+      Contraseña: <br> <input type="password"  [(ngModel)]="password" name="contraseña">
+      Confirmar Contraseña: <br> <input type="password" [(ngModel)]="confirm" name="contraseña2">
+    <input class="Registrate" type="submit" value="Registrate">
+  </form>
+  <p class="text">¿Tienes cuenta? <br> <a routerLink="/"> Inicia Sesión</a> </p>
+</div>

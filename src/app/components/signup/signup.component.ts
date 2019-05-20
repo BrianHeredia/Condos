@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,8 @@ export class SignupComponent implements OnInit {
   public cedula: string;
   constructor(
     public authService: AuthService,
-    public router: Router
+    public router: Router,
+    public flashMensaje: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -35,12 +37,15 @@ export class SignupComponent implements OnInit {
             }).catch( (error) => console.log('error',error));
           }
         });
+        this.flashMensaje.show('Congrats! You have succesfully sign up into Condos System',
+        {cssClass: '', timeout: 6000});
         this.router.navigate(['/']);
       }).catch( (err) =>{
         console.log(err);
       })
     }else{
-      console.log('Contraseña no coincide');
+      this.flashMensaje.show('Fields "Contraseña" and "Confirmar Contraseña" should match',
+      {cssClass: '', timeout: 6000});
     }
   }
 

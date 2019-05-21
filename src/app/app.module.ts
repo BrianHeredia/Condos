@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import {FormsModule} from '@angular/forms';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FlashMessagesService} from 'angular2-flash-messages';
 import { CreateComponent } from './components/create/create.component';
@@ -18,7 +19,8 @@ import { CreateComponent } from './components/create/create.component';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    CreateComponent
+    CreateComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

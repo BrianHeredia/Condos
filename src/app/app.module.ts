@@ -11,12 +11,14 @@ import { SignupComponent } from './components/signup/signup.component';
 import {FormsModule} from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FlashMessagesService} from 'angular2-flash-messages';
+import { CreateComponent } from './components/create/create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

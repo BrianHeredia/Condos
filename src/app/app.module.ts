@@ -10,6 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import {FormsModule} from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { FlashMessagesService} from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,13 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
     AngularFireAuthModule,
+    FlashMessagesModule.forRoot(),
     FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [
+    FlashMessagesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

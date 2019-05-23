@@ -13,6 +13,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FlashMessagesService} from 'angular2-flash-messages';
 import { CreateComponent } from './components/create/create.component';
+import { JoinComponent } from './components/join/join.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreateComponent } from './components/create/create.component';
     LoginComponent,
     SignupComponent,
     CreateComponent,
-    DashboardComponent
+    DashboardComponent,
+    JoinComponent
   ],
   imports: [
     BrowserModule,

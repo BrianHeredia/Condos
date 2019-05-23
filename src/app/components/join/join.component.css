@@ -1,0 +1,27 @@
+.container{
+
+    display: flex;
+    align-items: column;
+    width: 360px;
+    height: 640px;
+    align-self: center;
+}
+
+.empty{
+    width: 42px;
+    height: 49px;
+}
+
+.texto{
+   
+    width: 340px;
+    height: 92px;
+    align-items: center;
+    text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    margin: 1em;
+}

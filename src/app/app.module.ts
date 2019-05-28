@@ -14,6 +14,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FlashMessagesService} from 'angular2-flash-messages';
 import { CreateComponent } from './components/create/create.component';
 import { JoinComponent } from './components/join/join.component';
+import { InactiveComponent } from './components/inactive/inactive.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { JoinComponent } from './components/join/join.component';
     SignupComponent,
     CreateComponent,
     DashboardComponent,
-    JoinComponent
+    JoinComponent,
+    InactiveComponent
   ],
   imports: [
     BrowserModule,

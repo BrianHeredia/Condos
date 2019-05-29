@@ -17,6 +17,11 @@ h2{
     height: 49px;
 }
 
+.empty{
+    width: 42px;
+    height: 49px;
+}
+
 .textin{
     width: 280px;
     height: 40px;
@@ -107,6 +112,8 @@ header{
     height: 70px;
     border-bottom: 1px solid #000000;
     margin: 0;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .tarjeta{
@@ -131,3 +138,22 @@ header{
         width: 280px;
     }
 }
+
+/* Responsiveness iPhone 6/7/8/X y modelos +
+@media screen and (max-width:320px){
+    .tarjeta{
+        width: 280px;
+    }
+}
+
+@media screen and (max-width:415px){
+    .tarjeta{
+        width: 370px;
+    }
+}
+
+@media screen and (max-width:376px){
+    .tarjeta{
+        width: 323px;
+    }
+}*/

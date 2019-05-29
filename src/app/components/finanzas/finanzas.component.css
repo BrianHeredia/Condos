@@ -1,0 +1,32 @@
+#balance{
+    background: #ED0F0F;
+    display: inline-block;
+}
+
+#generico{
+    background: #2F80ED;
+}
+
+#money{
+    color: #eeeeee;
+    align-items: center;
+    display: flex;
+    font-size: 48px;
+    height: 70px;
+    padding-left: 8px;
+}
+
+#pay{
+    font-size: 36px;
+    color: #eeeeee;
+}
+
+#payment{
+    background: #B10000;
+    display: flex;           
+    flex-direction: column;  
+    justify-content: center; 
+    align-items: center;
+    height: 70px;
+    border-radius: 5px;  
+}

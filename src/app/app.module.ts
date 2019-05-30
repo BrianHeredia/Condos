@@ -15,6 +15,8 @@ import { FlashMessagesService} from 'angular2-flash-messages';
 import { CreateComponent } from './components/create/create.component';
 import { JoinComponent } from './components/join/join.component';
 import { InactiveComponent } from './components/inactive/inactive.component';
+import { CproposalComponent } from './components/cproposal/cproposal.component';
+import { CnotificationComponent } from './components/cnotification/cnotification.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { InactiveComponent } from './components/inactive/inactive.component';
     CreateComponent,
     DashboardComponent,
     JoinComponent,
-    InactiveComponent
+    InactiveComponent,
+    CproposalComponent,
+    CnotificationComponent
   ],
   imports: [
     BrowserModule,

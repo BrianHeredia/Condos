@@ -6,6 +6,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { JoinComponent } from './components/join/join.component';
 import { CreateComponent } from './components/create/create.component';
 import { InactiveComponent } from './components/inactive/inactive.component';
+import { CnotificationComponent } from './components/cnotification/cnotification.component';
+import { CproposalComponent } from './components/cproposal/cproposal.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent  },
@@ -13,7 +15,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'join', component: JoinComponent},
   { path: 'create', component: CreateComponent},
-  { path: 'inactive', component: InactiveComponent}
+  { path: 'inactive', component: InactiveComponent},
+  { path: 'cproposal', component: CproposalComponent},
+  { path: 'cnotification', component: CnotificationComponent}
 ];
 
 @NgModule({

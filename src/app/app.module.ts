@@ -17,6 +17,8 @@ import { FinanzasComponent } from './components/finanzas/finanzas.component';
 import { MenuGrupoComponent } from './components/menu-grupo/menu-grupo.component';
 import { PropuestasComponent } from './components/propuestas/propuestas.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
+import { JoinComponent } from './components/join/join.component';
+import { InactiveComponent } from './components/inactive/inactive.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
     MenuGrupoComponent,
     PropuestasComponent,
     NotificacionesComponent
+    JoinComponent,
+    InactiveComponent
   ],
   imports: [
     BrowserModule,

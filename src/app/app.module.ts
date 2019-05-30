@@ -15,6 +15,8 @@ import { FlashMessagesService} from 'angular2-flash-messages';
 import { CreateComponent } from './components/create/create.component';
 import { FinanzasComponent } from './components/finanzas/finanzas.component';
 import { MenuGrupoComponent } from './components/menu-grupo/menu-grupo.component';
+import { PropuestasComponent } from './components/propuestas/propuestas.component';
+import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MenuGrupoComponent } from './components/menu-grupo/menu-grupo.component
     CreateComponent,
     DashboardComponent,
     FinanzasComponent,
-    MenuGrupoComponent
+    MenuGrupoComponent,
+    PropuestasComponent,
+    NotificacionesComponent
   ],
   imports: [
     BrowserModule,

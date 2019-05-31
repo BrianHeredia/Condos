@@ -54,13 +54,14 @@ export class SignupComponent implements OnInit {
 
 
   AddUser() {
-    this.user.value.uid = this.authService.registerUser(this.user.controls['email'], this.user.value.password);
+    this.user.value.uid = this.authService.registerUser(this.user.value.email, this.user.value.password);
     this.toDataBase();
   }
 
   toDataBase() {
     console.log(this.user.value)
     this.dataService.addUsuario(this.user.value).subscribe();
+    this.retroToUser();
   }
 
   retroToUser() {

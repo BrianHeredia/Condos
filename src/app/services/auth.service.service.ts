@@ -7,17 +7,16 @@ import { map } from "rxjs/operators";
   providedIn: 'root'
 })
 export class AuthService {
-
+  
+  public uid: string;
   constructor(
     public afAuth: AngularFireAuth
   ) { }
     
     
-  registerUser( email: string, pass: string){
-    return new Promise((resolve, reject) => {
-      this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
-      .then( userData => resolve(userData),
-      err => reject (err));
+  async registerUser( email: string, pass: string){
+    this.afAuth.auth.createUserWithEmailAndPassword(email, pass).then( (userData) => {
+      return userData.user.uid
     });
   }
 

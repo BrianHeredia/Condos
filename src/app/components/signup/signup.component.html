@@ -4,6 +4,7 @@
     <h1 class="Title">ONDOS</h1>
   </div>
   <h2 class="Title2">Registro de Usuario</h2>
+<<<<<<< HEAD
   <form [formGroup]="user">
       <!--<input type="text" id="userid" formControlName="uid">-->
       Nombre: <br> <input type="text"  formControlName="first" >
@@ -21,6 +22,16 @@
           Tu contraseña debe tener al menos 1 letra y 1 número
       </span>
    <button class="Registrate" [disabled]="user.invalid" (click)="AddUser()" >Registrate</button>
+=======
+  <form (submit)="onSubmitAddUser()">
+      Nombre: <br> <input class="textin" type="text" [(ngModel)]="first" name="nombre">
+      Apellido: <br> <input class="textin" type="text" [(ngModel)]="last" name="apellido">
+      Cédula: <br> <input class="textin" type="text" [(ngModel)]="cedula" name="cedula">
+      E-mail: <br> <input class="textin" type="email" [(ngModel)]="email" name="email">
+      Contraseña: <br> <input class="textin" type="password"  [(ngModel)]="password" name="contraseña">
+      Confirmar Contraseña: <br> <input class="textin" type="password" [(ngModel)]="confirm" name="contraseña2">
+    <input class="button" id="Registrate"type="submit" value="Registrate">
+>>>>>>> develop
   </form>
-  <p class="text">¿Tienes cuenta? <br> <a routerLink="/"> Inicia Sesión</a> </p>
+  <p class="text">¿Tienes cuenta? <br> <a routerLink="/login"> Inicia Sesión</a> </p>
 </div>

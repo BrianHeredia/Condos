@@ -9,22 +9,42 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
-
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FlashMessagesService} from 'angular2-flash-messages';
 
 import { HttpClientModule }    from '@angular/common/http';
 
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CreateComponent } from './components/create/create.component';
+import { FinanzasComponent } from './components/finanzas/finanzas.component';
+import { MenuGrupoComponent } from './components/menu-grupo/menu-grupo.component';
+import { PropuestasComponent } from './components/propuestas/propuestas.component';
+import { JoinComponent } from './components/join/join.component';
+import { InactiveComponent } from './components/inactive/inactive.component';
+import { CproposalComponent } from './components/cproposal/cproposal.component';
+import { CnotificationComponent } from './components/cnotification/cnotification.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CreateComponent,
+    DashboardComponent,
+    FinanzasComponent,
+    MenuGrupoComponent,
+    PropuestasComponent,
+    NotificacionesComponent,
+    JoinComponent,
+    InactiveComponent,
+    CproposalComponent,
+    CnotificationComponent
   ],
   imports: [
     BrowserModule,

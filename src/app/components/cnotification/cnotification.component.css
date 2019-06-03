@@ -4,27 +4,22 @@
     align-items: center;
 }
 
-.Title{
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 50px;
-    line-height: 59px;
-    
-    color: #000000;
-
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.empty{
+    width: 42px;
+    height: 49px;
 }
 
-.Title2{
-    margin-top: 0.2em;
+.check{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
 
-    display: flex;
-    align-items: center;
-    text-align: center;
-    display: block;
-    align-self: auto;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin: 0.4em;
 }
 
 form{
@@ -45,18 +40,17 @@ form{
     align-items: center;
 }
 
-
-#Registrate{
-    width: 100px;
-    margin:1em;
-}
-.custom{
-    display: flex;
+#Crear{
+    width: 90px;
+    height: 40px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
     align-items: center;
+    text-align: center;
+
+    margin: 1em;
 }
-
-.text{
-    margin-bottom: 0;
-}
-
-

@@ -32,7 +32,7 @@ import { CnotificationComponent } from './components/cnotification/cnotification
     FinanzasComponent,
     MenuGrupoComponent,
     PropuestasComponent,
-    NotificacionesComponent
+    NotificacionesComponent,
     JoinComponent,
     InactiveComponent,
     CproposalComponent,

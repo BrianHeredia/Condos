@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
       this.flashMensaje.show(err.message,
       {cssClass: '', timeout: 6000});
       console.log(err);
-      this.router.navigate(['/']);
     });
     
   }

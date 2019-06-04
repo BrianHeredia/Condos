@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard} from './guards/auth.guard';
+
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -10,14 +12,14 @@ import { CnotificationComponent } from './components/cnotification/cnotification
 import { CproposalComponent } from './components/cproposal/cproposal.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent  },
-  { path: 'login', component: LoginComponent  },
+  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent},
-  { path: 'join', component: JoinComponent},
-  { path: 'create', component: CreateComponent},
-  { path: 'inactive', component: InactiveComponent},
-  { path: 'cproposal', component: CproposalComponent},
-  { path: 'cnotification', component: CnotificationComponent}
+  { path: 'join', component: JoinComponent, canActivate: [AuthGuard]},
+  { path: 'create', component: CreateComponent, canActivate: [AuthGuard]},
+  { path: 'inactive', component: InactiveComponent, canActivate: [AuthGuard]},
+  { path: 'cproposal', component: CproposalComponent, canActivate: [AuthGuard]},
+  { path: 'cnotification', component: CnotificationComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

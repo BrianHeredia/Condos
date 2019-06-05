@@ -1,15 +1,18 @@
-<header>
-  <img class="logo" src="../../../assets/icons/icons8-usuario-de-género-neutro-filled-64.png" alt="USER">
-  <a href=""><img class="logo" src="../../../assets/icons/Condo.png" alt="logo" ></a>
-  <a href=""> <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt=""> </a>
-</header>
-<div class="tarjetero">
-  <div id="tarj1" class="tarjeta">
-    <h2>Park Avenue Towers 1253</h2>
-    <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
+<div>
+  <header>
+    <a routerLink="/" (click)="openModal('create-join')" > <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt="+"> </a>
+    <img class="logo" src="../../../assets/icons/Condo.png" alt="logo" >
+    <a routerLink="/" (click)="onClickLogout()"> <img src="../../../assets/icons/icons8-salida-32.png" alt="logout"></a>
+  </header>
+  <div *ngIf="this.condos[0] == undefined">No pertences a ningun grupo aun, crea uno o unete a uno.</div>
+  <div *ngIf="this.condos[0] != undefined" class="tarjetero">
+    <div *ngFor="let condo of condos; index as i" class="tarjeta">
+      <h2>{{condos[i].nombre}}</h2>
+      <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
+    </div>
   </div>
-  <div id="tarj2" class="tarjeta">
-    <h2>Ocean Club 3356</h2>
-    <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
-  </div>
+  <jw-modal id="create-join">
+    <a routerLink="/create"><button id="create">Crea un condominio</button></a> 
+    <a routerLink="/join"><button id="join" >Unete a un condominio</button></a> 
+  </jw-modal>
 </div>

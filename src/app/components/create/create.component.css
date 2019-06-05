@@ -1,7 +1,19 @@
 .container{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
     align-items: center;
+}
+h2{
+    margin:1em;
+}
+p{
+    color: #635b5b;
+    font-size: 13px;
+    margin-bottom: 1rem;
+    width: 300px;
 }
 
 .check{
@@ -16,7 +28,9 @@
     padding-right: 0.5em;
     margin: 0.4em;
 }
-
+button{
+    margin: 1em;
+}
 form{
     font-family: Roboto;
     font-style: normal;
@@ -49,3 +63,4 @@ form{
 
     margin: 1em;
 }
+

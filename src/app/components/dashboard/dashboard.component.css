@@ -1,9 +1,10 @@
-#tarj1{
-    background: lightblue url(../../../assets/icons/edificio.jpg) no-repeat center;
+#create, #join{
+    width: 200px;
+    margin: 1rem;
 }
 
-
-#tarj2{
-    background: lightblue url(../../../assets/icons/edificio2.jpg) no-repeat center;
+.buttons{
+    display: flex;
+    flex-direction: column;
 }
 

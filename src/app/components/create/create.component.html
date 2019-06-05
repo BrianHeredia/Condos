@@ -1,20 +1,25 @@
 <header>
-  <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar">
+  <a routerLink="/"> <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
   <h2 class="Title2">Crear Grupo</h2>
   <div class="empty"></div>
 </header>
 <div class="container">
-  <form>
-      Nombre: <br> <input class="textin" type="text">
-      Dirección: <br> <input class="textin" type="text">
+  <form [formGroup]="group">
+      Nombre: <br> <input class="textin" type="text"  formControlName="nombre">
+      <p >Ingresa el nombre de la residencia/urbanización/conjunto...</p>
+      Dirección: <br> <input class="textin" type="text"  formControlName="direccion">
+      <p >Ingresa la dirección del condominio</p>
+      Código: <br> <input class="textin" type="text"  formControlName="codigo">
+      <p >Este es el código que vas a compartir con los residente para que se unan al grupo. Mínimo: 8 carácteres entre letras y numeros.</p>
+      <h2>Agrega tu información de residente:</h2>
+      <form [formGroup]="groupUser">
+          Alícuota: <br> <input class="textin" type="text"  formControlName="alicuota">
+          <p >Ingresa la alícuota correspondiente a tu unidad residencial</p>
+          Unidad: <br> <input class="textin" type="text"  formControlName="unidad">
+      </form>
+      <p >Aquí debes ingresar el numero de apartamento/casa de manera de poder distingirla con las demás</p>
+      
   </form>
-  <div class="check">
-    <input class="checkbox" type="checkbox" name="Finanzas" value="Finanzas"> Finanzas<br>
-    <input class="checkbox" type="checkbox" name="Propuestas" value="Propuestas"> Propuestas<br>
-    <input class="checkbox" type="checkbox" name="Comunicacion" value="Comunicacion" checked> Comunicacion<br>
-    <input class="checkbox" type="checkbox" name="Seguridad" value="Seguridad"> Seguridad<br>
-    <input class="checkbox" type="checkbox" name="Documentos" value="Documentos"> Documentos<br>
-  </div>
-  <input class="button" id="Crear" type="submit" value="Crear">
+  <button (click)="ToDataBase()" >Crear condominio</button>
 </div>
   

@@ -17,6 +17,8 @@ import { FlashMessagesService} from 'angular2-flash-messages';
 
 import { HttpClientModule }    from '@angular/common/http';
 
+import { AuthGuard } from './guards/auth.guard';
+
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CreateComponent } from './components/create/create.component';
 import { FinanzasComponent } from './components/finanzas/finanzas.component';
@@ -29,6 +31,12 @@ import { CnotificationComponent } from './components/cnotification/cnotification
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
+
+import { ModalComponent } from './components/modal/modal.component';
+
+import { DataService } from './services/data.service';
+import { AuthService } from './services/auth.service.service';
+import { ModalService } from './services/modal.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +52,8 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
     JoinComponent,
     InactiveComponent,
     CproposalComponent,
-    CnotificationComponent
+    CnotificationComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +67,11 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
-    FlashMessagesService
+    FlashMessagesService,
+    AuthGuard,
+    AuthService,
+    DataService,
+    ModalService
   ],
   bootstrap: [AppComponent]
 })

@@ -16,7 +16,7 @@ export class AuthService {
     
   async registerUser( email: string, pass: string){
     this.afAuth.auth.createUserWithEmailAndPassword(email, pass).then( (userData) => {
-      return userData.user.uid
+      console.log(userData);
     });
   }
 

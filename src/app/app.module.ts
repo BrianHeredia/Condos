@@ -32,8 +32,11 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 
+import { ModalComponent } from './components/modal/modal.component';
+
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service.service';
+import { ModalService } from './services/modal.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,8 @@ import { AuthService } from './services/auth.service.service';
     JoinComponent,
     InactiveComponent,
     CproposalComponent,
-    CnotificationComponent
+    CnotificationComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,8 @@ import { AuthService } from './services/auth.service.service';
     FlashMessagesService,
     AuthGuard,
     AuthService,
-    DataService
+    DataService,
+    ModalService
   ],
   bootstrap: [AppComponent]
 })

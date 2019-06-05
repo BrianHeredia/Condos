@@ -5,8 +5,6 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service.service';
 
-import { Usuario } from '../../models/usuarios';
-
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { DataService } from '../../services/data.service';
 
@@ -16,9 +14,8 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  uid: String;
+
   user: FormGroup;
-  usuario = new Usuario();
   constructor(
     private fb: FormBuilder,
     public authService: AuthService,
@@ -29,7 +26,6 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.fb.group({
-      uid: '',
       first: ['', [
         Validators.required
       ]],
@@ -54,19 +50,18 @@ export class SignupComponent implements OnInit {
 
 
   AddUser() {
-    this.user.value.uid = this.authService.registerUser(this.user.value.email, this.user.value.password);
+    this.authService.registerUser(this.user.value.email, this.user.value.password);
     this.toDataBase();
   }
 
   toDataBase() {
-    console.log(this.user.value)
     this.dataService.addUsuario(this.user.value).subscribe();
     this.retroToUser();
   }
 
   retroToUser() {
     this.flashMensaje.show('Congrats! You have succesfully sign up into Condos System',
-      { cssClass: '', timeout: 6000 });
+    { cssClass: '', timeout: 6000 });
     this.router.navigate(['/']);
   }
 

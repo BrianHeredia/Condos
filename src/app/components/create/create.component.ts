@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { DataService } from '../../services/data.service';
+import { UsuarioGrupo } from '../../models/usuario-grupo';
 
 @Component({
   selector: 'app-create',
@@ -47,9 +48,14 @@ export class CreateComponent implements OnInit {
   }
 
   ToDataBase() {
-    console.log(this.group.value);
-    this.dataService.addGrupo(this.group.value).subscribe();
-    /*this.dataService.addUsuario(this.groupUser.value).subscribe();*/
+    this.dataService.userGroup = new UsuarioGrupo;
+    this.dataService.userGroup.alicuota = this.groupUser.value.alicuota;
+    this.dataService.userGroup.unit = this.groupUser.value.unidad;
+    this.dataService.userGroup.uid = this.dataService.user.uid;
+    this.dataService.addGrupo(this.group.value).subscribe((group)=>{
+      this.dataService.userGroup.idgrupo = group.idgrupo;
+      this.dataService.addUserGrupos(this.dataService.userGroup).subscribe();
+    });
     this.router.navigate(['/']);
   }
 

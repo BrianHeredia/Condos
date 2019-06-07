@@ -1,6 +1,7 @@
 #balance{
     background: #ED0F0F;
     display: inline-block;
+    height: 140px;
 }
 
 #generico{
@@ -29,6 +30,8 @@
     width: 480px;
     font-size: 36px;
     color: #eeeeee;
+    padding: 0;
+    margin: 0;
 }
 
 @media screen and (max-width:505px){

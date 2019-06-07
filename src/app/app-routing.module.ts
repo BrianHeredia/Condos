@@ -10,6 +10,10 @@ import { CreateComponent } from './components/create/create.component';
 import { InactiveComponent } from './components/inactive/inactive.component';
 import { CnotificationComponent } from './components/cnotification/cnotification.component';
 import { CproposalComponent } from './components/cproposal/cproposal.component';
+import { PersonasComponent } from './components/personas/personas.component';
+import { FinanzasComponent } from './components/finanzas/finanzas.component';
+import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
+import { PropuestasComponent } from './components/propuestas/propuestas.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -19,7 +23,11 @@ const routes: Routes = [
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard]},
   { path: 'inactive', component: InactiveComponent, canActivate: [AuthGuard]},
   { path: 'cproposal', component: CproposalComponent, canActivate: [AuthGuard]},
-  { path: 'cnotification', component: CnotificationComponent, canActivate: [AuthGuard]}
+  { path: 'cnotification', component: CnotificationComponent, canActivate: [AuthGuard]},
+  { path: 'personas', component: PersonasComponent, canActivate: [AuthGuard]},
+  { path: 'finanzas', component: FinanzasComponent, canActivate: [AuthGuard]},
+  { path: 'notificaciones', component: NotificacionesComponent, canActivate: [AuthGuard]},
+  { path: 'propuestas', component: PropuestasComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

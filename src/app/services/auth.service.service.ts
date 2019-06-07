@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { map } from "rxjs/operators";
+import { DataService } from '../services/data.service';
+import { Usuario } from '../models/usuarios';
 
 @Injectable({
   providedIn: 'root'
@@ -10,22 +12,31 @@ export class AuthService {
   
   public uid: string;
   constructor(
-    public afAuth: AngularFireAuth
+    public afAuth: AngularFireAuth,
+    public dataService: DataService
   ) { }
     
     
   async registerUser( email: string, pass: string){
-    this.afAuth.auth.createUserWithEmailAndPassword(email, pass).then( (userData) => {
-      console.log(userData);
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, pass).then( (userData) => {
+      return this.createUser(userData.user.uid);
     });
   }
 
-  loginEmail(email: string, pass: string){
-    return new Promise((resolve, reject) => {
-      this.afAuth.auth.signInWithEmailAndPassword(email, pass)
-      .then( userData => resolve(userData),
-      err => reject (err));
+  async loginEmail(email: string, pass: string){
+    return this.afAuth.auth.signInWithEmailAndPassword(email, pass).then( (userData) => {
+      return this.currentUser(userData.user.uid);
     });
+  }
+
+  createUser(uid: string){
+    this.dataService.user.uid = uid;
+    this.dataService.addUsuario(this.dataService.user).subscribe();
+  }
+
+  currentUser(uid: string){
+    this.dataService.user = new Usuario;
+    this.dataService.user.uid = uid;
   }
 
   updateEmail(email: string){
@@ -42,6 +53,7 @@ export class AuthService {
   }
 
   logout(){
+    localStorage.clear();
     return this.afAuth.auth.signOut();
   }
   

@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
 ) { }
 
   ngOnInit() {
+    /*
     this.authService.getAuth().subscribe( auth =>{
       if(auth){
         this.isLogin=true;
@@ -29,8 +30,8 @@ export class DashboardComponent implements OnInit {
       }else{
         this.isLogin = false;
       }
-    });
-    this.getGrupos();
+    });*/
+    this.getUserGrupos();
   }
 
   onClickLogout(){
@@ -47,8 +48,9 @@ export class DashboardComponent implements OnInit {
     this.modalService.close(id);
   }
 
-  getGrupos(){
-    this.dataService.getGrupos().subscribe(condos=>{
+  getUserGrupos(){
+    this.dataService.getUserGrupos().subscribe(condos=>{
+      console.log(condos, 'holaaa');
       this.condos = condos;
     });
   }

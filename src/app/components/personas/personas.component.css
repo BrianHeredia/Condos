@@ -9,3 +9,8 @@
 #R{
     background: #56CCF2;
 }
+
+#move, #delete{
+    width: 200px;
+    margin: 1rem;
+}

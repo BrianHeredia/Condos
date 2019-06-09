@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
     .then((res)=>{
       this.flashMensaje.show('Welcome, you have succesfully sign in',
       {cssClass: '', timeout: 6000});
-      
       this.router.navigate(['/']);
     }).catch((err) =>{
       this.flashMensaje.show(err.message,

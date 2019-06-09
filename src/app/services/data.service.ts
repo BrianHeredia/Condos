@@ -26,6 +26,11 @@ export class DataService {
   userInfo(usuario: Usuario){
     this.user = usuario;
   }
+
+  userInit(){
+    this.user = new Usuario;
+    this.user.uid = localStorage.currentUserID;
+  }
   
   //Métodos http para Usuarios
   getUsuarios (): Observable<Usuario[]> {
@@ -69,8 +74,14 @@ export class DataService {
   }
 
   getUserGrupos(): Observable<UsuarioGrupo[]>{
-    const url = `${this.usuariosUrl}/${this.user.uid}`;
+    const url = `${this.usuarioGrupoUrl}/${localStorage.currentUserID}`;
     return this.http.get<UsuarioGrupo[]>(url);
+  }
+
+  joinGroup(usuarioGrupo: UsuarioGrupo):Observable<UsuarioGrupo>{
+    const url = `${this.usuarioGrupoUrl}/${usuarioGrupo.codigo}`;
+    const body = JSON.stringify(usuarioGrupo);
+    return this.http.post<UsuarioGrupo>(url, body, httpOptions);
   }
 
 }

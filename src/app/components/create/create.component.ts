@@ -51,7 +51,7 @@ export class CreateComponent implements OnInit {
     this.dataService.userGroup = new UsuarioGrupo;
     this.dataService.userGroup.alicuota = this.groupUser.value.alicuota;
     this.dataService.userGroup.unit = this.groupUser.value.unidad;
-    this.dataService.userGroup.uid = this.dataService.user.uid;
+    this.dataService.userGroup.uid = localStorage.currentUserID;
     this.dataService.addGrupo(this.group.value).subscribe((group)=>{
       this.dataService.userGroup.idgrupo = group.idgrupo;
       this.dataService.addUserGrupos(this.dataService.userGroup).subscribe();

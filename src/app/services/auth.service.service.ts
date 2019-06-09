@@ -35,9 +35,9 @@ export class AuthService {
   }
 
   currentUser(uid: string){
-    this.dataService.user = new Usuario;
-    this.dataService.user.uid = uid;
+    localStorage.currentUserID = uid;
   }
+
 
   updateEmail(email: string){
     this.afAuth.auth.currentUser.updateEmail(email).then(function() {

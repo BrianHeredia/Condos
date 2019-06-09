@@ -3,6 +3,8 @@ import { AuthService } from '../../services/auth.service.service';
 import { Router } from '@angular/router';
 import { ModalService } from '../../services/modal.service';
 import { DataService } from '../../services/data.service';
+import { reject } from 'q';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -10,8 +12,6 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  public isLogin: boolean;
-  public emailUser: string;
   
   private condos = [];
   constructor(
@@ -22,16 +22,10 @@ export class DashboardComponent implements OnInit {
 ) { }
 
   ngOnInit() {
-    /*
-    this.authService.getAuth().subscribe( auth =>{
-      if(auth){
-        this.isLogin=true;
-        this.emailUser = auth.email;
-      }else{
-        this.isLogin = false;
-      }
-    });*/
-    this.getUserGrupos();
+    this.dataService.getUserGrupos().subscribe(condos=>{
+      console.log(condos, 'holaaa');
+      this.condos = condos;
+    });
   }
 
   onClickLogout(){

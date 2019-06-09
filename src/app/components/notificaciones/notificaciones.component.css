@@ -1,0 +1,34 @@
+#noti{
+    background: #F2C94C;
+    display: inline-block;
+    height: 140px;
+}
+
+#titulo{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#texto{
+    height: 70px;
+}
+
+
+#profile{
+    background: #F2994A;
+    display: flex;           
+    align-items: center;
+    justify-content: space-evenly;
+    height: 70px;
+    border-radius: 5px;  
+    border: 0;
+    width: 480px;
+    color: #eeeeee;
+}
+
+@media screen and (max-width:505px){
+    #profile{
+        width: 280px;
+    }
+}

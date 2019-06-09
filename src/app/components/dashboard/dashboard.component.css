@@ -1,0 +1,21 @@
+#create, #join{
+    width: 200px;
+    margin: 1rem;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.nogroup{
+    padding: 3rem;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+}
+
+span{
+    font-size: 50px;
+    font-weight: bolder;
+}

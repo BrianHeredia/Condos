@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
+import { DataService } from '../../services/data.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,10 +16,12 @@ export class LoginComponent implements OnInit {
   constructor(
     public authService: AuthService,
     public router: Router,
-    public flashMensaje: FlashMessagesService
+    public flashMensaje: FlashMessagesService,
+    public dataService: DataService
   ) { }
 
   ngOnInit() {
+
   }
   onSubmitLogIn(){
     
@@ -30,9 +34,7 @@ export class LoginComponent implements OnInit {
       this.flashMensaje.show(err.message,
       {cssClass: '', timeout: 6000});
       console.log(err);
-      this.router.navigate(['/']);
     });
-    
   }
 }
 

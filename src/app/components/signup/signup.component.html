@@ -4,14 +4,22 @@
     <h1 class="Title">ONDOS</h1>
   </div>
   <h2 class="Title2">Registro de Usuario</h2>
-  <form (submit)="onSubmitAddUser()">
-      Nombre: <br> <input type="text" [(ngModel)]="first" name="nombre">
-      Apellido: <br> <input type="text" [(ngModel)]="last" name="apellido">
-      Cédula: <br> <input type="text" [(ngModel)]="cedula" name="cedula">
-      E-mail: <br> <input type="email" [(ngModel)]="email" name="email">
-      Contraseña: <br> <input type="password"  [(ngModel)]="password" name="contraseña">
-      Confirmar Contraseña: <br> <input type="password" [(ngModel)]="confirm" name="contraseña2">
-    <input class="Registrate" type="submit" value="Registrate">
+  <form [formGroup]="user">
+      Nombre: <br> <input type="text"  formControlName="first" >
+      Apellido: <br> <input type="text" formControlName="last"  >
+      Cédula: <br> <input type="text" formControlName="cedula" >
+      <span  class="error" *ngIf="cedula.errors?.min && cedula.touched">
+          Cédula no valida
+      </span>
+      E-mail: <br> <input type="email" formControlName="email">
+      <span class="error" *ngIf="email.invalid && email.touched">
+          Tu email no parece bien escrito
+      </span>
+      Contraseña: <br> <input type="password"  formControlName="password" >
+      <span class="error" *ngIf="password.invalid && password.touched">
+          Tu contraseña debe tener al menos 1 letra y 1 número
+      </span>
+   <button class="Registrate" [disabled]="user.invalid" (click)="AddUser()" >Registrate</button>
   </form>
-  <p class="text">¿Tienes cuenta? <br> <a routerLink="/"> Inicia Sesión</a> </p>
+  <p class="text">¿Tienes cuenta? <br> <a routerLink="/login"> Inicia Sesión</a> </p>
 </div>

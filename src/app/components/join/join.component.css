@@ -1,0 +1,32 @@
+.container{
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+h2{
+    margin:1em;
+}
+p{
+    color: #635b5b;
+    font-size: 13px;
+    margin-bottom: 1rem;
+    width: 300px;
+}
+.empty{
+    width: 42px;
+    height: 49px;
+}
+
+
+
+
+#OK{
+    width: 60px;
+    height: 40px;
+    margin: 1em;
+}

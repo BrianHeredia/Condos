@@ -37,6 +37,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service.service';
 import { ModalService } from './services/modal.service';
+import { PersonasComponent } from './components/personas/personas.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ModalService } from './services/modal.service';
     InactiveComponent,
     CproposalComponent,
     CnotificationComponent,
-    ModalComponent
+    ModalComponent,
+    PersonasComponent
   ],
   imports: [
     BrowserModule,

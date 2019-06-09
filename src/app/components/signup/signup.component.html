@@ -8,15 +8,15 @@
       Nombre: <br> <input type="text"  formControlName="first" >
       Apellido: <br> <input type="text" formControlName="last"  >
       Cédula: <br> <input type="text" formControlName="cedula" >
-      <span *ngIf="cedula.errors?.min && cedula.touched">
+      <span  class="error" *ngIf="cedula.errors?.min && cedula.touched">
           Cédula no valida
       </span>
       E-mail: <br> <input type="email" formControlName="email">
-      <span *ngIf="email.invalid && email.touched">
+      <span class="error" *ngIf="email.invalid && email.touched">
           Tu email no parece bien escrito
       </span>
       Contraseña: <br> <input type="password"  formControlName="password" >
-      <span *ngIf="password.invalid && password.touched">
+      <span class="error" *ngIf="password.invalid && password.touched">
           Tu contraseña debe tener al menos 1 letra y 1 número
       </span>
    <button class="Registrate" [disabled]="user.invalid" (click)="AddUser()" >Registrate</button>

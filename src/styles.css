@@ -11,7 +11,7 @@ h2{
     line-height: 28px;
     color: #000000;
 }
-span{
+.error{
     width: 280px;
     height: 40px;
     background: rgb(236, 148, 148);

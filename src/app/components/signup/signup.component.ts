@@ -55,7 +55,7 @@ export class SignupComponent implements OnInit {
   }
 
   toDataBase() {
-    this.dataService.addUsuario(this.user.value).subscribe();
+    this.dataService.userInfo(this.user.value);
     this.retroToUser();
   }
 

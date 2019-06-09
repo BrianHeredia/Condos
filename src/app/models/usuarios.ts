@@ -1,6 +1,7 @@
 export class Usuario {
-    first: string;
-    last: string;
-    cedula: Number;
-    email: string;
+    uid?: string;
+    first?: string;
+    last?: string;
+    cedula?: Number;
+    email?: string;
 }

@@ -10,6 +10,7 @@ import { CreateComponent } from './components/create/create.component';
 import { InactiveComponent } from './components/inactive/inactive.component';
 import { CnotificationComponent } from './components/cnotification/cnotification.component';
 import { CproposalComponent } from './components/cproposal/cproposal.component';
+import { MenuGrupoComponent } from './components/menu-grupo/menu-grupo.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard]},
   { path: 'inactive', component: InactiveComponent, canActivate: [AuthGuard]},
   { path: 'cproposal', component: CproposalComponent, canActivate: [AuthGuard]},
-  { path: 'cnotification', component: CnotificationComponent, canActivate: [AuthGuard]}
+  { path: 'cnotification', component: CnotificationComponent, canActivate: [AuthGuard]},
+  { path: 'menu', component: MenuGrupoComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

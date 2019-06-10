@@ -30,7 +30,7 @@ export class PersonasComponent implements OnInit {
         this.isLogin = false;
       }
     });
-    this.getGrupos();
+    /*this.getGrupos();*/
   }
 
   onClickLogout(){
@@ -47,13 +47,13 @@ export class PersonasComponent implements OnInit {
     this.modalService.close(id);
   }
 
-  /*Cambiar a getPersonas()*/
+  /*Cambiar a getPersonas()
 
   getGrupos(){
     this.dataService.getGrupos().subscribe(condos=>{
       this.condos = condos;
     });
-  }
+  }*/
   
 }
 

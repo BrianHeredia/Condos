@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getUserGrupos().subscribe(condos=>{
+      console.log(condos);
       this.condos = condos;
     });
   }

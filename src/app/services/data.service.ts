@@ -61,7 +61,7 @@ export class DataService {
 
   //Métodos http para Grupos
 
-  addGrupo (grupo: Grupo): Observable<Grupo> {
+  addGrupo(grupo: Grupo): Observable<Grupo> {
     const body = JSON.stringify(grupo);
     return this.http.post<Grupo>(this.gruposUrl, body, httpOptions);
   }

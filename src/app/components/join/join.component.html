@@ -1,27 +1,19 @@
 <header>
-  <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar">
+  <a routerLink="/"> <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
   <h2 class="Title2">Unirse a un Grupo</h2>
   <div class="empty"> </div>
 </header>
 
-    <body class="container">
-
-    <form>
-        <div class="overlay">
-        Pregúntale a un miembro de tu Junta de Condominio o Asociación de Vecinos el código del grupo
-        <div class='margin'></div>
-        <br> Código: <br> <input class="textin" type="text">
-        <div class='margin'></div>
-        <input class="button" id="OK" type="submit" value="OK">
-        </div>
-        
-
-    </form>
-
-    
-  
-    
-  </body>
+<form class="container"  [formGroup]="join">
+  Código: <input class="textin" type="text" formControlName="codigo">
+  <p id="texto">Pregúntale a un miembro de tu Junta de Condominio o Asociación de Vecinos el código del grupo</p> 
+  <h2>Agrega tu información de residente:</h2>
+  Alícuota: <br> <input class="textin" type="text"  formControlName="alicuota">
+  <p >Ingresa la alícuota correspondiente a tu unidad residencial</p>
+  Unidad: <br> <input class="textin" type="text"  formControlName="unit">
+  <p >Aquí debes ingresar el numero de apartamento/casa de manera de poder distingirla con las demás</p>
+  <button (click)="ToDataBase()" id="OK">OK</button>
+</form>
 
    
 

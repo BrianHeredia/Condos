@@ -18,10 +18,11 @@ export class DataService {
   private usuariosUrl = 'http://localhost:3000/api/usuarios';  // URL to web api
   private gruposUrl = 'http://localhost:3000/api/grupo';  // URL to web api
   private usuarioGrupoUrl = 'http://localhost:3000/api/user_grupo';  // URL to web api
-
+  private personasUrl = 'http://localhost:3000/api/personas';  // URL to web api
   constructor( 
     private http: HttpClient
   ) { }
+  ;
 
   userInfo(usuario: Usuario){
     this.user = usuario;
@@ -33,6 +34,7 @@ export class DataService {
   }
   
   //Métodos http para Usuarios
+  /*
   getUsuarios (): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.usuariosUrl)
   }
@@ -41,7 +43,7 @@ export class DataService {
     const url = `${this.usuariosUrl}/${cedula}`;
     return this.http.get<Usuario>(url);
   }
-
+*/
 
   addUsuario (usuario: Usuario): Observable<Usuario> {
     const body = JSON.stringify(usuario);
@@ -83,5 +85,8 @@ export class DataService {
     const body = JSON.stringify(usuarioGrupo);
     return this.http.post<UsuarioGrupo>(url, body, httpOptions);
   }
-
+  getUsuarios (): Observable<Usuario[]> {
+    const url = `${this.personasUrl}/${'1'}`;
+    return this.http.get<Usuario[]>(url);
+  }
 }

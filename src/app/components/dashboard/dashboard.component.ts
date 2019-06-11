@@ -25,7 +25,9 @@ export class DashboardComponent implements OnInit {
     this.dataService.getUserGrupos().subscribe(condos=>{
       console.log(condos);
       this.condos = condos;
-    });
+      localStorage.grupos = condos;
+    }
+    );
   }
 
   onClickLogout(){

@@ -11,6 +11,7 @@ import { DataService } from '../../services/data.service';
 })
 export class PersonasComponent implements OnInit {
 
+  private usuarios = [];
   constructor(
     public authService: AuthService,
     public router: Router,
@@ -19,7 +20,11 @@ export class PersonasComponent implements OnInit {
 ) { }
 
   ngOnInit() {
-
+    console.log(localStorage.grupos);
+    this.dataService.getUsuarios().subscribe(usuarios=>{
+      console.log(usuarios);
+      this.usuarios = usuarios;
+    });
   }
 
   

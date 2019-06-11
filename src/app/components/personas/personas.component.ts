@@ -10,10 +10,7 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./personas.component.css']
 })
 export class PersonasComponent implements OnInit {
-  public isLogin: boolean;
-  public emailUser: string;
-  
-  private condos = [];
+
   constructor(
     public authService: AuthService,
     public router: Router,
@@ -22,38 +19,9 @@ export class PersonasComponent implements OnInit {
 ) { }
 
   ngOnInit() {
-    this.authService.getAuth().subscribe( auth =>{
-      if(auth){
-        this.isLogin=true;
-        this.emailUser = auth.email;
-      }else{
-        this.isLogin = false;
-      }
-    });
-    /*this.getGrupos();*/
+
   }
 
-  onClickLogout(){
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
-
-
-  openModal(id: string) {
-    this.modalService.open(id);
-  }
-
-  closeModal(id: string) {
-    this.modalService.close(id);
-  }
-
-  /*Cambiar a getPersonas()
-
-  getGrupos(){
-    this.dataService.getGrupos().subscribe(condos=>{
-      this.condos = condos;
-    });
-  }*/
   
 }
 

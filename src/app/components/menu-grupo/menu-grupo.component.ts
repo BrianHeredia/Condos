@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params} from '@angular/router';
+import { DataService } from '../../services/data.service';
+import { Grupo } from '../../models/grupos';
 
 @Component({
   selector: 'app-menu-grupo',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuGrupoComponent implements OnInit {
 
-  constructor() { }
+  grupo: Grupo;
+  constructor( private route: ActivatedRoute, public dataService: DataService) { }
 
   ngOnInit() {
+    const idgrupo = this.route.snapshot.params['idgrupo'];
+    this.getGroupInfo(idgrupo);
+  }
+
+  getGroupInfo(idgrupo: number): void{
+    this.dataService.getGrupoByID(idgrupo).subscribe( grupo => {
+    this.grupo = grupo;
+    });
   }
 
 }

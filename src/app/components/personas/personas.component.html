@@ -1,24 +1,27 @@
 <header>
-  <a routerLink="/menu"> <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
+  <a routerLink="/menu/{{this.idgrupo}}"> <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
   <h2>Personas</h2>
   <div class="empty"></div>
 </header>
 <div class="tarjetero">
   <h2 id="sub">Junta de Condominio</h2>
-  <div id="J" class="tarjeta">
-    <h2>Pedro Perez</h2>
-    <img class="logo" src="../../../assets/icons/icons8-pencil-filled-48.png" alt="Options" routerLink="/personas" (click)="openModal('move')">
+  <div *ngFor="let personas of admins; index as i" id="J" class="tarjeta">
+    <h2>{{admins[i]?.first}} {{admins[i]?.last}}</h2>
+    <img class="logo" src="../../../assets/icons/icons8-pencil-filled-48.png" alt="Options" (click)="thisUser( admins[i]?.uid, admins[i]?.usuario_grupos.admin)" (click)="openModal('move')">
   </div>
   <h2 id="sub">Residentes</h2>
-  <div id="R" class="tarjeta">
-    <h2>Juan Rodriguez</h2>
-    <img class="logo" src="../../../assets/icons/icons8-pencil-filled-48.png" alt="Options" routerLink="/personas" (click)="openModal('move-delete')">
+  <div *ngFor="let people of residentes; index as i" id="R" class="tarjeta">
+    <h2>{{residentes[i]?.first}} {{residentes[i]?.last}}</h2>
+    <img class="logo" src="../../../assets/icons/icons8-pencil-filled-48.png" alt="Options" (click)="thisUser( residentes[i]?.uid, residentes[i]?.usuario_grupos.admin)" (click)="openModal('move-delete')">
   </div>
   <jw-modal id="move">
-    <a><button id="move">Mover</button></a> 
+    Desea sacar a este miembro de la Junta de Condominio?
+    <a><button (click)="this.move('move')" class="move">Mover</button></a> 
   </jw-modal>
   <jw-modal id="move-delete">
-    <a><button id="move">Mover</button></a> 
-    <a><button id="delete" >Eliminar</button></a> 
+    Desea hacer a este residente MIEMBRO de la Junta de Condominio?
+    <a><button (click)="this.move('move-delete')" class="move">Mover</button></a> 
+    Desea eliminar a este residente del Condominio? Esto no podrá revertirse.
+    <a><button (click)="this.delete('move-delete')" id="delete" >Eliminar</button></a> 
   </jw-modal>
 </div>

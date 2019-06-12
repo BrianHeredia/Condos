@@ -1,7 +1,7 @@
 <header>
     <a routerLink="/"> <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
-  <h2>Ocean Club 3356</h2>
-  <a routerLink="/personas"><img class="logo" src="../../../assets/icons/icons8-grupos-de-usuarios-32.png" alt="USER"></a> 
+  <h2>{{this.grupo?.nombre}}</h2>
+  <a routerLink="/personas/{{this.grupo?.idgrupo}}"><img class="logo" src="../../../assets/icons/icons8-grupos-de-usuarios-32.png" alt="USER"></a> 
 </header>
 <div class="tarjetero">
   

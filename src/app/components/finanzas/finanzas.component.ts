@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ActivatedRoute, Params} from '@angular/router';
 import { ModalService } from '../../services/modal.service';
 
 @Component({
@@ -8,11 +10,16 @@ import { ModalService } from '../../services/modal.service';
 })
 export class FinanzasComponent implements OnInit {
 
+  /*private idgrupo;*/
+
   constructor(
+    private route: ActivatedRoute,
+    public router: Router,
     public modalService: ModalService
 ) { }
 
   ngOnInit() {
+    /*this.idgrupo = this.route.snapshot.params['idgrupo'];*/
   }
 
   openModal(id: string) {
@@ -21,6 +28,12 @@ export class FinanzasComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
+  }
+
+  /*Se confirma el pago y se cierra el modal*/
+  confirmPayment(id: string){
+    /*codigo BD*/
+    this.closeModal(id);
   }
 
 }

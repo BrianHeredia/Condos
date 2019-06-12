@@ -1,5 +1,6 @@
 <header>
-  <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="USER">
+  <!--Falta el router link para poder salir de finanzas y volver al menu de grupo-->
+  <a><img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
   <h2 class="Title2">Finanzas</h2>
   <div class="empty"> </div>
 </header>
@@ -21,10 +22,10 @@
         <div class="empty"> </div>
     </header>
     <form>
-        Número de confirmación: <br> <input type="text"  formControlName="numConfirmacion">
-        Monto: <br> <input type="text" formControlName="monto"  >
-        Fecha: <br> <input type="date" formControlName="fecha">
-        <button class="button" id="confirm">Confirmar</button>
+        Número de transferencia: <br> <input type="text"  formControlName="num_transferencia">
+        Monto: <br> <input type="text" formControlName="cantidad"  >
+        Fecha: <br> <input type="date" formControlName="fecha_pagos">
+        <button class="button" id="confirm" (click)="this.confirmPayment('pay')">Confirmar</button>
     </form>
   </jw-modal>
 </div>

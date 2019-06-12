@@ -5,15 +5,16 @@
     <a routerLink="/" (click)="onClickLogout()"> <img src="../../../assets/icons/icons8-salida-32.png" alt="logout"></a>
   </header>
   <div class="nogroup" *ngIf="this.condos[0] == undefined">No pertences a ningún grupo aún, crea uno o únete a uno en el botón <span>+</span> </div>
-  <a routerLink="/menu"><div *ngIf="this.condos[0] != undefined" class="tarjetero">
+  <div *ngIf="this.condos[0] != undefined" class="tarjetero">
     <div *ngFor="let condo of condos; index as i" class="tarjeta">
+      <a routerLink="/menu/{{this.condos[i].idgrupo}}">
       <div>
           <h2>{{condos[i].nombre}}</h2>
           <p>{{condos[i].direccion}}</p>
-      </div>
+      </div></a>
       <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
     </div>
-  </div></a> 
+  </div>
   <jw-modal id="create-join">
     <a routerLink="/create"><button id="create">Crea un condominio</button></a> 
     <a routerLink="/join"><button id="join" >Unete a un condominio</button></a> 

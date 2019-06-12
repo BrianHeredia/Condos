@@ -26,8 +26,8 @@ const routes: Routes = [
   { path: 'inactive', component: InactiveComponent, canActivate: [AuthGuard]},
   { path: 'cproposal', component: CproposalComponent, canActivate: [AuthGuard]},
   { path: 'cnotification', component: CnotificationComponent, canActivate: [AuthGuard]},
-  { path: 'menu', component: MenuGrupoComponent, canActivate: [AuthGuard]},
-  { path: 'personas', component: PersonasComponent, canActivate: [AuthGuard]},
+  { path: 'menu/:idgrupo', component: MenuGrupoComponent, canActivate: [AuthGuard]},
+  { path: 'personas/:idgrupo', component: PersonasComponent, canActivate: [AuthGuard]},
   { path: 'finanzas', component: FinanzasComponent, canActivate: [AuthGuard]},
   { path: 'notificaciones', component: NotificacionesComponent, canActivate: [AuthGuard]},
   { path: 'propuestas', component: PropuestasComponent, canActivate: [AuthGuard]}

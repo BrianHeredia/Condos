@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Usuario } from '../models/usuarios';
 import { Grupo } from '../models/grupos';
 import { UsuarioGrupo } from '../models/usuario-grupo';
+import { UserChanged } from '../models/userChanged';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,10 +19,11 @@ export class DataService {
   private usuariosUrl = 'http://localhost:3000/api/usuarios';  // URL to web api
   private gruposUrl = 'http://localhost:3000/api/grupo';  // URL to web api
   private usuarioGrupoUrl = 'http://localhost:3000/api/user_grupo';  // URL to web api
-
+  private personasUrl = 'http://localhost:3000/api/personas';  // URL to web api
   constructor( 
     private http: HttpClient
   ) { }
+  ;
 
   userInfo(usuario: Usuario){
     this.user = usuario;
@@ -33,6 +35,7 @@ export class DataService {
   }
   
   //Métodos http para Usuarios
+  /*
   getUsuarios (): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.usuariosUrl)
   }
@@ -41,13 +44,13 @@ export class DataService {
     const url = `${this.usuariosUrl}/${cedula}`;
     return this.http.get<Usuario>(url);
   }
-
+*/
 
   addUsuario (usuario: Usuario): Observable<Usuario> {
     const body = JSON.stringify(usuario);
     return this.http.post<Usuario>(this.usuariosUrl, body, httpOptions);
   }
-
+/*
   deleteUsuario (usuario: Usuario | number): Observable<Usuario> {
     const cedula = typeof usuario === 'number' ? usuario : usuario.cedula;
     const url = `${this.usuariosUrl}/${cedula}`;
@@ -58,13 +61,19 @@ export class DataService {
   updateUsuario (usuario: Usuario): Observable<any> {
     return this.http.put(this.usuariosUrl, usuario, httpOptions);
   }
-
+*/
   //Métodos http para Grupos
 
-  addGrupo (grupo: Grupo): Observable<Grupo> {
+  getGrupoByID(idgrupo: number): Observable<Grupo> {
+    const url = `${this.gruposUrl}/${idgrupo}`;
+    return this.http.get<Grupo>(url);
+  }
+
+  addGrupo(grupo: Grupo): Observable<Grupo> {
     const body = JSON.stringify(grupo);
     return this.http.post<Grupo>(this.gruposUrl, body, httpOptions);
   }
+
 
   //Métodos http para usuarioGrupo
 
@@ -84,4 +93,18 @@ export class DataService {
     return this.http.post<UsuarioGrupo>(url, body, httpOptions);
   }
 
+  getUsuarios (idgrupo: number): Observable<Usuario[]> {
+    const url = `${this.personasUrl}/${idgrupo}`;
+    return this.http.get<Usuario[]>(url);
+  }
+
+  updateUserGrupos (usuario: UserChanged ): Observable<any> {
+    return this.http.put(this.usuarioGrupoUrl, usuario, httpOptions);
+  }
+
+  deleteUserGrupos (usuario: UserChanged): Observable<any> {
+    const url = `${this.usuarioGrupoUrl}/${usuario.uid}`;
+    return this.http.delete<UserChanged>(url, httpOptions);
+  }
+  
 }

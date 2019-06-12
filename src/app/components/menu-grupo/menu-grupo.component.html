@@ -1,23 +1,23 @@
 <header>
-  <img class="logo" src="../../../assets/icons/icons8-usuario-de-género-neutro-filled-64.png" alt="USER">
-  <h2>Ocean Club 3356</h2>
-  <div class="empty"></div>
+    <a routerLink="/"> <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
+  <h2>{{this.grupo?.nombre}}</h2>
+  <a routerLink="/personas/{{this.grupo?.idgrupo}}"><img class="logo" src="../../../assets/icons/icons8-grupos-de-usuarios-32.png" alt="USER"></a> 
 </header>
 <div class="tarjetero">
-  <div id="F" class="tarjeta">
+  
+  <a routerLink="/finanzas"><div id="Fin" class="tarjeta">
     <h2>Finanzas</h2>
-    <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
-  </div>
-  <div id="P" class="tarjeta">
+  </div></a>
+  <a routerLink="/propuestas"><div id="Props" class="tarjeta">
     <h2>Propuestas</h2>
-    <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
-  </div>
-  <div id="N" class="tarjeta">
+  </div></a>
+  <a routerLink="/notificaciones"><div id="Nots" class="tarjeta">
     <h2>Notificaciones</h2>
-    <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
-  </div>
-  <div id="D" class="tarjeta">
-    <h2>Personas</h2>
-    <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
-  </div>
+  </div></a>
+  <a routerLink="/inactive"><div id="Seg" class="tarjeta">
+    <h2>Seguridad</h2>
+  </div></a>
+  <a routerLink="/inactive"><div id="Docs" class="tarjeta">
+      <h2>Documentos</h2>
+    </div></a>
 </div>

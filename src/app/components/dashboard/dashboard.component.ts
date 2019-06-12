@@ -23,7 +23,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getUserGrupos().subscribe(condos=>{
-      console.log(condos, 'holaaa');
       this.condos = condos;
     });
   }
@@ -40,13 +39,6 @@ export class DashboardComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
-  }
-
-  getUserGrupos(){
-    this.dataService.getUserGrupos().subscribe(condos=>{
-      console.log(condos, 'holaaa');
-      this.condos = condos;
-    });
   }
   
 }

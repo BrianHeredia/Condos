@@ -1,0 +1,90 @@
+#balance{
+    background: #27AE60;
+    display: inline-block;
+    height: 70px;
+}
+
+#money{
+    color: #eeeeee;
+    align-items: center;
+    display: flex;
+    font-size: 48px;
+    height: 70px;
+    padding-left: 8px;
+}
+
+#historial{
+    background: #F2F2F2;
+    height: 175px;
+    display: inline-block;
+}
+
+#nameDate{
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+}
+
+#contenido{
+    text-align: left;
+    height: 35px;
+    display: flex;
+}
+
+#monto{
+    background: #27AE60;
+    display: flex;
+    justify-content: flex-end;
+    height: 70px;
+    border-radius: 5px;  
+    width: 472px;
+    padding-right: 8px;
+    font-size: 36px;
+    color: #eeeeee;
+
+}
+
+#mas, #seguro{
+    justify-content: center;
+}
+
+#pregunta{
+    text-align: center;
+}
+
+.boton{
+    width: 200px;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+
+}
+
+#yesno{
+    width: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#sino{
+    margin-top: 0.5em;
+}
+
+@media screen and (max-width:505px){
+    #money{
+        font-size: 40px;
+    }
+
+    #monto{
+        width: 272px;
+    }
+
+    .boton{
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    #gasto{
+        zoom: 80%;
+    }
+
+}

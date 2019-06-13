@@ -9,21 +9,25 @@
     <h2 id="money">$25,000.00</h2>
     <a><button id="payment" (click)="openModal('pay')">Pagar</button></a>
   </div>
-  <div id="generico" class="tarjeta">
-    <h2>Estado de Cuenta</h2>
-  </div>
-  <div id="generico" class="tarjeta">
-    <h2>Lista de Deudores</h2>
-  </div> 
+  <a routerLink="/estadoCuenta">
+    <div id="generico" class="tarjeta">
+      <h2>Estado de Cuenta</h2>
+    </div>
+  </a>
+  <a>
+    <div id="generico" class="tarjeta">
+      <h2>Lista de Deudores</h2>
+    </div> 
+  </a>
   <jw-modal id="pay">
-    <header id="hModal">
+    <header class="hModal">
         <div class="empty"> </div>
         <h2 class="Title2">Pagar</h2>
         <div class="empty"> </div>
     </header>
     <form>
         Número de transferencia: <br> <input type="text"  formControlName="num_transferencia">
-        Monto: <br> <input type="text" formControlName="cantidad"  >
+        Monto: <br> <input type="text" formControlName="cantidad">
         Fecha: <br> <input type="date" formControlName="fecha_pagos">
         <button class="button" id="confirm" (click)="this.confirmPayment('pay')">Confirmar</button>
     </form>

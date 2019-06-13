@@ -33,25 +33,6 @@
     padding: 0;
     margin: 0;
 }
-
-#pay{
-    margin: 1rem;
-}
-
-#hModal{
-    border-bottom: 0;
-    align-content: center;
-
-}
-
-#confirm{
-    margin-top: 1em;
-}
-
-input[type="date"] {
-    font-family: Roboto, sans-serif;
-}
-
     
 @media screen and (max-width:505px){
     #payment{

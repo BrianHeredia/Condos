@@ -195,6 +195,18 @@ form{
     align-items: center;
 }
 
+.hModal{
+    border-bottom: 0;
+    align-content: center;
+}
+
+#confirm{
+    margin-top: 1em;
+}
+
+.input[type="date"] {
+    font-family: Roboto, sans-serif;
+}
 
 
 @media screen and (max-width:505px){

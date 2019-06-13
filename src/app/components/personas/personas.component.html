@@ -4,12 +4,12 @@
   <div class="empty"></div>
 </header>
 <div class="tarjetero">
-  <h2 id="sub">Junta de Condominio</h2>
+  <h2>Junta de Condominio</h2>
   <div *ngFor="let personas of admins; index as i" id="J" class="tarjeta">
     <h2>{{admins[i]?.first}} {{admins[i]?.last}}</h2>
     <img class="logo" src="../../../assets/icons/icons8-pencil-filled-48.png" alt="Options" (click)="thisUser( admins[i]?.uid, admins[i]?.usuario_grupos.admin)" (click)="openModal('move')">
   </div>
-  <h2 id="sub">Residentes</h2>
+  <h2>Residentes</h2>
   <div *ngFor="let people of residentes; index as i" id="R" class="tarjeta">
     <h2>{{residentes[i]?.first}} {{residentes[i]?.last}}</h2>
     <img class="logo" src="../../../assets/icons/icons8-pencil-filled-48.png" alt="Options" (click)="thisUser( residentes[i]?.uid, residentes[i]?.usuario_grupos.admin)" (click)="openModal('move-delete')">

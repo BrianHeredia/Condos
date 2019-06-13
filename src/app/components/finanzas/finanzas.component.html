@@ -1,17 +1,32 @@
 <header>
-  <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="USER">
+  <a routerLink="/{{this.uid}}/menu/{{this.idgrupo}}"><img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="USER"> </a>
   <h2 class="Title2">Finanzas</h2>
   <div class="empty"> </div>
 </header>
 <div class="tarjetero">
   <div id="balance" class="tarjeta">
     <h2 id="money">$25,000.00</h2>
-    <input class="button" id="payment" type="submit" value="Pagar">
+    <a><button id="payment" (click)="openModal('pay')">Pagar</button></a>
   </div>
   <div id="generico" class="tarjeta">
     <h2>Estado de Cuenta</h2>
   </div>
   <div id="generico" class="tarjeta">
     <h2>Lista de Deudores</h2>
-  </div>
+  </div> 
+  <jw-modal id="pay">
+    <header id="hModal">
+        <div class="empty"> </div>
+        <h2 class="Title2">Pagar</h2>
+        <div class="empty"> </div>
+    </header>
+    <form>
+        Número de confirmación: <br> <input type="text"  formControlName="numConfirmacion">
+        Monto: <br> <input type="text" formControlName="monto"  >
+        Fecha: <br> <input type="date" formControlName="fecha">
+        <button class="button" id="confirm">Confirmar</button>
+    </form>
+  </jw-modal>
 </div>
+
+

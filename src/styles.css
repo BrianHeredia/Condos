@@ -133,7 +133,7 @@ button:disabled{
 
 .alert.flash-message{
     padding: 1em;
-    height:62px;
+    max-height:100px;
     color: #ffffff;
     background-color: #2F80ED;
     font-weight: bold;
@@ -150,7 +150,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 70px;
+    min-height: 70px;
     border-bottom: 1px solid #000000;
     margin: 0;
     padding-left: 1em;
@@ -159,7 +159,7 @@ header{
 
 .tarjeta{
     width: 480px;
-    height: 60px;
+    min-height: 60px;
     border-radius: 5px;
     padding: 0.5rem;
     display: flex;
@@ -202,22 +202,3 @@ form{
         width: 280px;
     }
 }
-
-/* Responsiveness iPhone 6/7/8/X y modelos +
-@media screen and (max-width:320px){
-    .tarjeta{
-        width: 280px;
-    }
-}
-
-@media screen and (max-width:415px){
-    .tarjeta{
-        width: 370px;
-    }
-}
-
-@media screen and (max-width:376px){
-    .tarjeta{
-        width: 323px;
-    }
-}*/

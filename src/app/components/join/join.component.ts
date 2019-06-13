@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { ActivatedRoute, Params} from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { DataService } from '../../services/data.service';
 import { UsuarioGrupo } from '../../models/usuario-grupo';
@@ -12,16 +12,18 @@ import { UsuarioGrupo } from '../../models/usuario-grupo';
   styleUrls: ['./join.component.css']
 })
 export class JoinComponent implements OnInit {
-
+  private uid;
   join: FormGroup;
   constructor(
     private fb: FormBuilder,
+    private route: ActivatedRoute,
     public router: Router,
     public flashMensaje: FlashMessagesService,
     private dataService: DataService
   ) { }
 
   ngOnInit() {
+    this.uid = this.route.snapshot.params['uid'];
     this.join = this.fb.group({
       codigo: ['', [
         Validators.required
@@ -42,7 +44,7 @@ export class JoinComponent implements OnInit {
     this.dataService.userGroup.unit = this.join.value.unit;
     this.dataService.userGroup.uid = localStorage.currentUserID;
     this.dataService.joinGroup(this.dataService.userGroup).subscribe();
-    this.router.navigate(['/']);
+    this.router.navigate(['/'+this.uid]);
   }
 
   get alicuota() {

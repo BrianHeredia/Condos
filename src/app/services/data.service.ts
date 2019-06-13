@@ -103,7 +103,7 @@ export class DataService {
   }
 
   deleteUserGrupos (usuario: UserChanged): Observable<any> {
-    const url = `${this.usuarioGrupoUrl}/${usuario.uid}`;
+    const url = `${this.usuarioGrupoUrl}/${usuario.uid}/${usuario.idgrupo}`;
     return this.http.delete<UserChanged>(url, httpOptions);
   }
   

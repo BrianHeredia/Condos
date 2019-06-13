@@ -16,23 +16,21 @@ import { FinanzasComponent } from './components/finanzas/finanzas.component';
 import { EstadoCuentaComponent } from './components/estado-cuenta/estado-cuenta.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { PropuestasComponent } from './components/propuestas/propuestas.component';
-
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: '', component: WelcomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent},
-  { path: 'join', component: JoinComponent, canActivate: [AuthGuard]},
-  { path: 'create', component: CreateComponent, canActivate: [AuthGuard]},
-  { path: 'inactive', component: InactiveComponent, canActivate: [AuthGuard]},
-  { path: 'cproposal', component: CproposalComponent, canActivate: [AuthGuard]},
-  { path: 'cnotification', component: CnotificationComponent, canActivate: [AuthGuard]},
-  { path: 'menu/:idgrupo', component: MenuGrupoComponent, canActivate: [AuthGuard]},
-  { path: 'personas/:idgrupo', component: PersonasComponent, canActivate: [AuthGuard]},
-  { path: 'finanzas', component: FinanzasComponent, canActivate: [AuthGuard]},
-  { path: 'estadoCuenta', component: EstadoCuentaComponent, canActivate: [AuthGuard]},
-  { path: 'notificaciones', component: NotificacionesComponent, canActivate: [AuthGuard]},
-  { path: 'propuestas', component: PropuestasComponent, canActivate: [AuthGuard]}
+  { path: ':uid', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: ':uid/join', component: JoinComponent, canActivate: [AuthGuard]},
+  { path: ':uid/create', component: CreateComponent, canActivate: [AuthGuard]},
+  { path: ':uid/inactive/:idgrupo', component: InactiveComponent, canActivate: [AuthGuard]},
+  { path: ':uid/menu/:idgrupo', component: MenuGrupoComponent, canActivate: [AuthGuard]},
+  { path: ':uid/personas/:idgrupo', component: PersonasComponent, canActivate: [AuthGuard]},
+  { path: ':uid/finanzas/:idgrupo', component: FinanzasComponent, canActivate: [AuthGuard]},
+  { path: ':uid/notificaciones/:idgrupo', component: NotificacionesComponent, canActivate: [AuthGuard]},
+  { path: ':uid/propuestas/:idgrupo', component: PropuestasComponent, canActivate: [AuthGuard]}
 
 ];
 

@@ -9,17 +9,14 @@ import { ModalService } from '../../services/modal.service';
   styleUrls: ['./finanzas.component.css']
 })
 export class FinanzasComponent implements OnInit {
-
-  /*private idgrupo;*/
-
+  private idgrupo;
+  private uid;
   constructor(
-    private route: ActivatedRoute,
-    public router: Router,
-    public modalService: ModalService
-) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-    /*this.idgrupo = this.route.snapshot.params['idgrupo'];*/
+    this.uid = this.route.snapshot.params['uid'];
+    this.idgrupo = this.route.snapshot.params['idgrupo'];
   }
 
   openModal(id: string) {

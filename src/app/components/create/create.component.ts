@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
-
+import { ActivatedRoute, Params} from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { DataService } from '../../services/data.service';
 import { UsuarioGrupo } from '../../models/usuario-grupo';
@@ -16,14 +16,17 @@ export class CreateComponent implements OnInit {
   
   group: FormGroup;
   groupUser: FormGroup;
+  private uid;
   constructor(
     private fb: FormBuilder,
+    private route: ActivatedRoute,
     public router: Router,
     public flashMensaje: FlashMessagesService,
     private dataService: DataService
   ) { }
 
   ngOnInit() {
+    this.uid = this.route.snapshot.params['uid'];
     this.group = this.fb.group({
       nombre: ['', [
         Validators.required
@@ -56,7 +59,7 @@ export class CreateComponent implements OnInit {
       this.dataService.userGroup.idgrupo = group.idgrupo;
       this.dataService.addUserGrupos(this.dataService.userGroup).subscribe();
     });
-    this.router.navigate(['/']);
+    this.router.navigate(['/'+this.uid]);
   }
 
 

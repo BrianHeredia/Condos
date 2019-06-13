@@ -39,6 +39,7 @@ import { AuthService } from './services/auth.service.service';
 import { ModalService } from './services/modal.service';
 import { PersonasComponent } from './components/personas/personas.component';
 import { EstadoCuentaComponent } from './components/estado-cuenta/estado-cuenta.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { EstadoCuentaComponent } from './components/estado-cuenta/estado-cuenta.
     CnotificationComponent,
     ModalComponent,
     PersonasComponent,
-    EstadoCuentaComponent
+    EstadoCuentaComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,18 @@
 <header>
-  <a routerLink="/menu/{{this.idgrupo}}"> <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
+  <a routerLink="/{{this.uid}}/menu/{{this.idgrupo}}"> <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
   <h2>Personas</h2>
   <div class="empty"></div>
 </header>
-<div class="tarjetero">
-  <h2>Junta de Condominio</h2>
+<div *ngIf="this.isadmin" class="tarjetero">
+  <h2 id="sub">Junta de Condominio</h2>
   <div *ngFor="let personas of admins; index as i" id="J" class="tarjeta">
     <h2>{{admins[i]?.first}} {{admins[i]?.last}}</h2>
-    <img class="logo" src="../../../assets/icons/icons8-pencil-filled-48.png" alt="Options" (click)="thisUser( admins[i]?.uid, admins[i]?.usuario_grupos.admin)" (click)="openModal('move')">
+    <img *ngIf="!(admins[i]?.uid == this.uid)" class="logo" src="../../../assets/icons/icons8-pencil-filled-48.png" alt="Options" (click)="thisUser( admins[i]?.uid, admins[i]?.usuario_grupos.admin,  admins[i]?.usuario_grupos.grupoVecinalIdgrupo)" (click)="openModal('move')">
   </div>
   <h2>Residentes</h2>
   <div *ngFor="let people of residentes; index as i" id="R" class="tarjeta">
     <h2>{{residentes[i]?.first}} {{residentes[i]?.last}}</h2>
-    <img class="logo" src="../../../assets/icons/icons8-pencil-filled-48.png" alt="Options" (click)="thisUser( residentes[i]?.uid, residentes[i]?.usuario_grupos.admin)" (click)="openModal('move-delete')">
+    <img class="logo" src="../../../assets/icons/icons8-pencil-filled-48.png" alt="Options" (click)="thisUser( residentes[i]?.uid, residentes[i]?.usuario_grupos.admin, residentes[i]?.usuario_grupos.grupoVecinalIdgrupo )" (click)="openModal('move-delete')">
   </div>
   <jw-modal id="move">
     Desea sacar a este miembro de la Junta de Condominio?
@@ -24,4 +24,14 @@
     Desea eliminar a este residente del Condominio? Esto no podrá revertirse.
     <a><button (click)="this.delete('move-delete')" id="delete" >Eliminar</button></a> 
   </jw-modal>
+</div>
+<div *ngIf="!this.isadmin" class="tarjetero">
+  <h2 id="sub">Junta de Condominio</h2>
+  <div *ngFor="let personas of admins; index as i" id="J" class="tarjeta">
+    <h2>{{admins[i]?.first}} {{admins[i]?.last}}</h2>
+  </div>
+  <h2 id="sub">Residentes</h2>
+  <div *ngFor="let people of residentes; index as i" id="R" class="tarjeta">
+    <h2>{{residentes[i]?.first}} {{residentes[i]?.last}}</h2>
+  </div>
 </div>

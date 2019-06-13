@@ -1,13 +1,13 @@
 <div>
   <header>
-    <a routerLink="/" (click)="openModal('create-join')" > <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt="+"> </a>
+    <img class="logo" id="plus" src="../../../assets/icons/icons8-más-filled-64.png" alt="+" (click)="openModal('create-join')">
     <img class="logo" src="../../../assets/icons/Condo.png" alt="logo" >
     <a routerLink="/" (click)="onClickLogout()"> <img src="../../../assets/icons/icons8-salida-32.png" alt="logout"></a>
   </header>
   <div class="nogroup" *ngIf="this.condos[0] == undefined">No pertences a ningún grupo aún, crea uno o únete a uno en el botón <span>+</span> </div>
   <div *ngIf="this.condos[0] != undefined" class="tarjetero">
     <div *ngFor="let condo of condos; index as i" class="tarjeta">
-      <a routerLink="/menu/{{this.condos[i].idgrupo}}">
+      <a routerLink="/{{this.uid}}/menu/{{this.condos[i].idgrupo}}">
       <div>
           <h2>{{condos[i].nombre}}</h2>
           <p>{{condos[i].direccion}}</p>
@@ -16,7 +16,7 @@
     </div>
   </div>
   <jw-modal id="create-join">
-    <a routerLink="/create"><button id="create">Crea un condominio</button></a> 
-    <a routerLink="/join"><button id="join" >Unete a un condominio</button></a> 
+    <a routerLink="/{{this.uid}}/create"><button id="create">Crea un condominio</button></a> 
+    <a routerLink="/{{this.uid}}/join"><button id="join" >Unete a un condominio</button></a> 
   </jw-modal>
 </div>

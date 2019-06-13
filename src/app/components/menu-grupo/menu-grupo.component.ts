@@ -11,9 +11,11 @@ import { Grupo } from '../../models/grupos';
 export class MenuGrupoComponent implements OnInit {
 
   grupo: Grupo;
+  private uid;
   constructor( private route: ActivatedRoute, public dataService: DataService) { }
 
   ngOnInit() {
+    this.uid = this.route.snapshot.params['uid'];
     const idgrupo = this.route.snapshot.params['idgrupo'];
     this.getGroupInfo(idgrupo);
   }

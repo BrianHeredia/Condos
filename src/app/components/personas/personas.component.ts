@@ -18,7 +18,8 @@ export class PersonasComponent implements OnInit {
   private residentes = [];
   private idgrupo;
   private userChanged: UserChanged;
-  
+  private uid;
+  private isadmin: boolean;
   constructor(
     public authService: AuthService,
     private route: ActivatedRoute,
@@ -29,6 +30,7 @@ export class PersonasComponent implements OnInit {
 
   ngOnInit() {
     this.userChanged = new UserChanged;
+    this.uid = this.route.snapshot.params['uid'];
     this.idgrupo = this.route.snapshot.params['idgrupo'];
     this.getPersonas(this.idgrupo);
   }
@@ -37,7 +39,25 @@ export class PersonasComponent implements OnInit {
     this.dataService.getUsuarios(idgrupo).subscribe( usuarios =>{
       this.usuarios = usuarios;
       this.separatePeople();
+      this.isadmin = this.isAdmin();
     });
+  }
+
+  isAdmin(): boolean{
+    for (let index = 0; index < this.usuarios.length; index++) {
+      if( this.usuarios[index].uid == this.uid){
+        if(this.usuarios[index].usuario_grupos.admin){
+          index = this.usuarios.length;
+          return true;
+        }
+        else{
+          index = this.usuarios.length;
+          return false;
+        }
+        
+      }
+      
+    }
   }
 
   separatePeople(){
@@ -82,9 +102,12 @@ export class PersonasComponent implements OnInit {
     this.modalService.close(id);
   }
 
-  thisUser(uid: string, admin: boolean){
+  thisUser(uid: string, admin: boolean, idgrupo: number){
+
     this.userChanged.uid = uid;
     this.userChanged.admin = (!admin);
+    this.userChanged.idgrupo = idgrupo;
+    console.log(this.userChanged);
   }
 
   move(id: string){

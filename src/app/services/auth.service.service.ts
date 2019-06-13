@@ -36,6 +36,7 @@ export class AuthService {
 
   currentUser(uid: string){
     localStorage.currentUserID = uid;
+    return uid;
   }
 
 

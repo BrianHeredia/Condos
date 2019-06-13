@@ -41,7 +41,6 @@
     padding-right: 8px;
     font-size: 36px;
     color: #eeeeee;
-
 }
 
 #mas, #seguro{
@@ -50,13 +49,12 @@
 
 #pregunta{
     text-align: center;
+    margin-top: 0.5em;
 }
 
 .boton{
     width: 200px;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-
+    margin: 0.5em;
 }
 
 #yesno{
@@ -78,12 +76,7 @@
         width: 272px;
     }
 
-    .boton{
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-    }
-
-    #gasto{
+   #gasto{
         zoom: 80%;
     }
 

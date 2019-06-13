@@ -29,6 +29,8 @@ const routes: Routes = [
   { path: ':uid/menu/:idgrupo', component: MenuGrupoComponent, canActivate: [AuthGuard]},
   { path: ':uid/personas/:idgrupo', component: PersonasComponent, canActivate: [AuthGuard]},
   { path: ':uid/finanzas/:idgrupo', component: FinanzasComponent, canActivate: [AuthGuard]},
+  /*cambiar el path al verdadero, esto es solo para poder abrir estado de cuenta*/ 
+  { path: ':uid/estadoCuenta', component: EstadoCuentaComponent, canActivate: [AuthGuard]},
   { path: ':uid/notificaciones/:idgrupo', component: NotificacionesComponent, canActivate: [AuthGuard]},
   { path: ':uid/propuestas/:idgrupo', component: PropuestasComponent, canActivate: [AuthGuard]}
 

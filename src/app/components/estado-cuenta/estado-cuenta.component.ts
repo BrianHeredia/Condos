@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params} from '@angular/router';
 import { ModalService } from '../../services/modal.service';
 
 
@@ -8,12 +9,16 @@ import { ModalService } from '../../services/modal.service';
   styleUrls: ['./estado-cuenta.component.css']
 })
 export class EstadoCuentaComponent implements OnInit {
-
+  private idgrupo;
+  private uid;
   constructor(
+    private route: ActivatedRoute,
     public modalService: ModalService
   ) { }
 
   ngOnInit() {
+    this.uid = this.route.snapshot.params['uid'];
+    this.idgrupo = this.route.snapshot.params['idgrupo'];
   }
 
   openModal(id: string) {

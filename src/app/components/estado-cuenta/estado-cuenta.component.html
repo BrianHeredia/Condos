@@ -20,16 +20,21 @@
     <p id="monto">$25000</p>
   </div>
   <jw-modal id="mas">
-    <a><button class="boton" (click)="openModal('gasto')" (click)="closeModal('mas')">Agregar nuevo gasto</button></a> 
-    <a><button class="boton">Gastos por mes/año</button></a>
-    <a><button class="boton" (click)="openModal('seguro')" (click)="closeModal('mas')">Cierre de mes</button></a> 
+    <form>
+        <a><button class="boton" (click)="openModal('gasto')" (click)="closeModal('mas')">Agregar nuevo gasto</button></a> 
+        <a><button class="boton">Gastos por mes/año</button></a>
+        <a><button class="boton" (click)="openModal('seguro')" (click)="closeModal('mas')">Cierre de mes</button></a> 
+    </form>
   </jw-modal>
   <jw-modal id="seguro">
-    <p id="pregunta">¿Estás seguro que deseas cerrar mes? esta acción es irreversible.</p>
-    <div id="sino"> 
-      <a><button class="boton" id="yesno">Si</button></a> 
-      <a><button class="boton" id="yesno" (click)="closeModal('seguro')" (click)="openModal('mas')">No</button></a> 
-    </div>
+  <form>
+      <p id="pregunta">¿Estás seguro que deseas cerrar mes? esta acción es irreversible.</p>
+      <div id="sino"> 
+        <a><button class="boton" id="yesno">Si</button></a> 
+        <a><button class="boton" id="yesno" (click)="closeModal('seguro')" (click)="openModal('mas')">No</button></a> 
+
+      </div>
+  </form>
   </jw-modal>
   <jw-modal id="gasto">
       <header class="hModal">

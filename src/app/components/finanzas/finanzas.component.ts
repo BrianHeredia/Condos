@@ -12,7 +12,9 @@ export class FinanzasComponent implements OnInit {
   private idgrupo;
   private uid;
   constructor(
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    public modalService: ModalService
+) { }
 
   ngOnInit() {
     this.uid = this.route.snapshot.params['uid'];

@@ -209,7 +209,7 @@ form{
     font-family: Roboto, sans-serif;
 }
 
-#nameDate, #nameEdit{
+#nameDate{
     display: flex;
     justify-content: space-between;
     height: 35px;

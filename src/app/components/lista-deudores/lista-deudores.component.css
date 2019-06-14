@@ -7,11 +7,3 @@
 #debt{
     background: #B10000;
 }
-
-@media screen and (max-width:505px){
-
-   #editar{
-        zoom: 80%;
-    }
-
-}

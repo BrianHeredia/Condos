@@ -1,0 +1,55 @@
+#balance{
+    background: #27AE60;
+    display: inline-block;
+    height: 70px;
+}
+
+#money{
+    color: #eeeeee;
+    align-items: center;
+    display: flex;
+    font-size: 48px;
+    height: 70px;
+    padding-left: 8px;
+}
+
+#historial{
+    background: #F2F2F2;
+    height: 175px;
+    display: inline-block;
+}
+
+#mas, #seguro{
+    justify-content: center;
+}
+
+#pregunta{
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+.boton{
+    width: 200px;
+    margin: 0.5em;
+}
+
+#yesno{
+    width: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#sino{
+    margin-top: 0.5em;
+}
+
+@media screen and (max-width:505px){
+    #money{
+        font-size: 40px;
+    }
+
+   #gasto{
+        zoom: 80%;
+    }
+
+}

@@ -4,6 +4,11 @@ div{
     align-items: center;
 }
 
+header{
+    background-color: #2F80ED;
+    border-bottom-width: 3px;
+}
+
 .Title{
 
     margin-top: 0.2em;
@@ -24,17 +29,25 @@ div{
 }
 
 .Title2{
-    margin-top: 0.2em;
+    margin: 1em;
 
     display: flex;
     align-items: center;
     text-align: center;
     display: block;
     align-self: auto;
+
 }
 
-#OK{
-    width: 60px;
+p{
+    font-size: 25px;
+    text-align: center;
+    margin: 1rem;
+}
+
+
+#login{
+    width: 120px;
     height: 40px;
     margin: 1em;
 }

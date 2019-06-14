@@ -33,9 +33,14 @@
     padding: 0;
     margin: 0;
 }
-
+    
 @media screen and (max-width:505px){
     #payment{
         width: 280px;
     }
+
+    #pay{
+        zoom: 80%;
+    }
+
 }

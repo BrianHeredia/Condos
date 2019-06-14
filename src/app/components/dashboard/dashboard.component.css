@@ -19,3 +19,12 @@ span{
     font-size: 50px;
     font-weight: bolder;
 }
+
+p{
+    color: rgb(212, 200, 200);
+    font-size: 13px;
+    text-align: left;
+}
+img#plus{
+    cursor: pointer;
+}

@@ -7,6 +7,7 @@ import { ModalService } from '../../services/modal.service';
     template: 
         `<div class="jw-modal">
             <div class="jw-modal-body">
+            <button (click)="this.close()" >X</button>
                 <ng-content></ng-content>
             </div>
         </div>

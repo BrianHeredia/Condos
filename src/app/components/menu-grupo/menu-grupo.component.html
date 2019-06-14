@@ -1,23 +1,23 @@
 <header>
-    <a routerLink="/"> <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
-  <h2>Ocean Club 3356</h2>
-  <a routerLink="/personas"><img class="logo" src="../../../assets/icons/icons8-grupos-de-usuarios-32.png" alt="USER"></a> 
+    <a routerLink="/{{this.uid}}"> <img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
+  <h2>{{this.grupo?.nombre}}</h2>
+  <a routerLink="/{{this.uid}}/personas/{{this.grupo?.idgrupo}}"><img class="logo" src="../../../assets/icons/icons8-grupos-de-usuarios-32.png" alt="USER"></a> 
 </header>
 <div class="tarjetero">
   
-  <a routerLink="/finanzas"><div id="Fin" class="tarjeta">
+  <a routerLink="/{{this.uid}}/finanzas/{{this.grupo?.idgrupo}}"><div id="Fin" class="tarjeta">
     <h2>Finanzas</h2>
   </div></a>
-  <a routerLink="/propuestas"><div id="Props" class="tarjeta">
+  <a routerLink="/{{this.uid}}/propuestas/{{this.grupo?.idgrupo}}"><div id="Props" class="tarjeta">
     <h2>Propuestas</h2>
   </div></a>
-  <a routerLink="/notificaciones"><div id="Nots" class="tarjeta">
+  <a routerLink="/{{this.uid}}/notificaciones/{{this.grupo?.idgrupo}}"><div id="Nots" class="tarjeta">
     <h2>Notificaciones</h2>
   </div></a>
-  <a routerLink="/inactive"><div id="Seg" class="tarjeta">
+  <a routerLink="/{{this.uid}}/inactive/{{this.grupo?.idgrupo}}"><div id="Seg" class="tarjeta">
     <h2>Seguridad</h2>
   </div></a>
-  <a routerLink="/inactive"><div id="Docs" class="tarjeta">
+  <a routerLink="/{{this.uid}}/inactive/{{this.grupo?.idgrupo}}"><div id="Docs" class="tarjeta">
       <h2>Documentos</h2>
     </div></a>
 </div>

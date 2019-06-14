@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service.service';
 import { Router } from '@angular/router';
 import { ModalService } from '../../services/modal.service';
 import { DataService } from '../../services/data.service';
+import { ActivatedRoute, Params} from '@angular/router';
 import { reject } from 'q';
 
 
@@ -13,21 +14,21 @@ import { reject } from 'q';
 })
 export class DashboardComponent implements OnInit {
   
+  private uid;
   private condos = [];
   constructor(
     public authService: AuthService,
+    private route: ActivatedRoute,
     public router: Router,
     public modalService: ModalService,
     public dataService: DataService
 ) { }
 
   ngOnInit() {
+    this.uid = this.route.snapshot.params['uid'];
     this.dataService.getUserGrupos().subscribe(condos=>{
-      console.log(condos);
       this.condos = condos;
-      localStorage.grupos = condos;
-    }
-    );
+    });
   }
 
   onClickLogout(){

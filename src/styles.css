@@ -133,7 +133,7 @@ button:disabled{
 
 .alert.flash-message{
     padding: 1em;
-    height:62px;
+    max-height:100px;
     color: #ffffff;
     background-color: #2F80ED;
     font-weight: bold;
@@ -150,7 +150,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 70px;
+    min-height: 70px;
     border-bottom: 1px solid #000000;
     margin: 0;
     padding-left: 1em;
@@ -159,7 +159,7 @@ header{
 
 .tarjeta{
     width: 480px;
-    height: 60px;
+    min-height: 60px;
     border-radius: 5px;
     padding: 0.5rem;
     display: flex;
@@ -195,29 +195,52 @@ form{
     align-items: center;
 }
 
+.hModal{
+    border-bottom: 0;
+    align-content: center;
+}
+
+#confirm{
+    margin-top: 1em;
+    width: 100px;
+}
+
+.input[type="date"] {
+    font-family: Roboto, sans-serif;
+}
+
+#nameDate{
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+}
+
+#contenido{
+    text-align: left;
+    height: 35px;
+    display: flex;
+}
+
+.monto{
+    background: #27AE60;
+    display: flex;
+    justify-content: flex-end;
+    height: 70px;
+    border-radius: 5px;  
+    width: 472px;
+    padding-right: 8px;
+    font-size: 36px;
+    color: #eeeeee;
+}
 
 
 @media screen and (max-width:505px){
     .tarjeta{
         width: 280px;
     }
-}
 
-/* Responsiveness iPhone 6/7/8/X y modelos +
-@media screen and (max-width:320px){
-    .tarjeta{
-        width: 280px;
+    .monto{
+        width: 272px;
     }
-}
 
-@media screen and (max-width:415px){
-    .tarjeta{
-        width: 370px;
-    }
 }
-
-@media screen and (max-width:376px){
-    .tarjeta{
-        width: 323px;
-    }
-}*/

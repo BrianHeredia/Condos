@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ActivatedRoute, Params} from '@angular/router';
 import { ModalService } from '../../services/modal.service';
 
+
 @Component({
-  selector: 'app-finanzas',
-  templateUrl: './finanzas.component.html',
-  styleUrls: ['./finanzas.component.css']
+  selector: 'app-estado-cuenta',
+  templateUrl: './estado-cuenta.component.html',
+  styleUrls: ['./estado-cuenta.component.css']
 })
-export class FinanzasComponent implements OnInit {
+export class EstadoCuentaComponent implements OnInit {
   private idgrupo;
   private uid;
   constructor(
     private route: ActivatedRoute,
     public modalService: ModalService
-) { }
+  ) { }
 
   ngOnInit() {
     this.uid = this.route.snapshot.params['uid'];
@@ -29,10 +29,9 @@ export class FinanzasComponent implements OnInit {
     this.modalService.close(id);
   }
 
-  /*Se confirma el pago y se cierra el modal*/
-  confirmPayment(id: string){
+  /*Se confirma el nuevo gasto y se cierra el modal*/
+  confirmGasto(id: string){
     /*codigo BD*/
     this.closeModal(id);
   }
-
 }

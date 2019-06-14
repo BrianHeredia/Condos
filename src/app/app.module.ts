@@ -38,6 +38,9 @@ import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service.service';
 import { ModalService } from './services/modal.service';
 import { PersonasComponent } from './components/personas/personas.component';
+import { EstadoCuentaComponent } from './components/estado-cuenta/estado-cuenta.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { ListaDeudoresComponent } from './components/lista-deudores/lista-deudores.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,10 @@ import { PersonasComponent } from './components/personas/personas.component';
     CproposalComponent,
     CnotificationComponent,
     ModalComponent,
-    PersonasComponent
+    PersonasComponent,
+    EstadoCuentaComponent,
+    WelcomeComponent,
+    ListaDeudoresComponent
   ],
   imports: [
     BrowserModule,

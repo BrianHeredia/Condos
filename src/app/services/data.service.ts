@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Usuario } from '../models/usuarios';
 import { Grupo } from '../models/grupos';
 import { UsuarioGrupo } from '../models/usuario-grupo';
+import { UserChanged } from '../models/userChanged';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -49,7 +50,7 @@ export class DataService {
     const body = JSON.stringify(usuario);
     return this.http.post<Usuario>(this.usuariosUrl, body, httpOptions);
   }
-
+/*
   deleteUsuario (usuario: Usuario | number): Observable<Usuario> {
     const cedula = typeof usuario === 'number' ? usuario : usuario.cedula;
     const url = `${this.usuariosUrl}/${cedula}`;
@@ -60,13 +61,19 @@ export class DataService {
   updateUsuario (usuario: Usuario): Observable<any> {
     return this.http.put(this.usuariosUrl, usuario, httpOptions);
   }
-
+*/
   //Métodos http para Grupos
+
+  getGrupoByID(idgrupo: number): Observable<Grupo> {
+    const url = `${this.gruposUrl}/${idgrupo}`;
+    return this.http.get<Grupo>(url);
+  }
 
   addGrupo(grupo: Grupo): Observable<Grupo> {
     const body = JSON.stringify(grupo);
     return this.http.post<Grupo>(this.gruposUrl, body, httpOptions);
   }
+
 
   //Métodos http para usuarioGrupo
 
@@ -85,8 +92,19 @@ export class DataService {
     const body = JSON.stringify(usuarioGrupo);
     return this.http.post<UsuarioGrupo>(url, body, httpOptions);
   }
-  getUsuarios (): Observable<Usuario[]> {
-    const url = `${this.personasUrl}/${'1'}`;
+
+  getUsuarios (idgrupo: number): Observable<Usuario[]> {
+    const url = `${this.personasUrl}/${idgrupo}`;
     return this.http.get<Usuario[]>(url);
   }
+
+  updateUserGrupos (usuario: UserChanged ): Observable<any> {
+    return this.http.put(this.usuarioGrupoUrl, usuario, httpOptions);
+  }
+
+  deleteUserGrupos (usuario: UserChanged): Observable<any> {
+    const url = `${this.usuarioGrupoUrl}/${usuario.uid}/${usuario.idgrupo}`;
+    return this.http.delete<UserChanged>(url, httpOptions);
+  }
+  
 }

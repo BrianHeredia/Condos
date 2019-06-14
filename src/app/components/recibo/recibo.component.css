@@ -1,0 +1,21 @@
+#gastoMes{
+    background: #F2F2F2;
+    height: 285px;
+    display: inline-block;
+}
+
+#recibo{
+    background: #F2F2F2;
+    height: 175px;
+    display: inline-block;
+}
+
+#gasto{
+    height: 40px;
+    background: #B10000;
+}
+
+#contribucion{
+    height: 70px;
+    background: #2F80ED;
+}

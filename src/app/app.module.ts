@@ -42,6 +42,7 @@ import { EstadoCuentaComponent } from './components/estado-cuenta/estado-cuenta.
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ListaDeudoresComponent } from './components/lista-deudores/lista-deudores.component';
 import { ReciboComponent } from './components/recibo/recibo.component';
+import { ListaReciboComponent } from './components/lista-recibo/lista-recibo.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ReciboComponent } from './components/recibo/recibo.component';
     EstadoCuentaComponent,
     WelcomeComponent,
     ListaDeudoresComponent,
-    ReciboComponent
+    ReciboComponent,
+    ListaReciboComponent
   ],
   imports: [
     BrowserModule,

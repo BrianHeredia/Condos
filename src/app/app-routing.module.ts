@@ -19,6 +19,7 @@ import { ReciboComponent } from './components/recibo/recibo.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { PropuestasComponent } from './components/propuestas/propuestas.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { ListaReciboComponent } from './components/lista-recibo/lista-recibo.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -35,11 +36,9 @@ const routes: Routes = [
   { path: ':uid/estadoCuenta', component: EstadoCuentaComponent, canActivate: [AuthGuard]},
   { path: ':uid/listaDeudores', component: ListaDeudoresComponent, canActivate: [AuthGuard]},
   { path: ':uid/recibo', component: ReciboComponent, canActivate: [AuthGuard]},
-
-
+  { path: ':uid/lista-recibo', component: ListaReciboComponent, canActivate: [AuthGuard]},
   { path: ':uid/notificaciones/:idgrupo', component: NotificacionesComponent, canActivate: [AuthGuard]},
   { path: ':uid/propuestas/:idgrupo', component: PropuestasComponent, canActivate: [AuthGuard]}
-
 ];
 
 @NgModule({

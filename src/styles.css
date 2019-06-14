@@ -202,10 +202,35 @@ form{
 
 #confirm{
     margin-top: 1em;
+    width: 100px;
 }
 
 .input[type="date"] {
     font-family: Roboto, sans-serif;
+}
+
+#nameDate, #nameEdit{
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+}
+
+#contenido{
+    text-align: left;
+    height: 35px;
+    display: flex;
+}
+
+.monto{
+    background: #27AE60;
+    display: flex;
+    justify-content: flex-end;
+    height: 70px;
+    border-radius: 5px;  
+    width: 472px;
+    padding-right: 8px;
+    font-size: 36px;
+    color: #eeeeee;
 }
 
 
@@ -213,4 +238,9 @@ form{
     .tarjeta{
         width: 280px;
     }
+
+    .monto{
+        width: 272px;
+    }
+
 }

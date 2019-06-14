@@ -14,6 +14,7 @@ import { MenuGrupoComponent } from './components/menu-grupo/menu-grupo.component
 import { PersonasComponent } from './components/personas/personas.component';
 import { FinanzasComponent } from './components/finanzas/finanzas.component';
 import { EstadoCuentaComponent } from './components/estado-cuenta/estado-cuenta.component';
+import { ListaDeudoresComponent } from './components/lista-deudores/lista-deudores.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { PropuestasComponent } from './components/propuestas/propuestas.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -29,8 +30,10 @@ const routes: Routes = [
   { path: ':uid/menu/:idgrupo', component: MenuGrupoComponent, canActivate: [AuthGuard]},
   { path: ':uid/personas/:idgrupo', component: PersonasComponent, canActivate: [AuthGuard]},
   { path: ':uid/finanzas/:idgrupo', component: FinanzasComponent, canActivate: [AuthGuard]},
-  /*cambiar el path al verdadero, esto es solo para poder abrir estado de cuenta*/ 
+  /*cambiar el path al verdadero, esto es solo para poder verlos y construirlos*/ 
   { path: ':uid/estadoCuenta', component: EstadoCuentaComponent, canActivate: [AuthGuard]},
+  { path: ':uid/listaDeudores', component: ListaDeudoresComponent, canActivate: [AuthGuard]},
+
   { path: ':uid/notificaciones/:idgrupo', component: NotificacionesComponent, canActivate: [AuthGuard]},
   { path: ':uid/propuestas/:idgrupo', component: PropuestasComponent, canActivate: [AuthGuard]}
 

@@ -1,0 +1,27 @@
+<header>
+  <!--Falta el router link para poder salir de Lista de Deudores y volver a finanzas-->
+  <a><img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
+  <h2 class="Title2">Lista de Deudores</h2>
+  <div class="empty"></div>
+</header>
+<div class="tarjetero">
+  <div class="tarjeta" id="deuda">
+    <div id="nameEdit">
+      <p id="contenido">Nombre</p>
+      <img class="logo" src="../../../assets/icons/icons8-pencil-filled-48.png" alt="Options" (click)="openModal('editar')">
+    </div>
+    <p id="contenido">Unidad</p>
+    <p class="monto" id="debt">$25000</p>
+  </div>
+</div>
+<jw-modal id="editar">
+  <header class="hModal">
+    <div class="empty"> </div>
+    <h2 class="Title2">Editar Deuda</h2>
+    <div class="empty"> </div>
+  </header>
+  <form>
+    Nueva Deuda: <br> <input type="text" formControlName="monto">
+    <button class="button" id="confirm" (click)="this.confirmEdit('editar')">Confirmar</button>
+  </form>
+</jw-modal>

@@ -40,6 +40,7 @@ import { ModalService } from './services/modal.service';
 import { PersonasComponent } from './components/personas/personas.component';
 import { EstadoCuentaComponent } from './components/estado-cuenta/estado-cuenta.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { ListaDeudoresComponent } from './components/lista-deudores/lista-deudores.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     ModalComponent,
     PersonasComponent,
     EstadoCuentaComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ListaDeudoresComponent
   ],
   imports: [
     BrowserModule,

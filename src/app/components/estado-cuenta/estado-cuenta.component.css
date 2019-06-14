@@ -19,30 +19,6 @@
     display: inline-block;
 }
 
-#nameDate{
-    display: flex;
-    justify-content: space-between;
-    height: 35px;
-}
-
-#contenido{
-    text-align: left;
-    height: 35px;
-    display: flex;
-}
-
-#monto{
-    background: #27AE60;
-    display: flex;
-    justify-content: flex-end;
-    height: 70px;
-    border-radius: 5px;  
-    width: 472px;
-    padding-right: 8px;
-    font-size: 36px;
-    color: #eeeeee;
-}
-
 #mas, #seguro{
     justify-content: center;
 }
@@ -70,10 +46,6 @@
 @media screen and (max-width:505px){
     #money{
         font-size: 40px;
-    }
-
-    #monto{
-        width: 272px;
     }
 
    #gasto{

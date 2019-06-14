@@ -17,36 +17,35 @@
     </div>
     <p id="contenido">numero de Transferencia</p>
     <p id="contenido">Descripcion</p>
-    <p id="monto">$25000</p>
+    <p class="monto">$25000</p>
   </div>
-  <jw-modal id="mas">
-    <form>
-        <a><button class="boton" (click)="openModal('gasto')" (click)="closeModal('mas')">Agregar nuevo gasto</button></a> 
-        <a><button class="boton">Gastos por mes/año</button></a>
-        <a><button class="boton" (click)="openModal('seguro')" (click)="closeModal('mas')">Cierre de mes</button></a> 
-    </form>
-  </jw-modal>
-  <jw-modal id="seguro">
-  <form>
-      <p id="pregunta">¿Estás seguro que deseas cerrar mes? esta acción es irreversible.</p>
-      <div id="sino"> 
-        <a><button class="boton" id="yesno">Si</button></a> 
-        <a><button class="boton" id="yesno" (click)="closeModal('seguro')" (click)="openModal('mas')">No</button></a> 
-
-      </div>
-  </form>
-  </jw-modal>
-  <jw-modal id="gasto">
-      <header class="hModal">
-          <div class="empty"> </div>
-          <h2 class="Title2">Gasto</h2>
-          <div class="empty"> </div>
-      </header>
-      <form>
-          Monto: <br> <input type="text" formControlName="monto">
-          Descripción: <br> <input type="text"  formControlName="descripcion">
-          Fecha: <br> <input type="date" formControlName="fecha_gasto">
-          <button class="button" id="confirm" (click)="this.confirmGasto('gasto')">Confirmar</button>
-      </form>
-    </jw-modal>
 </div>
+<jw-modal id="mas">
+  <form>
+    <a><button class="boton" (click)="openModal('gasto')" (click)="closeModal('mas')">Agregar nuevo gasto</button></a> 
+    <a><button class="boton">Gastos por mes/año</button></a>
+    <a><button class="boton" (click)="openModal('seguro')" (click)="closeModal('mas')">Cierre de mes</button></a> 
+  </form>
+</jw-modal>
+<jw-modal id="seguro">
+  <form>
+    <p id="pregunta">¿Estás seguro que deseas cerrar mes? esta acción es irreversible.</p>
+    <div id="sino"> 
+      <a><button class="boton" id="yesno">Si</button></a> 
+      <a><button class="boton" id="yesno" (click)="closeModal('seguro')" (click)="openModal('mas')">No</button></a>
+    </div>
+  </form>
+</jw-modal>
+<jw-modal id="gasto">
+  <header class="hModal">
+    <div class="empty"> </div>
+    <h2 class="Title2">Gasto</h2>
+    <div class="empty"> </div>
+  </header>
+  <form>
+    Monto: <br> <input type="text" formControlName="monto">
+    Descripción: <br> <input type="text"  formControlName="descripcion">
+    Fecha: <br> <input type="date" formControlName="fecha_gasto">
+    <button class="button" id="confirm" (click)="this.confirmGasto('gasto')">Confirmar</button>
+  </form>
+</jw-modal>

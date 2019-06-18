@@ -1,13 +1,36 @@
 <header>
-  <!--Falta el router link para poder salir de Lista de Deudores y volver a finanzas-->
-  <a><img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
-  <h2 class="Title2">Lista de Deudores</h2>
+  <a routerLink="/{{this.uid}}/finanzas/{{this.idgrupo}}/"><img class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
+  <h2 class="Title2">Lista de Acreedores y Deudores</h2>
   <div class="empty"></div>
 </header>
 <div class="tarjetero">
-  <div class="tarjeta" id="deuda">
-    <p id="contenido">Nombre</p>
-    <p id="contenido">Unidad</p>
-    <p class="monto" id="debt">$25000</p>
+<h2>Lista del mes:</h2>
+  <form [formGroup]="mes">
+    <select id="mes" formControlName="month" (change)="getEntradas()" >
+      <option value="01">Enero</option>
+      <option value="02">Febrero</option>
+      <option value="03">Marzo</option>
+      <option value="04">Abril</option>
+      <option value="05">Mayo</option>
+      <option value="06">Junio</option>
+      <option value="07">Julio</option>
+      <option value="08">Agosto</option>
+      <option value="09">Septiembre</option>
+      <option value="10">Octubre</option>
+      <option value="11">Noviembre</option>
+      <option value="12">Diciembre</option>
+    </select>
+  </form>
+<div *ngFor="let persona of personas; index as i" class="tarjetero">
+    <div *ngIf="personas[i].monto != null" class="tarjeta" id="deuda">
+        <p id="contenido">{{personas[i].first}} {{personas[i].last}}</p>
+        <p id="contenido">{{personas[i].unit}}</p>
+        <p class="monto" id="noDebt">{{personas[i].monto}}</p>
+      </div>
+  <div *ngIf="personas[i].monto == null" class="tarjeta" id="deuda">
+    <p id="contenido">{{personas[i].first}} {{personas[i].last}}</p>
+    <p id="contenido">{{personas[i].unit}}</p>
+    <p class="monto" id="debt">Por pagar</p>
   </div>
+</div>
 </div>

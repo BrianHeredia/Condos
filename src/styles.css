@@ -25,6 +25,7 @@ h2{
 .logo{
     width: 42px;
     height: 49px;
+    cursor: pointer;
 }
 
 input{

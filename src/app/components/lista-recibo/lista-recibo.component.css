@@ -1,0 +1,13 @@
+#recibo{
+    background: #F2F2F2;
+    height: 105px;
+    display: inline-block;
+}
+
+#debt{
+    background: #B10000;
+}
+
+#payment{
+    background: #27AE60;
+}

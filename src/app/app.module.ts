@@ -41,6 +41,8 @@ import { PersonasComponent } from './components/personas/personas.component';
 import { EstadoCuentaComponent } from './components/estado-cuenta/estado-cuenta.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ListaDeudoresComponent } from './components/lista-deudores/lista-deudores.component';
+import { ReciboComponent } from './components/recibo/recibo.component';
+import { ListaReciboComponent } from './components/lista-recibo/lista-recibo.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { ListaDeudoresComponent } from './components/lista-deudores/lista-deudor
     PersonasComponent,
     EstadoCuentaComponent,
     WelcomeComponent,
-    ListaDeudoresComponent
+    ListaDeudoresComponent,
+    ReciboComponent,
+    ListaReciboComponent
   ],
   imports: [
     BrowserModule,

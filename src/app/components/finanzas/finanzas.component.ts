@@ -16,6 +16,8 @@ export class FinanzasComponent implements OnInit {
   private uid;
   private pago: FormGroup;
   private Pago: Pago;
+  private recibos = [];
+  private pagos = [];
   constructor(
     private route: ActivatedRoute,
     public modalService: ModalService,
@@ -40,9 +42,9 @@ export class FinanzasComponent implements OnInit {
         Validators.required
       ]]
     });
-    
+    this.getRecibos();
+    this.getPagos();
   }
-  
 
   openModal(id: string) {
     this.modalService.open(id);
@@ -59,6 +61,20 @@ export class FinanzasComponent implements OnInit {
     this.Pago.idgrupo = this.idgrupo;
     this.dataService.addPago(this.Pago).subscribe();
     this.closeModal(id);
+  }
+
+  getRecibos(){
+    this.dataService.getRecibos(this.idgrupo,this.uid).subscribe(recibos =>{
+      this.recibos = recibos;
+      console.log(recibos);
+    });
+  }
+
+  getPagos(){
+    this.dataService.getPagosUser(this.idgrupo,this.uid).subscribe(pagos =>{
+      this.pagos = pagos;
+      console.log(pagos);
+    });
   }
 
 }

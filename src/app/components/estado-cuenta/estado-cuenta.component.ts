@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router';
 import { ModalService } from '../../services/modal.service';
 import { Gasto } from '../../models/gasto';
-import { Entrada } from '../../models/entradas';
+import { Recibos } from '../../models/recibos';
 import { DataService } from '../../services/data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -18,6 +18,7 @@ export class EstadoCuentaComponent implements OnInit {
   private gasto: FormGroup;
   private gastos = [];
   private pagos = [];
+  private recibos = [];
   private mes: FormGroup;
   private gastosTotal: number;
   private pagosTotal: number;
@@ -62,7 +63,6 @@ export class EstadoCuentaComponent implements OnInit {
   }
 
   getEntradas(){
-
     this.dataService.getPagos(this.idgrupo,this.mes.value.month).subscribe(pagos =>{
       this.pagos = pagos;
       console.log(pagos);
@@ -94,5 +94,40 @@ export class EstadoCuentaComponent implements OnInit {
     this.Gasto.idgrupo = this.idgrupo;
     this.dataService.addGasto(this.Gasto).subscribe();
     this.closeModal(id);
+  }
+  
+  cierreMes(){
+    var usuarios = [];
+    this.dataService.getUserAlicuota(this.idgrupo).subscribe(users=>{
+      console.log(users);
+      usuarios = users;
+      var mes; var año; var dia;
+      const fecha = new Date();
+      if((fecha.getMonth() + 1)<10){
+         mes = '0' + (fecha.getMonth() + 1).toString();
+      }else{
+         mes = (fecha.getMonth() + 1).toString();
+      }if((fecha.getDate() + 1)<10){
+         dia = '0' + (fecha.getDate() + 1).toString();
+      }else{
+         dia = (fecha.getDate() + 1).toString();
+      }
+      año = fecha.getFullYear().toString();
+      const date  = año+'-'+mes+'-'+dia;
+      this.recibos = new Array(usuarios.length);
+      for (let index = 0; index < usuarios.length; index++) {
+        this.recibos[index] = new Recibos;
+        this.recibos[index].idgrupo = this.idgrupo;
+      }
+      for (let index = 0; index < usuarios.length; index++) {
+        this.recibos[index].uid = usuarios[index].usuarioUid;
+        this.recibos[index].monto = (this.gastosTotal * (parseFloat(usuarios[index].alicuota)/100)).toFixed(2);
+        this.recibos[index].date = date;
+      }
+      console.log(this.recibos);
+      for (let index = 0; index < this.recibos.length; index++) {
+        this.dataService.addRecibos(this.recibos[index]).subscribe();
+      }
+    });
   }
 }

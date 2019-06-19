@@ -4,10 +4,6 @@
   <div class="empty"> </div>
 </header>
 <div class="tarjetero">
-  <div id="balance" class="tarjeta">
-    <h2 id="money">$25,000.00</h2>
-    <a><button id="payment" (click)="openModal('pay')">Pagar</button></a>
-  </div>
   <a routerLink="/{{this.uid}}/estadoCuenta/{{this.idgrupo}}/">
     <div id="generico" class="tarjeta">
       <h2>Estado de Cuenta del Condominio</h2>
@@ -18,7 +14,20 @@
       <h2>Lista de Acreedores y Deudores</h2>
     </div> 
   </a>
-  <jw-modal id="pay">
+  <h2 class="Title2">Mis Recibos recientes</h2>
+  <div *ngFor="let recibo of recibos; index as i" class="tarjeta" id="recibo">
+    <p id="contenido">Fecha: {{recibos[i].date}} </p> <button id="payment" (click)="openModal('pay')">Pagar</button>
+    <div class="monto">
+        <p id="pago">Bs. {{recibos[i].monto}}</p>
+    </div>
+  </div>
+  <h2 class="Title2">Mis Pagos recientes</h2>
+  <div *ngFor="let pago of pagos; index as i" class="tarjeta" id="recibo">
+    <p id="contenido">Fecha: {{pagos[i].date}} Núm referencia: {{pagos[i].ref}}</p>
+    <p class="monto" id="pago">Bs. {{pagos[i].monto}}</p>
+  </div>
+</div>
+<jw-modal id="pay">
     <header class="hModal">
         <div class="empty"> </div>
         <h2 class="Title2">Pagar</h2>
@@ -37,6 +46,3 @@
         <button class="button" id="confirm"   [disabled]="pago.invalid"  (click)="this.confirmPayment('pay')">Confirmar</button>
     </form>
   </jw-modal>
-</div>
-
-

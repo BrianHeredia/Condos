@@ -17,22 +17,33 @@
     padding-left: 8px;
 }
 
+#recibo{
+    background: #F2F2F2;
+    height: 105px;
+    display: inline-block;
+}
+
+#debt{
+    background: #B10000;
+}
+
+#pago{
+    background: #27AE60;
+}
+
 #payment{
     background: #B10000;
     display: flex;           
     flex-direction: column;  
     justify-content: center; 
     align-items: center;
-    height: 70px;
     border-radius: 5px;  
-    border: 0;
-    box-shadow: 0px 0px 0px 0px;
-    width: 480px;
     font-size: 36px;
     color: #eeeeee;
     padding: 0;
     margin: 0;
 }
+
 input{
     width: 280px;
     height: 40px;

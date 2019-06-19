@@ -8,6 +8,7 @@ import { UserChanged } from '../models/userChanged';
 import { Pago } from '../models/pago';
 import { Gasto } from '../models/gasto';
 import { PagoUser } from '../models/pagosusuarios';
+import { Recibos } from '../models/recibos';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -24,12 +25,15 @@ export class DataService {
   private usuarioGrupoUrl = 'http://localhost:3000/api/user_grupo';  // URL to web api
   private personasUrl = 'http://localhost:3000/api/personas';  // URL to web api
   private pagosUrl = 'http://localhost:3000/api/pagos';  // URL to web api
+  private pagosUserUrl = 'http://localhost:3000/api/pagos/user';  // URL to web api
   private gastosUrl = 'http://localhost:3000/api/gastos';  // URL to web api
   private deudoresUrl = 'http://localhost:3000/api/deudores';  // URL to web api
+  private recibosUrl = 'http://localhost:3000/api/recibos';  // URL to web api
+  private userAlicuotasUrl = 'http://localhost:3000/api/user_grupo/users';  // URL to web api
+
   constructor( 
     private http: HttpClient
   ) { }
-  ;
 
   userInfo(usuario: Usuario){
     this.user = usuario;
@@ -93,6 +97,11 @@ export class DataService {
     return this.http.get<UsuarioGrupo[]>(url);
   }
 
+  getUserAlicuota(idgrupo: number): Observable<UsuarioGrupo[]>{
+    const url = `${this.userAlicuotasUrl}/${idgrupo}`;
+    return this.http.get<UsuarioGrupo[]>(url);
+  }
+
   getUserGrupo(idgrupo: number): Observable<UsuarioGrupo>{
     const url = `${this.usuarioGrupoUrl}/${localStorage.currentUserID}/${idgrupo}`;
     return this.http.get<UsuarioGrupo>(url);
@@ -130,6 +139,11 @@ export class DataService {
     return this.http.get<Pago[]>(url);
   }
 
+  getPagosUser(idgrupo: number, uid: string):Observable<Pago[]>{
+    const url = `${this.pagosUserUrl}/${idgrupo}/${uid}`;
+    return this.http.get<Pago[]>(url);
+  }
+
   //Metodos http para gastos
 
   addGasto (gasto: Gasto): Observable<Gasto> {
@@ -147,5 +161,17 @@ export class DataService {
     return this.http.get<PagoUser[]>(url);
   }
 
+  //Metodos http para gastos
+
+  getRecibos(idgrupo: number, uid: string):Observable<Recibos[]>{
+    const url = `${this.recibosUrl}/${idgrupo}/${uid}`;
+    return this.http.get<Recibos[]>(url);
+  }
+
+  addRecibos(recibo: Recibos):Observable<Recibos>{
+    const body = JSON.stringify(recibo);
+    return this.http.post<Recibos>( this.recibosUrl, body, httpOptions);
+  }
+  
   
 }

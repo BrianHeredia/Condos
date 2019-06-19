@@ -5,9 +5,11 @@
  <div *ngIf="!admin" class="empty"> </div>
 </header>
 <div class="tarjetero">
-  <h2>Ver Estado de cuenta de:</h2>
+  
   <form [formGroup]="mes">
-    <select id="mes" formControlName="month" (change)="getEntradas()" >
+      <a *ngIf="admin" ><button *ngIf="this.gastosTotal > 0"  class="boton" (click)="openModal('seguro')" >Cierre de mes</button></a> 
+      <h2>Ver Estado de cuenta de:</h2>
+      <select id="mes" formControlName="month" (change)="getEntradas()" >
       <option value="01">Enero</option>
       <option value="02">Febrero</option>
       <option value="03">Marzo</option>
@@ -50,15 +52,14 @@
 <jw-modal id="mas">
   <form>
     <a><button class="boton" (click)="openModal('gasto')" (click)="closeModal('mas')">Agregar nuevo gasto</button></a> 
-    <a><button class="boton" (click)="openModal('seguro')" (click)="closeModal('mas')">Cierre de mes</button></a> 
   </form>
 </jw-modal>
 <jw-modal id="seguro">
   <form>
     <p id="pregunta">¿Estás seguro que deseas cerrar mes? esta acción es irreversible.</p>
     <div id="sino"> 
-      <a><button class="boton" id="yesno">Si</button></a> 
-      <a><button class="boton" id="yesno" (click)="closeModal('seguro')" (click)="openModal('mas')">No</button></a>
+      <a><button class="boton" id="yesno" (click)="closeModal('seguro')" (click)="cierreMes()" >Si</button></a> 
+      <a><button class="boton" id="yesno" (click)="closeModal('seguro')" >No</button></a>
     </div>
   </form>
 </jw-modal>

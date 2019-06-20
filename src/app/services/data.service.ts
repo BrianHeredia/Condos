@@ -172,6 +172,11 @@ export class DataService {
     const body = JSON.stringify(recibo);
     return this.http.post<Recibos>( this.recibosUrl, body, httpOptions);
   }
+
+  updateRecibo (recibo: Recibos ): Observable<any> {
+    const body = JSON.stringify(recibo);
+    return this.http.put(this.recibosUrl, body, httpOptions);
+  }
   
   
 }

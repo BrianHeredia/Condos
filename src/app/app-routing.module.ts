@@ -13,9 +13,13 @@ import { CproposalComponent } from './components/cproposal/cproposal.component';
 import { MenuGrupoComponent } from './components/menu-grupo/menu-grupo.component';
 import { PersonasComponent } from './components/personas/personas.component';
 import { FinanzasComponent } from './components/finanzas/finanzas.component';
+import { EstadoCuentaComponent } from './components/estado-cuenta/estado-cuenta.component';
+import { ListaDeudoresComponent } from './components/lista-deudores/lista-deudores.component';
+import { ReciboComponent } from './components/recibo/recibo.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { PropuestasComponent } from './components/propuestas/propuestas.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { ListaReciboComponent } from './components/lista-recibo/lista-recibo.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -28,9 +32,12 @@ const routes: Routes = [
   { path: ':uid/menu/:idgrupo', component: MenuGrupoComponent, canActivate: [AuthGuard]},
   { path: ':uid/personas/:idgrupo', component: PersonasComponent, canActivate: [AuthGuard]},
   { path: ':uid/finanzas/:idgrupo', component: FinanzasComponent, canActivate: [AuthGuard]},
+  { path: ':uid/estadoCuenta/:idgrupo', component: EstadoCuentaComponent, canActivate: [AuthGuard]},
+  { path: ':uid/listaDeudores/:idgrupo', component: ListaDeudoresComponent, canActivate: [AuthGuard]},
+  { path: ':uid/recibo', component: ReciboComponent, canActivate: [AuthGuard]},
+  { path: ':uid/lista-recibo', component: ListaReciboComponent, canActivate: [AuthGuard]},
   { path: ':uid/notificaciones/:idgrupo', component: NotificacionesComponent, canActivate: [AuthGuard]},
   { path: ':uid/propuestas/:idgrupo', component: PropuestasComponent, canActivate: [AuthGuard]}
-
 ];
 
 @NgModule({

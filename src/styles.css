@@ -25,6 +25,7 @@ h2{
 .logo{
     width: 42px;
     height: 49px;
+    cursor: pointer;
 }
 
 input{
@@ -195,10 +196,52 @@ form{
     align-items: center;
 }
 
+.hModal{
+    border-bottom: 0;
+    align-content: center;
+}
+
+#confirm{
+    margin-top: 1em;
+    width: 100px;
+}
+
+.input[type="date"] {
+    font-family: Roboto, sans-serif;
+}
+
+#nameDate{
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+}
+
+#contenido{
+    text-align: left;
+    height: 35px;
+    display: flex;
+}
+
+.monto{
+    background: #27AE60;
+    display: flex;
+    justify-content: flex-end;
+    height: 70px;
+    border-radius: 5px;  
+    width: 472px;
+    padding-right: 8px;
+    font-size: 36px;
+    color: #eeeeee;
+}
 
 
 @media screen and (max-width:505px){
     .tarjeta{
         width: 280px;
     }
+
+    .monto{
+        width: 272px;
+    }
+
 }

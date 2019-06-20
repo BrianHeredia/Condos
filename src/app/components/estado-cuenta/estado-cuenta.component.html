@@ -1,0 +1,78 @@
+<header>
+  <a routerLink="/{{this.uid}}/finanzas/{{this.idgrupo}}/"><img  class="logo" src="../../../assets/icons/icons8-eliminar-48.png" alt="cerrar"></a>
+  <h2 class="Title2">Estado de Cuenta</h2>
+ <img *ngIf="admin" class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt="mas" (click)="openModal('mas')">
+ <div *ngIf="!admin" class="empty"> </div>
+</header>
+<div class="tarjetero">
+  
+  <form [formGroup]="mes">
+      <a *ngIf="admin" ><button *ngIf="this.gastosTotal > 0"  class="boton" (click)="openModal('seguro')" >Cierre de mes</button></a> 
+      <h2>Ver Estado de cuenta de:</h2>
+      <select id="mes" formControlName="month" (change)="getEntradas()" >
+      <option value="01">Enero</option>
+      <option value="02">Febrero</option>
+      <option value="03">Marzo</option>
+      <option value="04">Abril</option>
+      <option value="05">Mayo</option>
+      <option value="06">Junio</option>
+      <option value="07">Julio</option>
+      <option value="08">Agosto</option>
+      <option value="09">Septiembre</option>
+      <option value="10">Octubre</option>
+      <option value="11">Noviembre</option>
+      <option value="12">Diciembre</option>
+    </select>
+  </form>
+  <h2>Balance</h2>
+  <div *ngIf="positivo" class="tarjeta" id="balanceVerde">
+      <h2 id="money"><div class="empty"> </div>Bs.{{this.balance}}</h2>
+  </div>
+  <div *ngIf="!positivo" class="tarjeta" id="balanceRojo">
+    <h2 id="money">Bs.{{this.balance}}</h2>
+</div>
+  <h2>Historial</h2>
+  <div *ngFor="let entrada of pagos; index as i " class="tarjeta" id="historial">
+    <div id="nameDate">
+      <p id="contenido">Transacción ID: {{pagos[i].ref}}</p>
+      <p id="contenido">{{pagos[i].date}}</p>
+    </div>
+    <p id="contenido">Pago mensualidad {{pagos[i].unit}}</p>
+    <p class="monto" >Bs.{{pagos[i].monto}}</p>
+  </div>
+  <div *ngFor="let entrada of gastos; index as i " class="tarjeta" id="historial">
+    <div id="nameDate">
+      <p id="contenido">Transacción ID: {{gastos[i].id}}</p>
+      <p id="contenido">{{gastos[i].date}}</p>
+    </div>
+    <p id="contenido">{{gastos[i].desc}}</p>
+    <p class="monto" id="rojo">Bs.{{gastos[i].monto}}</p>
+  </div>
+</div>
+<jw-modal id="mas">
+  <form>
+    <a><button class="boton" (click)="openModal('gasto')" (click)="closeModal('mas')">Agregar nuevo gasto</button></a> 
+  </form>
+</jw-modal>
+<jw-modal id="seguro">
+  <form>
+    <p id="pregunta">¿Estás seguro que deseas cerrar mes? esta acción es irreversible.</p>
+    <div id="sino"> 
+      <a><button class="boton" id="yesno" (click)="closeModal('seguro')" (click)="cierreMes()" >Si</button></a> 
+      <a><button class="boton" id="yesno" (click)="closeModal('seguro')" >No</button></a>
+    </div>
+  </form>
+</jw-modal>
+<jw-modal id="gasto">
+  <header class="hModal">
+    <div class="empty"> </div>
+    <h2 class="Title2">Gasto</h2>
+    <div class="empty"> </div>
+  </header>
+  <form [formGroup]="gasto">
+    Monto: <br> <input type="text" formControlName="monto">
+    Descripción: <br> <input type="text"  formControlName="desc">
+    Fecha: <br> <input type="date" formControlName="date">
+    <button class="button" id="confirm" (click)="this.confirmGasto('gasto')">Confirmar</button>
+  </form>
+</jw-modal>

@@ -1,27 +1,13 @@
-#balanceRojo{
-    background: #ED0F0F;
-    display: inline-block;
-    height: 70px;
-}
-
 #balanceVerde{
     background: #27AE60;
     display: inline-block;
     height: 70px;
 }
-
-#generico{
-    background: #2F80ED;
+#balanceRojo{
+    background: #ED0F0F;
+    display: inline-block;
+    height: 70px;
 }
-
-#no{
-    display: flex;           
-    flex-direction: column;  
-    justify-content: center; 
-    align-items: center;
-    background: #F2F2F2; 
-}
-
 #money{
     color: #eeeeee;
     align-items: center;
@@ -31,49 +17,40 @@
     padding-left: 8px;
 }
 
-#recibo{
+#historial{
     background: #F2F2F2;
-    min-height: 105px;
+    height: 175px;
     display: inline-block;
 }
 
-#debt{
-    background: #B10000;
+#mas, #seguro{
+    justify-content: center;
 }
 
-#pago{
-    background: #27AE60;
+#pregunta{
+    text-align: center;
+    margin-top: 0.5em;
 }
 
-#payment{
-    display: flex;           
-    flex-direction: column;  
-    justify-content: center; 
-    align-items: center; 
-    height: 30px;
-    color: #eeeeee;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin: 0;
+.boton{
+    width: 200px;
+    margin: 0.5em;
 }
 
-#cuadro{
-    border-radius: 5px; 
-    background: rgb(155, 161, 192);
-    border: solid 1px #000000;
-    min-height: 200px;
-    margin: 1em;
+#yesno{
+    width: 50px;
+    justify-content: space-between;
+    align-items: center;
 }
-input{
-    width: 280px;
-    height: 40px;
-    background: #FFFFFF;
-    /* Blue 1 */
-    border: 2px solid #2F80ED;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
 
+#sino{
+    margin-top: 0.5em;
 }
+
+#rojo{
+    background: #ED0F0F;
+}
+
 select{
     display: block;
     width: 300px;
@@ -108,12 +85,13 @@ select::-ms-expand {
 select option {
     font-weight:normal;
 }
+
 @media screen and (max-width:505px){
-    #payment{
-        width: 280px;
+    #money{
+        font-size: 40px;
     }
 
-    #pay{
+   #gasto{
         zoom: 80%;
     }
 

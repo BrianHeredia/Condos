@@ -3,4 +3,5 @@ export class Recibos {
     date?: Date;
     uid?: string;
     idgrupo?: number;
+    id?: number;
 }

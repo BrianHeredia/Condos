@@ -103,14 +103,16 @@ export class EstadoCuentaComponent implements OnInit {
       usuarios = users;
       var mes; var año; var dia;
       const fecha = new Date();
-      if((fecha.getMonth() + 1)<10){
-         mes = '0' + (fecha.getMonth() + 1).toString();
+      if((fecha.getMonth())<10){
+         mes = '0' + (fecha.getMonth()).toString();
+      }else if((fecha.getMonth()) == 0){
+        mes = '12';
       }else{
-         mes = (fecha.getMonth() + 1).toString();
-      }if((fecha.getDate() + 1)<10){
-         dia = '0' + (fecha.getDate() + 1).toString();
+         mes = (fecha.getMonth()).toString();
+      }if((fecha.getDate())<10){
+         dia = '0' + (fecha.getDate()).toString();
       }else{
-         dia = (fecha.getDate() + 1).toString();
+         dia = (fecha.getDate()).toString();
       }
       año = fecha.getFullYear().toString();
       const date  = año+'-'+mes+'-'+dia;

@@ -9,6 +9,7 @@ import { Pago } from '../models/pago';
 import { Gasto } from '../models/gasto';
 import { PagoUser } from '../models/pagosusuarios';
 import { Recibos } from '../models/recibos';
+import { Propuesta } from '../models/propuestas';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -30,6 +31,7 @@ export class DataService {
   private deudoresUrl = 'http://localhost:3000/api/deudores';  // URL to web api
   private recibosUrl = 'http://localhost:3000/api/recibos';  // URL to web api
   private userAlicuotasUrl = 'http://localhost:3000/api/user_grupo/users';  // URL to web api
+  private propuestasUrl = 'http://localhost:3000/api/propuestas';  // URL to web api
 
   constructor( 
     private http: HttpClient
@@ -177,6 +179,21 @@ export class DataService {
     const body = JSON.stringify(recibo);
     return this.http.put(this.recibosUrl, body, httpOptions);
   }
+
+
+  //Metodos http para propuestas
+
+  getPropuestas(idgrupo: number):Observable<Propuesta[]>{
+    const url = `${this.propuestasUrl}/${idgrupo}`;
+    return this.http.get<Propuesta[]>(url);
+  }
+
+  addPropuestas(propuesta: Propuesta):Observable<Propuesta>{
+    const body = JSON.stringify(propuesta);
+    return this.http.post<Recibos>( this.propuestasUrl, body, httpOptions);
+  }
+
+  
   
   
 }

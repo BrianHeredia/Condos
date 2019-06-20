@@ -1,15 +1,27 @@
 <header>
   <a routerLink="/{{this.uid}}/menu/{{this.idgrupo}}"> <img class="logo" src="../../../assets/icons/icons8-eliminar-42 (1).png" alt="USER"> </a>
   <h2>Propuestas</h2>
-  <a href=""> <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt=""> </a>
+  <a (click)="openModal('pay')" > <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt=""> </a>
 </header>
 <div class="tarjetero">
-    <div id="pro" class="tarjeta">
-      <h2>Compra Camaras HD</h2>
+    <div *ngFor="let propuesta of propuestas; index as i" id="pro" class="tarjeta">
+      <h2>{{propuestas[i].titulo}}</h2>
+      <p *ngIf="propuestas[i].presupuesto != null">{{propuestas[i].presupuesto}}</p>
       <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
     </div>
-    <div id="pro" class="tarjeta">
-      <h2>Reducción de limite de velocidad</h2>
-      <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
-    </div>
+    
   </div>
+
+  <jw-modal id="pay">
+    <header class="hModal">
+        <div class="empty"> </div>
+        <h2 class="Title2">Nueva Propuesta</h2>
+        <div class="empty"> </div>
+    </header>
+    <form [formGroup]="propuesta">
+        Título: <br> <input type="text"  formControlName="titulo">
+        Descripción: <br> <textarea formControlName="descripcion"> </textarea>
+        Presupuesto: <br> <input type="text" formControlName="presupuesto" >
+        <button class="button" id="confirm"   [disabled]="propuesta.invalid"  (click)="this.addPropuesta('pay')">Crear</button>
+    </form>
+  </jw-modal>

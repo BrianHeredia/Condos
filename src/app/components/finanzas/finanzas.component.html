@@ -14,16 +14,31 @@
       <h2>Lista de Acreedores y Deudores</h2>
     </div> 
   </a>
+  <h2 class="Title2">Deuda actual</h2>
+  <div *ngIf="this.deudaActual == '0'" id="balanceVerde" class="tarjeta">
+      <h2 id="money">Bs. {{this.deudaActual}}</h2>
+  </div>
+  <div *ngIf="this.deudaActual != '0'" id="balanceRojo" class="tarjeta">
+      <h2 id="money">Bs. {{this.deudaActual}}</h2>
+  </div>
   <h2 class="Title2">Mis Recibos recientes</h2>
+  <div  class="tarjeta" id="no" *ngIf="recibos.length == 0">
+    <p id="no">Usted aún no posee recibos</p> 
+  </div>
   <div *ngFor="let recibo of recibos; index as i" class="tarjeta" id="recibo">
-    <p id="contenido">Fecha: {{recibos[i].date}} </p> <button id="payment" (click)="openModal('pay')">Pagar</button>
-    <div class="monto">
-        <p id="pago">Bs. {{recibos[i].monto}}</p>
+    <div id="nameDate">
+      <p id="contenido">Fecha: {{recibos[i].date}} </p> 
+      <button id="payment" (click)="selectRecibo(recibos[i].id)" (click)="openModal('pay')">Pagar</button>
     </div>
+      <p class="monto"id="pago">Bs. {{recibos[i].monto}}</p>
   </div>
   <h2 class="Title2">Mis Pagos recientes</h2>
+  <div  class="tarjeta" id="no" *ngIf="pagos.length == 0">
+    <p id="no">Usted aún no ha realizado pagos</p> 
+  </div>
   <div *ngFor="let pago of pagos; index as i" class="tarjeta" id="recibo">
-    <p id="contenido">Fecha: {{pagos[i].date}} Núm referencia: {{pagos[i].ref}}</p>
+    <p id="contenido">Fecha: {{pagos[i].date}}</p>
+    <p id="contenido">Núm referencia: {{pagos[i].ref}}</p>
     <p class="monto" id="pago">Bs. {{pagos[i].monto}}</p>
   </div>
 </div>

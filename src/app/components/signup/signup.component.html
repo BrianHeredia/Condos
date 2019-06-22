@@ -5,17 +5,17 @@
   </div>
   <h2 class="Title2">Registro de Usuario</h2>
   <form [formGroup]="user">
-      Nombre: <br> <input type="text"  formControlName="first" >
-      Apellido: <br> <input type="text" formControlName="last"  >
-      Cédula: <br> <input type="text" formControlName="cedula" >
+      Nombre: <br> <input id="textin" type="text"  formControlName="first" >
+      Apellido: <br> <input id="textin" type="text" formControlName="last"  >
+      Cédula: <br> <input id="textin" type="text" formControlName="cedula" >
       <span  class="error" *ngIf="cedula.errors?.min && cedula.touched">
           Cédula no valida
       </span>
-      E-mail: <br> <input type="email" formControlName="email">
+      E-mail: <br> <input id="textin" type="email" formControlName="email">
       <span class="error" *ngIf="email.invalid && email.touched">
           Tu email no parece bien escrito
       </span>
-      Contraseña: <br> <input type="password"  formControlName="password" >
+      Contraseña: <br> <input id="textin" type="password"  formControlName="password" >
       <span class="error" *ngIf="password.invalid && password.touched">
           Tu contraseña debe tener al menos 1 letra y 1 número
       </span>

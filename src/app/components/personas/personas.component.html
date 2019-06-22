@@ -14,16 +14,6 @@
     <h2>{{residentes[i]?.first}} {{residentes[i]?.last}}</h2>
     <img class="logo" src="../../../assets/icons/icons8-pencil-filled-48.png" alt="Options" (click)="thisUser( residentes[i]?.uid, residentes[i]?.usuario_grupos.admin, residentes[i]?.usuario_grupos.grupoVecinalIdgrupo )" (click)="openModal('move-delete')">
   </div>
-  <jw-modal id="move">
-    Desea sacar a este miembro de la Junta de Condominio?
-    <a><button (click)="this.move('move')" class="move">Mover</button></a> 
-  </jw-modal>
-  <jw-modal id="move-delete">
-    Desea hacer a este residente MIEMBRO de la Junta de Condominio?
-    <a><button (click)="this.move('move-delete')" class="move">Mover</button></a> 
-    Desea eliminar a este residente del Condominio? Esto no podrá revertirse.
-    <a><button (click)="this.delete('move-delete')" id="delete" >Eliminar</button></a> 
-  </jw-modal>
 </div>
 <div *ngIf="!this.isadmin" class="tarjetero">
   <h2 id="sub">Junta de Condominio</h2>
@@ -35,3 +25,17 @@
     <h2>{{residentes[i]?.first}} {{residentes[i]?.last}}</h2>
   </div>
 </div>
+<jw-modal id="move">
+  <form>
+      Desea sacar a este miembro de la Junta de Condominio?
+      <a><button (click)="this.move('move')" class="move">Mover</button></a> 
+  </form>
+</jw-modal>
+<jw-modal id="move-delete">
+  <form>
+    Desea hacer a este residente MIEMBRO de la Junta de Condominio?
+    <a><button (click)="this.move('move-delete')" class="move">Mover</button></a> 
+    Desea eliminar a este residente del Condominio? Esto no podrá revertirse.
+    <a><button (click)="this.delete('move-delete')" id="delete" >Eliminar</button></a> 
+  </form>
+</jw-modal>

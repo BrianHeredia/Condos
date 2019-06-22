@@ -1,34 +1,85 @@
 #noti{
     background: #F2C94C;
     display: inline-block;
-    height: 140px;
+    height: 110px;
 }
 
 #titulo{
     display: flex;
     justify-content: space-between;
-
 }
 
 #texto{
     height: 70px;
 }
 
-
 #profile{
     background: #F2994A;
-    display: flex;           
+    display: flex-end;           
     align-items: center;
-    justify-content: space-evenly;
-    height: 70px;
+    height: 40px;
+    font-size: 18px;
     border-radius: 5px;  
     border: 0;
-    width: 480px;
+    width: 472px;
     color: #eeeeee;
+}
+
+#textbox{
+    height: 140px;
+}
+
+#content{
+    display: 0;
+    text-align: left;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+#pregunta{
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+.boton{
+    width: 200px;
+    margin: 0.5em;
+}
+
+#yesno{
+    width: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#sino{
+    margin-top: 0.5em;
+}
+
+#vote{
+    justify-content: center;
+}
+
+#upvote, #downvote{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#voto{
+    display: flex;
+    padding-right: 8px;
+    padding-left: 8px;
 }
 
 @media screen and (max-width:505px){
     #profile{
-        width: 280px;
+        width: 272px;
+    }
+
+    #crear{
+        zoom: 80%;
     }
 }

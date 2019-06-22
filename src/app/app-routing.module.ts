@@ -35,7 +35,8 @@ const routes: Routes = [
   { path: ':uid/estadoCuenta/:idgrupo', component: EstadoCuentaComponent, canActivate: [AuthGuard]},
   { path: ':uid/listaDeudores/:idgrupo', component: ListaDeudoresComponent, canActivate: [AuthGuard]},
   { path: ':uid/recibo', component: ReciboComponent, canActivate: [AuthGuard]},
-  { path: ':uid/lista-recibo', component: ListaReciboComponent, canActivate: [AuthGuard]},
+  { path: ':uid/listaRecibo', component: ListaReciboComponent, canActivate: [AuthGuard]},
+  
   { path: ':uid/notificaciones/:idgrupo', component: NotificacionesComponent, canActivate: [AuthGuard]},
   { path: ':uid/propuestas/:idgrupo', component: PropuestasComponent, canActivate: [AuthGuard]}
 ];

@@ -10,6 +10,7 @@ import { Gasto } from '../models/gasto';
 import { PagoUser } from '../models/pagosusuarios';
 import { Recibos } from '../models/recibos';
 import { Propuesta } from '../models/propuestas';
+import { Notificacion } from '../models/notificaciones';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -32,6 +33,7 @@ export class DataService {
   private recibosUrl = 'http://localhost:3000/api/recibos';  // URL to web api
   private userAlicuotasUrl = 'http://localhost:3000/api/user_grupo/users';  // URL to web api
   private propuestasUrl = 'http://localhost:3000/api/propuestas';  // URL to web api
+  private notificacionesUrl = 'http://localhost:3000/api/notificaciones';  // URL to web api
 
   constructor( 
     private http: HttpClient
@@ -193,7 +195,17 @@ export class DataService {
     return this.http.post<Recibos>( this.propuestasUrl, body, httpOptions);
   }
 
-  
+ //Metodos http para notificaciones
+
+ getNotificaciones(idgrupo: number, uid: string):Observable<Notificacion[]>{
+  const url = `${this.notificacionesUrl}/${idgrupo}/${uid}`;
+  return this.http.get<Notificacion[]>(url);
+}
+
+addNotificaciones(notificacion: Notificacion):Observable<Notificacion>{
+  const body = JSON.stringify(notificacion);
+  return this.http.post<Notificacion>( this.notificacionesUrl, body, httpOptions);
+} 
   
   
 }

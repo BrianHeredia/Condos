@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params} from '@angular/router';
+import { Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { ModalService } from '../../services/modal.service';
-
+import { FormBuilder, FormGroup, Validators, FormControl, FormControlName, SelectControlValueAccessor } from '@angular/forms';
+import { Notificacion } from '../../models/notificaciones';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-notificaciones',
@@ -11,17 +14,34 @@ import { ModalService } from '../../services/modal.service';
 export class NotificacionesComponent implements OnInit {
   private idgrupo;
   private uid;
+  private i: number;
+  private notificacion: FormGroup;
+  private Notificacion: Notificacion;
+  private notificaciones = [];
   constructor(
     private route: ActivatedRoute,
-    public modalService: ModalService
-    ) { }
+    public modalService: ModalService,
+    private dataService: DataService,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
     this.uid = this.route.snapshot.params['uid'];
     this.idgrupo = this.route.snapshot.params['idgrupo'];
+    this.notificacion = this.fb.group({
+      titulo: ['', [
+      ]],
+      mensaje: ['', [
+      ]],
+      isAR: ['', [
+      ]]
+    });
+
+    this.getNotificaciones();
+
   }
 
-  
+
   openModal(id: string) {
     this.modalService.open(id);
   }
@@ -30,5 +50,24 @@ export class NotificacionesComponent implements OnInit {
   closeModal(id: string) {
     this.modalService.close(id);
   }
+
+  addNotificacion(id: string) {
+    this.Notificacion = this.notificacion.value;
+    this.Notificacion.isAR = false;
+    this.Notificacion.idgrupo = this.idgrupo;
+    this.Notificacion.uid = this.uid;
+    console.log(this.Notificacion);
+    this.dataService.addNotificaciones(this.Notificacion).subscribe();
+    console.log(this.notificaciones);
+    this.closeModal(id);
+  }
+
+  getNotificaciones() {
+    this.dataService.getNotificaciones(this.idgrupo,this.uid).subscribe(notificaciones => {
+      this.notificaciones = notificaciones;
+      console.log(this.notificacion);
+    })
+  }
+
 
 }

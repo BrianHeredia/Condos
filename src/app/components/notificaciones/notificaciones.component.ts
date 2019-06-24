@@ -29,12 +29,8 @@ export class NotificacionesComponent implements OnInit {
     this.uid = this.route.snapshot.params['uid'];
     this.idgrupo = this.route.snapshot.params['idgrupo'];
     this.notificacion = this.fb.group({
-      titulo: ['', [
-      ]],
-      mensaje: ['', [
-      ]],
-      isAR: ['', [
-      ]]
+      título: new FormControl(),
+      mensaje: new FormControl(),
     });
 
     this.getNotificaciones();
@@ -55,17 +51,14 @@ export class NotificacionesComponent implements OnInit {
     this.Notificacion = this.notificacion.value;
     this.Notificacion.isAR = false;
     this.Notificacion.idgrupo = this.idgrupo;
-    this.Notificacion.uid = this.uid;
-    console.log(this.Notificacion);
+    this.Notificacion.uid = this.uid;   
     this.dataService.addNotificaciones(this.Notificacion).subscribe();
-    console.log(this.notificaciones);
     this.closeModal(id);
   }
 
   getNotificaciones() {
     this.dataService.getNotificaciones(this.idgrupo,this.uid).subscribe(notificaciones => {
       this.notificaciones = notificaciones;
-      console.log(this.notificacion);
     })
   }
 

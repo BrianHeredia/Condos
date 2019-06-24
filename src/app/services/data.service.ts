@@ -197,8 +197,8 @@ export class DataService {
 
  //Metodos http para notificaciones
 
- getNotificaciones(idgrupo: number, uid: string):Observable<Notificacion[]>{
-  const url = `${this.notificacionesUrl}/${idgrupo}/${uid}`;
+ getNotificaciones(idgrupo: number):Observable<Notificacion[]>{
+  const url = `${this.notificacionesUrl}/${idgrupo}`;
   return this.http.get<Notificacion[]>(url);
 }
 

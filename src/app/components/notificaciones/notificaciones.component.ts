@@ -14,7 +14,7 @@ import { DataService } from '../../services/data.service';
 export class NotificacionesComponent implements OnInit {
   private idgrupo;
   private uid;
-  private i: number;
+  private noti: Notificacion;
   private notificacion: FormGroup;
   private Notificacion: Notificacion;
   private notificaciones = [];
@@ -38,7 +38,8 @@ export class NotificacionesComponent implements OnInit {
   }
 
 
-  openModal(id: string) {
+  openModal(id: string, noti: Notificacion) {
+    this.noti = noti;
     this.modalService.open(id);
   }
 
@@ -51,14 +52,16 @@ export class NotificacionesComponent implements OnInit {
     this.Notificacion = this.notificacion.value;
     this.Notificacion.isAR = false;
     this.Notificacion.idgrupo = this.idgrupo;
-    this.Notificacion.uid = this.uid;   
+    this.Notificacion.uid = this.uid;  
+    console.log(this.Notificacion); 
     this.dataService.addNotificaciones(this.Notificacion).subscribe();
     this.closeModal(id);
   }
 
   getNotificaciones() {
-    this.dataService.getNotificaciones(this.idgrupo,this.uid).subscribe(notificaciones => {
+    this.dataService.getNotificaciones(this.idgrupo).subscribe(notificaciones => {
       this.notificaciones = notificaciones;
+      console.log(this.notificaciones);
     })
   }
 

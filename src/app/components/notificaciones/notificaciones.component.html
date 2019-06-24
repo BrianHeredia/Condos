@@ -1,14 +1,12 @@
 <header>
-  <a routerLink="/{{this.uid}}/menu/{{this.idgrupo}}"> <img class="logo"
-      src="../../../assets/icons/icons8-eliminar-42 (1).png" alt="USER"></a>
+  <a routerLink="/{{this.uid}}/menu/{{this.idgrupo}}"> <img class="logo" src="../../../assets/icons/icons8-eliminar-42 (1).png" alt="USER"></a>
   <h2>Notificaciones</h2>
-  <a (click)="openModal('crear')"> <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt="mas">
-  </a>
+  <a (click)="openModal('crear')"> <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt="mas"></a>
 </header>
 <div class="tarjetero">
   <div *ngFor="let notificacion of notificaciones; index as i" id="noti" class="tarjeta">
     <div id="título">
-      <h2 id="texto" (click)="openModal('abrir')">{{notificacion[i].titulo}}</h2>
+      <h2 id="texto" (click)="openModal('abrir',notificaciones[i])">{{notificacion[i].titulo}}</h2>
       <a (click)="openModal('eliminar')"><img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png"
           alt="Options"></a>
     </div>

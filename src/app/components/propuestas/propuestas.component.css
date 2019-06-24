@@ -1,8 +1,23 @@
 #pro{
     background: #6FCF97;
-    
+    display: inline-block;
 }
 
 a{
     cursor: pointer;
+}
+
+#pre{
+    margin-bottom: 8px;
+}
+
+#center{
+    text-align: center;
+}
+
+@media screen and (max-width:505px){
+
+    #add{
+        zoom: 80%;
+    }
 }

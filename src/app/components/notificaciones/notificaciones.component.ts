@@ -22,24 +22,28 @@ export class NotificacionesComponent implements OnInit {
     private route: ActivatedRoute,
     public modalService: ModalService,
     private dataService: DataService,
-    private fb: FormBuilder
-  ) { }
+    private fb: FormBuilder 
+  ) {  }
 
   ngOnInit() {
     this.uid = this.route.snapshot.params['uid'];
     this.idgrupo = this.route.snapshot.params['idgrupo'];
     this.notificacion = this.fb.group({
-      título: new FormControl(),
-      mensaje: new FormControl(),
+      titulo: ['', [
+        Validators.required
+      ]],
+      mensaje:  ['', [
+        Validators.required
+      ]],
+      isAR: ['', [
+        Validators.required
+      ]]
     });
-
     this.getNotificaciones();
-
   }
 
 
-  openModal(id: string, noti: Notificacion) {
-    this.noti = noti;
+  openModal(id: string) {
     this.modalService.open(id);
   }
 
@@ -48,9 +52,14 @@ export class NotificacionesComponent implements OnInit {
     this.modalService.close(id);
   }
 
+  selectNoti(noti: Notificacion) {
+    this.noti = new Notificacion;
+    this.noti = noti;
+    console.log(this.noti);
+  }
+
   addNotificacion(id: string) {
     this.Notificacion = this.notificacion.value;
-    this.Notificacion.isAR = false;
     this.Notificacion.idgrupo = this.idgrupo;
     this.Notificacion.uid = this.uid;  
     console.log(this.Notificacion); 
@@ -62,7 +71,7 @@ export class NotificacionesComponent implements OnInit {
     this.dataService.getNotificaciones(this.idgrupo).subscribe(notificaciones => {
       this.notificaciones = notificaciones;
       console.log(this.notificaciones);
-    })
+    });
   }
 
 

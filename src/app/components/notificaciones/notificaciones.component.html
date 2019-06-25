@@ -1,16 +1,17 @@
 <header>
   <a routerLink="/{{this.uid}}/menu/{{this.idgrupo}}"> <img class="logo" src="../../../assets/icons/icons8-eliminar-42 (1).png" alt="USER"></a>
   <h2>Notificaciones</h2>
-  <a (click)="openModal('crear')"> <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt="mas"> </a>
+  <a (click)="openModal('crear')"> <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt="mas"></a>
 </header>
 <div class="tarjetero">
-  <div class="tarjeta" id="noti">
-    <div id="titulo">
-      <h2 id="texto" (click)="openModal('abrir')">titulo</h2>
-      <a (click)="openModal('eliminar')"><img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options"></a>
+  <div *ngFor="let notificacion of notificaciones; index as i" id="noti" class="tarjeta">
+    <div id="título">
+      <h2 id="texto" (click)="openModal('abrir',notificaciones[i])">{{notificacion[i].titulo}}</h2>
+      <a (click)="openModal('eliminar')"><img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png"
+          alt="Options"></a>
     </div>
     <div>
-      <p class="monto" id="profile">Por: nombre</p>
+      <p class="monto" id="profile">Por: {{notificacion[i].uid}}</p>
     </div>
   </div>
 </div>
@@ -21,23 +22,23 @@
     <h2 class="Title2">Crear Notificación</h2>
     <div class="empty"> </div>
   </header>
-  <form>
-    Título: <br> <input type="text" formControlName="" >
-    Contenido: <br> <textarea name="Contenido" class="textin" id="textbox"></textarea>
-    Tipo de notificación: <br> <select class="textin" formControlName="">
-      <option value="1">Anuncio</option>
-      <option value="2">Queja</option>
-    </select>
-    <button class="button" id="confirm" (click)="this.crearNotificacion('crearN')">Crear</button>
+  <form [formGroup]="notificacion">
+      Título: <br> <input type="text" formControlName="título">
+      Contenido: <br> <textarea name="Contenido" class="textin" id="textbox" formControlName="mensaje"></textarea>
+      Tipo de notificación: <br> <select class="textin">
+        <option value="1">Anuncio</option>
+        <option value="2">Reclamo</option>
+      </select>
+      <button class="button" id="confirm" (click)="this.addNotificacion('crear')">Crear</button>
   </form>
 </jw-modal>
 
 <jw-modal id="eliminar">
   <form>
     <p id="pregunta">¿Estás seguro que deseas eliminar esta notificación? esta acción es irreversible.</p>
-    <div id="sino"> 
-      <a><button class="boton" id="yesno" (click)="closeModal('eliminar')" >Si</button></a> 
-      <a><button class="boton" id="yesno" (click)="closeModal('eliminar')" >No</button></a>
+    <div id="sino">
+      <a><button class="boton" id="yesno" (click)="closeModal('eliminar')">Si</button></a>
+      <a><button class="boton" id="yesno" (click)="closeModal('eliminar')">No</button></a>
     </div>
   </form>
 </jw-modal>
@@ -48,7 +49,8 @@
     <h2 class="Title2">Título</h2>
     <div class="empty"> </div>
   </header>
-  <p id="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+  <p id="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et
+    dolore magna aliqua.</p>
   <footer class="hModal" id="vote">
     <div id="downvote">
       <a> <img class="logo" src="../../../assets/icons//downvote 48.png" alt="mas"> </a>

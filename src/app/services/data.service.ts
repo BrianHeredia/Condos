@@ -200,7 +200,7 @@ export class DataService {
  getNotificaciones(idgrupo: number):Observable<Notificacion[]>{
   const url = `${this.notificacionesUrl}/${idgrupo}`;
   return this.http.get<Notificacion[]>(url);
-}
+ }
 
 addNotificaciones(notificacion: Notificacion):Observable<Notificacion>{
   const body = JSON.stringify(notificacion);

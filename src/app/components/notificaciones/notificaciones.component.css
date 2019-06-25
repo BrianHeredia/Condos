@@ -1,34 +1,31 @@
 #noti{
     background: #F2C94C;
     display: inline-block;
-    height: 140px;
-}
-
-#titulo{
-    display: flex;
-    justify-content: space-between;
-
+    height: 110px;
 }
 
 #texto{
     height: 70px;
 }
 
-
 #profile{
     background: #F2994A;
-    display: flex;           
+    display: flex-end;           
     align-items: center;
-    justify-content: space-evenly;
-    height: 70px;
+    height: 40px;
+    font-size: 18px;
     border-radius: 5px;  
     border: 0;
-    width: 480px;
+    width: 472px;
     color: #eeeeee;
 }
 
 @media screen and (max-width:505px){
     #profile{
-        width: 280px;
+        width: 272px;
+    }
+
+    #crear{
+        zoom: 80%;
     }
 }

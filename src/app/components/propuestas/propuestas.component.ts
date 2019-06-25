@@ -17,6 +17,7 @@ export class PropuestasComponent implements OnInit {
   private uid;
   private propuesta: FormGroup;
   private Propuesta: Propuesta;
+  private pro: Propuesta;
   private propuestas = [];
   constructor(
     private route: ActivatedRoute,
@@ -42,7 +43,8 @@ export class PropuestasComponent implements OnInit {
   }
 
 
-  openModal(id: string) {
+  openModal(id: string, pro: Propuesta) {
+    this.pro = pro;
     this.modalService.open(id);
   }
 

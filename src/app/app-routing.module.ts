@@ -8,8 +8,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { JoinComponent } from './components/join/join.component';
 import { CreateComponent } from './components/create/create.component';
 import { InactiveComponent } from './components/inactive/inactive.component';
-import { CnotificationComponent } from './components/cnotification/cnotification.component';
-import { CproposalComponent } from './components/cproposal/cproposal.component';
 import { MenuGrupoComponent } from './components/menu-grupo/menu-grupo.component';
 import { PersonasComponent } from './components/personas/personas.component';
 import { FinanzasComponent } from './components/finanzas/finanzas.component';
@@ -35,7 +33,7 @@ const routes: Routes = [
   { path: ':uid/estadoCuenta/:idgrupo', component: EstadoCuentaComponent, canActivate: [AuthGuard]},
   { path: ':uid/listaDeudores/:idgrupo', component: ListaDeudoresComponent, canActivate: [AuthGuard]},
   { path: ':uid/recibo', component: ReciboComponent, canActivate: [AuthGuard]},
-  { path: ':uid/lista-recibo', component: ListaReciboComponent, canActivate: [AuthGuard]},
+  { path: ':uid/listaRecibo', component: ListaReciboComponent, canActivate: [AuthGuard]}, 
   { path: ':uid/notificaciones/:idgrupo', component: NotificacionesComponent, canActivate: [AuthGuard]},
   { path: ':uid/propuestas/:idgrupo', component: PropuestasComponent, canActivate: [AuthGuard]}
 ];

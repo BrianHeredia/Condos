@@ -11,6 +11,7 @@ h2{
     line-height: 28px;
     color: #000000;
 }
+
 .error{
     width: 280px;
     height: 40px;
@@ -147,7 +148,7 @@ jw-modal{
     display: none;
 }
 
-header{
+header, footer{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -220,6 +221,42 @@ form{
     text-align: left;
     height: 35px;
     display: flex;
+}
+
+#textbox{
+    height: 140px;
+}
+
+#titulo{
+    display: flex;
+    justify-content: space-between;
+}
+
+#yesno{
+    width: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#sino{
+    margin-top: 0.5em;
+}
+
+.boton{
+    width: 200px;
+    margin: 0.5em;
+}
+
+#pregunta{
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+#content{
+    display: 0;
+    text-align: left;
+    padding-right: 8px;
+    padding-left: 8px;
 }
 
 .monto{

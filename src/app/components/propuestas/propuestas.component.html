@@ -1,15 +1,73 @@
 <header>
   <a routerLink="/{{this.uid}}/menu/{{this.idgrupo}}"> <img class="logo" src="../../../assets/icons/icons8-eliminar-42 (1).png" alt="USER"> </a>
   <h2>Propuestas</h2>
-  <a href=""> <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt=""> </a>
+  <a *ngIf="admin" (click)="openModal('add')"> <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt=""> </a>
+  <div *ngIf="!admin" class="empty"> </div>
 </header>
 <div class="tarjetero">
-    <div id="pro" class="tarjeta">
-      <h2>Compra Camaras HD</h2>
-      <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
-    </div>
-    <div id="pro" class="tarjeta">
-      <h2>Reducción de limite de velocidad</h2>
-      <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
+    <div *ngFor="let propuesta of propuestas; index as i" id="pro" class="tarjeta">
+      <div id="titulo">
+        <h2 id="texto" (click)="selectPro(propuestas[i])" (click)="openModal('abrir')">{{propuestas[i].titulo}}</h2>
+        <a (click)="openModal('eliminar')"><img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options"></a>
+      </div>
+      <div>
+        <p class="monto" *ngIf="propuestas[i].presupuesto != null">Bs. {{propuestas[i].presupuesto}}</p>
+      </div>
     </div>
   </div>
+
+  <jw-modal id="add">
+    <header class="hModal">
+        <div class="empty"> </div>
+        <h2 class="Title2">Nueva Propuesta</h2>
+        <div class="empty"> </div>
+    </header>
+    <form [formGroup]="propuesta">
+        Título: <br> <input type="text" formControlName="titulo">
+        Descripción: <br> <textarea class="textin" id="textbox" formControlName="descripcion"> </textarea>
+        Presupuesto: <br> <input type="text" formControlName="presupuesto" >
+        <button class="button" id="confirm"   [disabled]="propuesta.invalid"  (click)="this.addPropuesta('add')">Crear</button>
+    </form>
+  </jw-modal>
+
+  <jw-modal id="eliminar">
+    <form>
+      <p id="pregunta">¿Estás seguro que deseas eliminar esta propuesta? esta acción es irreversible.</p>
+      <div id="sino"> 
+        <a><button class="boton" id="yesno" (click)="closeModal('eliminar')">Si</button></a> 
+        <a><button class="boton" id="yesno" (click)="closeModal('eliminar')" >No</button></a>
+      </div>
+    </form>
+  </jw-modal>
+
+  <jw-modal id="abrir">
+    <header class="hModal">
+      <div class="empty"> </div>
+      <h2 class="Title2">{{pro?.titulo}}</h2>
+      <div class="empty"> </div>
+    </header>
+    <p id="content">{{pro?.descripcion}}</p>
+    <h2 id="pre">Presupuesto:</h2>
+    <h2 id="center">Bs. {{pro?.presupuesto}}</h2>
+    <footer *ngIf="this.isLiked" class="hModal" id="vote">
+      <div id="downvote">
+       <img id="voted" class="logo" src="../../../assets/icons//downvote 48.png" alt="mas"> 
+        <p id="voto">{{this.dislikes}}</p>
+      </div>
+      <h2>Ya votaste!</h2>
+      <div id="upvote">
+        <p id="voto">{{this.likes}}</p>
+       <img id="voted" class="logo" src="../../../assets/icons/upvote 48.png" alt="mas"> 
+      </div>
+    </footer>
+    <footer *ngIf="!this.isLiked" class="hModal" id="vote">
+      <div id="downvote">
+        <a (click)="like(true, pro.id, 'abrir')"> <img class="logo" src="../../../assets/icons//downvote 48.png" alt="mas"> </a>
+        <p id="voto">{{this.dislikes}}</p>
+      </div>
+      <div id="upvote">
+        <p id="voto">{{this.likes}}</p>
+        <a (click)="like(false, pro.id, 'abrir' )" > <img class="logo" src="../../../assets/icons/upvote 48.png" alt="mas"> </a>
+      </div>
+    </footer>
+  </jw-modal>

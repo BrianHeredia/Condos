@@ -1,12 +1,13 @@
 <header>
   <a routerLink="/{{this.uid}}/menu/{{this.idgrupo}}"> <img class="logo" src="../../../assets/icons/icons8-eliminar-42 (1).png" alt="USER"> </a>
   <h2>Propuestas</h2>
-  <a (click)="openModal('add')"> <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt=""> </a>
+  <a *ngIf="admin" (click)="openModal('add')"> <img class="logo" src="../../../assets/icons/icons8-más-filled-64.png" alt=""> </a>
+  <div *ngIf="!admin" class="empty"> </div>
 </header>
 <div class="tarjetero">
     <div *ngFor="let propuesta of propuestas; index as i" id="pro" class="tarjeta">
       <div id="titulo">
-        <h2 (click)="openModal('abrir', propuestas[i])">{{propuestas[i].titulo}}</h2>
+        <h2 id="texto" (click)="selectPro(propuestas[i])" (click)="openModal('abrir')">{{propuestas[i].titulo}}</h2>
         <a (click)="openModal('eliminar')"><img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options"></a>
       </div>
       <div>
@@ -42,20 +43,31 @@
   <jw-modal id="abrir">
     <header class="hModal">
       <div class="empty"> </div>
-      <h2 class="Title2">{{pro.titulo}}</h2>
+      <h2 class="Title2">{{pro?.titulo}}</h2>
       <div class="empty"> </div>
     </header>
-    <p id="content">{{pro.descripcion}}</p>
+    <p id="content">{{pro?.descripcion}}</p>
     <h2 id="pre">Presupuesto:</h2>
-    <h2 id="center">Bs. {{pro.presupuesto}}</h2>
-    <footer class="hModal" id="vote">
+    <h2 id="center">Bs. {{pro?.presupuesto}}</h2>
+    <footer *ngIf="this.isLiked" class="hModal" id="vote">
       <div id="downvote">
-        <a> <img class="logo" src="../../../assets/icons//downvote 48.png" alt="mas"> </a>
-        <p id="voto">0</p>
+       <img id="voted" class="logo" src="../../../assets/icons//downvote 48.png" alt="mas"> 
+        <p id="voto">{{this.dislikes}}</p>
+      </div>
+      <h2>Ya votaste!</h2>
+      <div id="upvote">
+        <p id="voto">{{this.likes}}</p>
+       <img id="voted" class="logo" src="../../../assets/icons/upvote 48.png" alt="mas"> 
+      </div>
+    </footer>
+    <footer *ngIf="!this.isLiked" class="hModal" id="vote">
+      <div id="downvote">
+        <a (click)="like(true, pro.id, 'abrir')"> <img class="logo" src="../../../assets/icons//downvote 48.png" alt="mas"> </a>
+        <p id="voto">{{this.dislikes}}</p>
       </div>
       <div id="upvote">
-        <p id="voto">0</p>
-        <a> <img class="logo" src="../../../assets/icons/upvote 48.png" alt="mas"> </a>
+        <p id="voto">{{this.likes}}</p>
+        <a (click)="like(false, pro.id, 'abrir' )" > <img class="logo" src="../../../assets/icons/upvote 48.png" alt="mas"> </a>
       </div>
     </footer>
   </jw-modal>

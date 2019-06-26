@@ -3,7 +3,7 @@ import { ActivatedRoute, Params} from '@angular/router';
 import { Propuesta } from '../../models/propuestas';
 import { ModalService } from '../../services/modal.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Recibos } from '../../models/recibos';
+import { Like } from '../../models/likes';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -19,6 +19,11 @@ export class PropuestasComponent implements OnInit {
   private Propuesta: Propuesta;
   private pro: Propuesta;
   private propuestas = [];
+  private liked: Like;
+  private admin: boolean = false;
+  private isLiked: boolean = false;
+  private likes: number;
+  private dislikes: number;
   constructor(
     private route: ActivatedRoute,
     public modalService: ModalService,
@@ -29,6 +34,9 @@ export class PropuestasComponent implements OnInit {
   ngOnInit() {
     this.uid = this.route.snapshot.params['uid'];
     this.idgrupo = this.route.snapshot.params['idgrupo'];
+    this.dataService.getUserGrupo(this.idgrupo).subscribe( user =>{
+      this.admin = user.admin;
+    });
     this.propuesta = this.fb.group({
       titulo: ['', [
         Validators.required
@@ -43,11 +51,27 @@ export class PropuestasComponent implements OnInit {
   }
 
 
-  openModal(id: string, pro: Propuesta) {
-    this.pro = pro;
+  openModal(id: string) {
     this.modalService.open(id);
   }
 
+  selectPro(pro: Propuesta) {
+    this.pro = new Propuesta;
+    this.pro = pro;
+    this.dataService.countLikes(this.pro.id, 0).subscribe(likes=>{
+      this.likes = likes[0].cantidad;
+    });
+    this.dataService.countLikes(this.pro.id, 1).subscribe(likes=>{
+      this.dislikes = likes[0].cantidad;
+    });
+    this.dataService.findLike(this.pro.id, this.uid).subscribe(like=>{
+      if(like.length == 0){
+        this.isLiked = false;
+      }else{
+        this.isLiked = true;
+      }
+    })
+  }
 
   closeModal(id: string) {
     this.modalService.close(id);
@@ -57,7 +81,6 @@ export class PropuestasComponent implements OnInit {
     this.Propuesta = this.propuesta.value;
     this.Propuesta.idgrupo = this.idgrupo;
     this.Propuesta.uid = this.uid;
-    console.log(this.Propuesta);
     this.dataService.addPropuestas(this.Propuesta).subscribe();
     this.closeModal(id);
   }
@@ -65,8 +88,16 @@ export class PropuestasComponent implements OnInit {
   getPropuestas(){
     this.dataService.getPropuestas(this.idgrupo).subscribe(propuestas=>{
       this.propuestas = propuestas;
-      console.log(this.propuestas);
     })
+  }
+
+  like(like: boolean, id: number, modal: string){
+    this.liked = new Like;
+    this.liked.id = id;
+    this.liked.isLike = like;
+    this.liked.uid = this.uid;
+    this.dataService.addLike(this.liked).subscribe();
+    this.closeModal(modal);
   }
 
 }

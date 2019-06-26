@@ -11,6 +11,7 @@ import { PagoUser } from '../models/pagosusuarios';
 import { Recibos } from '../models/recibos';
 import { Propuesta } from '../models/propuestas';
 import { Notificacion } from '../models/notificaciones';
+import { Like } from '../models/likes';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -34,6 +35,8 @@ export class DataService {
   private userAlicuotasUrl = 'http://localhost:3000/api/user_grupo/users';  // URL to web api
   private propuestasUrl = 'http://localhost:3000/api/propuestas';  // URL to web api
   private notificacionesUrl = 'http://localhost:3000/api/notificaciones';  // URL to web api
+  private likesUrl = 'http://localhost:3000/api/likes';  // URL to web api
+  private findLikesUrl = 'http://localhost:3000/api/likes/find';  // URL to web api
 
   constructor( 
     private http: HttpClient
@@ -192,7 +195,22 @@ export class DataService {
 
   addPropuestas(propuesta: Propuesta):Observable<Propuesta>{
     const body = JSON.stringify(propuesta);
-    return this.http.post<Recibos>( this.propuestasUrl, body, httpOptions);
+    return this.http.post<Propuesta>( this.propuestasUrl, body, httpOptions);
+  }
+
+  addLike(like: Like):Observable<Like>{
+    const body = JSON.stringify(like);
+    return this.http.post<Like>( this.likesUrl, body, httpOptions);
+  }
+
+  countLikes(id: number, like: number):Observable<Like>{
+    const url = `${this.likesUrl}/${id}/${like}`;
+    return this.http.get<Like>(url);
+  }
+
+  findLike(id: number, uid: string):Observable<Like[]>{
+    const url = `${this.findLikesUrl}/${id}/${uid}`;
+    return this.http.get<Like[]>(url);
   }
 
  //Metodos http para notificaciones
@@ -202,10 +220,11 @@ export class DataService {
   return this.http.get<Notificacion[]>(url);
  }
 
-addNotificaciones(notificacion: Notificacion):Observable<Notificacion>{
-  const body = JSON.stringify(notificacion);
-  return this.http.post<Notificacion>( this.notificacionesUrl, body, httpOptions);
-} 
+  addNotificaciones(notificacion: Notificacion):Observable<Notificacion>{
+    const body = JSON.stringify(notificacion);
+    return this.http.post<Notificacion>( this.notificacionesUrl, body, httpOptions);
+  } 
+  
   
   
 }

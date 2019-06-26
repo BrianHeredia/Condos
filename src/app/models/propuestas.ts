@@ -4,4 +4,5 @@ export class Propuesta {
     presupuesto?: string;
     uid?: string;
     idgrupo?: number;
+    id?: number;
 }

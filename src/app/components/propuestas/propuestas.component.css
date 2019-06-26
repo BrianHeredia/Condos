@@ -7,16 +7,13 @@ a{
     cursor: pointer;
 }
 
-#texto{
-    cursor: pointer;
-}
 
 #pre{
     margin-bottom: 8px;
 }
 
 #center{
-    text-align: center;
+    width: auto;
 }
 
 #vote{
@@ -39,12 +36,13 @@ a{
 
 #voted{
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 @media screen and (max-width:505px){
 
-    #add{
+    #add, #center{
         zoom: 80%;
     }
+
 }

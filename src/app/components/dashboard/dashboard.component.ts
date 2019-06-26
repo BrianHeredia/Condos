@@ -5,7 +5,7 @@ import { ModalService } from '../../services/modal.service';
 import { DataService } from '../../services/data.service';
 import { ActivatedRoute, Params} from '@angular/router';
 import { reject } from 'q';
-
+import { UserChanged } from '../../models/userChanged';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +15,7 @@ import { reject } from 'q';
 export class DashboardComponent implements OnInit {
   
   private uid;
+  private userChanged: UserChanged;
   private condos = [];
   constructor(
     public authService: AuthService,
@@ -34,6 +35,13 @@ export class DashboardComponent implements OnInit {
   onClickLogout(){
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  deleteFromGroup(idgrupo: number){
+    this.userChanged = new UserChanged;
+    this.userChanged.idgrupo = idgrupo;
+    this.userChanged.uid = this.uid;
+    this.dataService.deleteUserGrupos(this.userChanged).subscribe();
   }
 
 

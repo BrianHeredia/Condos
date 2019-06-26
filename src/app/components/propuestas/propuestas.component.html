@@ -46,15 +46,14 @@
       <h2 class="Title2">{{pro?.titulo}}</h2>
       <div class="empty"> </div>
     </header>
-    <p id="content">{{pro?.descripcion}}</p>
+    <p class="descripcion">{{pro?.descripcion}}</p>
     <h2 id="pre">Presupuesto:</h2>
-    <h2 id="center">Bs. {{pro?.presupuesto}}</h2>
+    <p class="monto" id="center">Bs. {{pro?.presupuesto}}</p>
     <footer *ngIf="this.isLiked" class="hModal" id="vote">
       <div id="downvote">
        <img id="voted" class="logo" src="../../../assets/icons//downvote 48.png" alt="mas"> 
         <p id="voto">{{this.dislikes}}</p>
       </div>
-      <h2>Ya votaste!</h2>
       <div id="upvote">
         <p id="voto">{{this.likes}}</p>
        <img id="voted" class="logo" src="../../../assets/icons/upvote 48.png" alt="mas"> 

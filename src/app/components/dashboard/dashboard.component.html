@@ -12,7 +12,7 @@
           <h2>{{condos[i].nombre}}</h2>
           <p>{{condos[i].direccion}}</p>
       </div></a>
-      <img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options">
+      <img class="logo" (click)="openModal('eliminar')" src="../../../assets/icons/icons8-basura-48.png" alt="Options">
     </div>
   </div>
 </div>
@@ -20,5 +20,14 @@
   <form>
     <a routerLink="/{{this.uid}}/create"><button id="create">Crea un condominio</button></a> 
     <a routerLink="/{{this.uid}}/join"><button id="join" >Unete a un condominio</button></a> 
+  </form>
+</jw-modal>
+<jw-modal id="eliminar">
+  <form>
+    <p id="pregunta">¿Estás seguro que deseas salirte de este condominio? esta acción es irreversible.</p>
+    <div id="sino"> 
+      <a><button class="boton" id="yesno" (click)="deleteFromGroup(condos[i].idgrupo)" (click)="closeModal('eliminar')">Si</button></a> 
+      <a><button class="boton" id="yesno" (click)="closeModal('eliminar')" >No</button></a>
+    </div>
   </form>
 </jw-modal>

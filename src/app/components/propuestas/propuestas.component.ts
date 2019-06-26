@@ -58,16 +58,11 @@ export class PropuestasComponent implements OnInit {
   selectPro(pro: Propuesta) {
     this.pro = new Propuesta;
     this.pro = pro;
-    console.log(this.pro);
     this.dataService.countLikes(this.pro.id, 0).subscribe(likes=>{
-      console.log('Likes: ',likes);
       this.likes = likes[0].cantidad;
-      console.log(this.likes);
     });
     this.dataService.countLikes(this.pro.id, 1).subscribe(likes=>{
-      console.log('Dislikes: ',likes);
       this.dislikes = likes[0].cantidad;
-      console.log(this.dislikes);
     });
     this.dataService.findLike(this.pro.id, this.uid).subscribe(like=>{
       if(like.length == 0){
@@ -86,7 +81,6 @@ export class PropuestasComponent implements OnInit {
     this.Propuesta = this.propuesta.value;
     this.Propuesta.idgrupo = this.idgrupo;
     this.Propuesta.uid = this.uid;
-    console.log(this.Propuesta);
     this.dataService.addPropuestas(this.Propuesta).subscribe();
     this.closeModal(id);
   }
@@ -94,7 +88,6 @@ export class PropuestasComponent implements OnInit {
   getPropuestas(){
     this.dataService.getPropuestas(this.idgrupo).subscribe(propuestas=>{
       this.propuestas = propuestas;
-      console.log(propuestas);
     })
   }
 

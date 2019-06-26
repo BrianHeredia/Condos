@@ -12,6 +12,18 @@ h2{
     color: #000000;
 }
 
+.Title2{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    display: block;
+    align-self: auto;
+}
+
+#Title2mar{
+    margin-top: 0.2em;
+}
+
 .error{
     width: 280px;
     height: 40px;
@@ -255,6 +267,14 @@ form{
 #content{
     display: 0;
     text-align: left;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.descripcion{
+    text-align: justify;
+    padding-top: 16px;
+    padding-bottom: 16px;
     padding-right: 8px;
     padding-left: 8px;
 }

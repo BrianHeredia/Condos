@@ -1,5 +1,11 @@
-#noti{
+#notiA{
     background: #F2C94C;
+    display: inline-block;
+    height: 110px;
+}
+
+#notiR{
+    background: #ED0F0F;
     display: inline-block;
     height: 110px;
 }
@@ -9,7 +15,7 @@
     cursor: pointer;
 }
 
-#profile{
+#profileA{
     background: #F2994A;
     display: flex-end;           
     align-items: center;
@@ -21,8 +27,20 @@
     color: #eeeeee;
 }
 
+#profileR{
+    background:#B10000;
+    display: flex-end;           
+    align-items: center;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 5px;  
+    border: 0;
+    width: 472px;
+    color: #eeeeee;
+}
+
 @media screen and (max-width:505px){
-    #profile{
+    #profileR, #profileA{
         width: 272px;
     }
 

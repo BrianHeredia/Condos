@@ -7,8 +7,8 @@
   <div *ngFor="let notificacion of notificaciones; index as i">
     <div *ngIf="this.notificacion.isAR == '1'" id="notiA" class="tarjeta">
       <div id="titulo">
-        <h2 id="texto" (click)="selectNoti(notificaciones[i])" (click)="openModal('abrir')">{{notificaciones[i].titulo}}</h2>
-        <a (click)="openModal('eliminar')"><img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png"
+        <h2 id="texto">{{notificaciones[i].titulo}}</h2>
+        <a (click)="selectNoti(notificaciones[i])" (click)="openModal('abrir')"><img class="logo" src="../../../assets/icons/icons8-open-view-48.png"
             alt="Options"></a>
       </div>
       <div>
@@ -17,8 +17,8 @@
     </div>
     <div *ngIf="this.notificacion.isAR == '0'" id="notiR" class="tarjeta">
         <div id="titulo">
-          <h2 id="texto" (click)="selectNoti(notificaciones[i])" (click)="openModal('abrir')">{{notificaciones[i].titulo}}</h2>
-          <a (click)="openModal('eliminar')"><img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png"
+          <h2 id="texto">{{notificaciones[i].titulo}}</h2>
+          <a (click)="selectNoti(notificaciones[i])" (click)="openModal('abrir')"><img class="logo" src="../../../assets/icons/icons8-open-view-48.png"
               alt="Options"></a>
         </div>
         <div>

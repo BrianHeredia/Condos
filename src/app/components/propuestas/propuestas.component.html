@@ -7,8 +7,8 @@
 <div class="tarjetero">
     <div *ngFor="let propuesta of propuestas; index as i" id="pro" class="tarjeta">
       <div id="titulo">
-        <h2 id="texto" (click)="selectPro(propuestas[i])" (click)="openModal('abrir')">{{propuestas[i].titulo}}</h2>
-        <a (click)="openModal('eliminar')"><img class="logo" src="../../../assets/icons/icons8-menú-2-filled-48.png" alt="Options"></a>
+        <h2>{{propuestas[i].titulo}}</h2>
+        <a (click)="selectPro(propuestas[i])" (click)="openModal('abrir')"><img class="logo" src="../../../assets/icons/icons8-open-view-48.png" alt="Options"></a>
       </div>
       <div>
         <p class="monto" *ngIf="propuestas[i].presupuesto != null">Bs. {{propuestas[i].presupuesto}}</p>

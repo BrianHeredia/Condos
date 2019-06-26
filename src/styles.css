@@ -259,24 +259,6 @@ form{
     padding-left: 8px;
 }
 
-#vote{
-    justify-content: center;
-}
-
-#upvote, #downvote{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-#voto{
-    display: flex;
-    padding-right: 8px;
-    padding-left: 8px;
-}
-
 .monto{
     background: #27AE60;
     display: flex;

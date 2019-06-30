@@ -26,8 +26,6 @@ import { MenuGrupoComponent } from './components/menu-grupo/menu-grupo.component
 import { PropuestasComponent } from './components/propuestas/propuestas.component';
 import { JoinComponent } from './components/join/join.component';
 import { InactiveComponent } from './components/inactive/inactive.component';
-import { CproposalComponent } from './components/cproposal/cproposal.component';
-import { CnotificationComponent } from './components/cnotification/cnotification.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
@@ -57,8 +55,6 @@ import { ListaReciboComponent } from './components/lista-recibo/lista-recibo.com
     NotificacionesComponent,
     JoinComponent,
     InactiveComponent,
-    CproposalComponent,
-    CnotificationComponent,
     ModalComponent,
     PersonasComponent,
     EstadoCuentaComponent,

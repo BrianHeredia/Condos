@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { ModalService } from '../../services/modal.service';
 import { DataService } from '../../services/data.service';
 import { ActivatedRoute, Params} from '@angular/router';
-import { reject } from 'q';
 import { UserChanged } from '../../models/userChanged';
 
 @Component({
@@ -14,9 +13,12 @@ import { UserChanged } from '../../models/userChanged';
 })
 export class DashboardComponent implements OnInit {
   
+  
+
   private uid;
   private userChanged: UserChanged;
   private condos = [];
+  private selected: number;
   constructor(
     public authService: AuthService,
     private route: ActivatedRoute,
@@ -37,9 +39,14 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  deleteFromGroup(idgrupo: number){
+  selectedCondo(s: number){
+    this.selected = s;
+    console.log(this.selected);
+  }
+
+  deleteFromGroup(){
     this.userChanged = new UserChanged;
-    this.userChanged.idgrupo = idgrupo;
+    this.userChanged.idgrupo = this.selected;
     this.userChanged.uid = this.uid;
     this.dataService.deleteUserGrupos(this.userChanged).subscribe();
   }

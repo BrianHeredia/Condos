@@ -12,7 +12,7 @@
           <h2>{{condos[i].nombre}}</h2>
           <p>{{condos[i].direccion}}</p>
       </div></a>
-      <img class="logo" (click)="openModal('eliminar')" src="../../../assets/icons/icons8-basura-48.png" alt="Options">
+      <img class="logo" (click)="selectedCondo(condos[i].idgrupo)" (click)="openModal('eliminar')" src="../../../assets/icons/icons8-basura-48.png" alt="Options">
     </div>
   </div>
 </div>
@@ -26,7 +26,7 @@
   <form>
     <p id="pregunta">¿Estás seguro que deseas salirte de este condominio? esta acción es irreversible.</p>
     <div id="sino"> 
-      <a><button class="boton" id="yesno" (click)="deleteFromGroup(condos[i].idgrupo)" (click)="closeModal('eliminar')">Si</button></a> 
+      <a><button class="boton" id="yesno" (click)="deleteFromGroup()" (click)="closeModal('eliminar')">Si</button></a> 
       <a><button class="boton" id="yesno" (click)="closeModal('eliminar')" >No</button></a>
     </div>
   </form>

@@ -31,7 +31,12 @@ export class DashboardComponent implements OnInit {
     this.uid = this.route.snapshot.params['uid'];
     this.dataService.getUserGrupos().subscribe(condos=>{
       this.condos = condos;
+      console.log(this.condos);
     });
+    if(localStorage.joinGroup != undefined){
+      this.condos.push(localStorage.joinGroup); 
+      localStorage.joinGroup = undefined;
+    }
   }
 
   onClickLogout(){
@@ -41,14 +46,23 @@ export class DashboardComponent implements OnInit {
 
   selectedCondo(s: number){
     this.selected = s;
-    console.log(this.selected);
   }
 
   deleteFromGroup(){
     this.userChanged = new UserChanged;
     this.userChanged.idgrupo = this.selected;
     this.userChanged.uid = this.uid;
-    this.dataService.deleteUserGrupos(this.userChanged).subscribe();
+    this.dataService.deleteUserGrupos(this.userChanged).subscribe(res=>{
+      if(res){
+        let i: number;
+        for (let index = 0; index <this.condos.length; index++) {
+          if(this.condos[index].idgrupo == this.selected ){
+            i = index;
+          }
+        }
+        this.condos[i] = undefined;
+      }
+    });
   }
 
 

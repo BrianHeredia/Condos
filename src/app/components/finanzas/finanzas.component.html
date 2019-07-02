@@ -28,7 +28,7 @@
   <div *ngFor="let recibo of recibos; index as i" class="tarjeta" id="recibo">
     <div id="nameDate">
       <p id="contenido">Fecha: {{recibos[i].date}} </p> 
-      <button id="payment" (click)="selectRecibo(recibos[i].id)" (click)="openModal('pay')">Pagar</button>
+      <button id="payment" *ngIf="recibos[i].pagado == 0" (click)="selectRecibo(recibos[i].id)" (click)="openModal('pay')">Pagar</button>
     </div>
       <p class="monto"id="pago">Bs. {{recibos[i].monto}}</p>
   </div>
@@ -56,7 +56,7 @@
           <option value="3">Mercantil</option>
           <option value="4">Banplus</option>
         </select>
-        Monto: <br> <input type="text" formControlName="monto" >
+        Monto: <br> <input type="text"  placeholder="0.00" (keyup)="format(this.pago.value.monto)" formControlName="monto" >
         Fecha: <br> <input type="date" formControlName="date">
         <button class="button" id="confirm"   [disabled]="pago.invalid"  (click)="this.confirmPayment('pay')">Confirmar</button>
     </form>

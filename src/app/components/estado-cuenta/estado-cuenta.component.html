@@ -70,9 +70,9 @@
     <div class="empty"> </div>
   </header>
   <form [formGroup]="gasto">
-    Monto: <br> <input type="text" formControlName="monto">
+    Monto: <br> <input type="text" placeholder="0.00" (keyup)="format(this.gasto.value.monto)" formControlName="monto">
     Descripción: <br> <input type="text"  formControlName="desc">
     Fecha: <br> <input type="date" formControlName="date">
-    <button class="button" id="confirm" (click)="this.confirmGasto('gasto')">Confirmar</button>
+    <button class="button"  [disabled]="gasto.invalid" id="confirm" (click)="this.confirmGasto('gasto')">Confirmar</button>
   </form>
 </jw-modal>

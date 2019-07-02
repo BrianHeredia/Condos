@@ -25,7 +25,7 @@
     <form [formGroup]="propuesta">
         Título: <br> <input type="text" formControlName="titulo">
         Descripción: <br> <textarea class="textin" id="textbox" formControlName="descripcion"> </textarea>
-        Presupuesto: <br> <input type="text" formControlName="presupuesto" >
+        Presupuesto: <br> <input type="text" placeholder="0.00" (keyup)="format(this.propuesta.value.presupuesto)" formControlName="presupuesto" >
         <button class="button" id="confirm"   [disabled]="propuesta.invalid"  (click)="this.addPropuesta('add')">Crear</button>
     </form>
   </jw-modal>

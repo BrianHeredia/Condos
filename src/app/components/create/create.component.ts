@@ -42,12 +42,33 @@ export class CreateComponent implements OnInit {
     })
     this.groupUser = this.fb.group({
       alicuota: ['', [
-        Validators.required
+        Validators.required,
+        Validators.pattern("^[0-9](\.[0-9]+)?$")
       ]],
       unidad: ['', [
         Validators.required
       ]]
     })
+  }
+
+  format(str: string){
+    if(str.length == 1){
+      this.groupUser.get('alicuota').setValue('0.0'+str);
+    }
+    if(str.slice(1,2) == '.' && str.slice(0,1) == '0' && str.length > 4){
+      var str1: string;
+      str1 = str.slice(2);
+      str1 = str1.slice(0,1) + '.' + str1.slice(1);
+      this.groupUser.get('alicuota').setValue(str1);
+    }
+    if(str.length > 4 && str.slice(0,1) != '0'){
+      this.groupUser.get('alicuota').setValue(str.slice(0,4));
+    }
+    if(str.length == 3){
+      var str2: string;
+      str2 = '0.' + str.slice(0,1) + str.slice(2);
+      this.groupUser.get('alicuota').setValue(str2);
+    }
   }
 
   ToDataBase() {
@@ -57,29 +78,12 @@ export class CreateComponent implements OnInit {
     this.dataService.userGroup.uid = localStorage.currentUserID;
     this.dataService.addGrupo(this.group.value).subscribe((group)=>{
       this.dataService.userGroup.idgrupo = group.idgrupo;
+        if( group ){
+          localStorage.joinGroup = group;
+        }
       this.dataService.addUserGrupos(this.dataService.userGroup).subscribe();
     });
     this.router.navigate(['/'+this.uid]);
   }
 
-
-  get email() {
-    return this.groupUser.get('alicuota');
-  }
-
-  get password() {
-    return this.groupUser.get('unidad');
-  }
-
-  get first() {
-    return this.group.get('nombre');
-  }
-
-  get last() {
-    return this.group.get('direccion');
-  }
-
-  get cedula() {
-    return this.group.get('codigo');
-  }
 }

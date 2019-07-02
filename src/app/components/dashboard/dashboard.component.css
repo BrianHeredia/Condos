@@ -3,6 +3,10 @@
     margin: 1rem;
 }
 
+h1{
+    margin: 2em;
+}
+
 .buttons{
     display: flex;
     flex-direction: column;

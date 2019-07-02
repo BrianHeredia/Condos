@@ -52,33 +52,12 @@ export class DataService {
   }
   
   //Métodos http para Usuarios
-  /*
-  getUsuarios (): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(this.usuariosUrl)
-  }
-
-  getUsuario(cedula: number): Observable<Usuario> {
-    const url = `${this.usuariosUrl}/${cedula}`;
-    return this.http.get<Usuario>(url);
-  }
-*/
+  
 
   addUsuario (usuario: Usuario): Observable<Usuario> {
     const body = JSON.stringify(usuario);
     return this.http.post<Usuario>(this.usuariosUrl, body, httpOptions);
   }
-/*
-  deleteUsuario (usuario: Usuario | number): Observable<Usuario> {
-    const cedula = typeof usuario === 'number' ? usuario : usuario.cedula;
-    const url = `${this.usuariosUrl}/${cgastoedula}`;
-
-    return this.http.delete<Usuario>(url, httpOptions);
-  }
-
-  updateUsuario (usuario: Usuario): Observable<any> {
-    return this.http.put(this.usuariosUrl, usuario, httpOptions);
-  }
-*/
   //Métodos http para Grupos
 
   getGrupoByID(idgrupo: number): Observable<Grupo> {

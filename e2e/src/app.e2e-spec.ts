@@ -1,23 +1,22 @@
-import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { LoginPage } from './login.po';
+import { browser, logging, element, by } from 'protractor';
 
-describe('workspace-project App', () => {
-  let page: AppPage;
+
+describe('login E2E Test', () => {
+  let page: LoginPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new LoginPage();
   });
 
-  it('should display welcome message', () => {
+  it('should do login right', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to CondosApp!');
+    element(by.css('[routerLink="/login"]')).click();
+    page.inputEmail();
+    page.inputPassword();
+    element(by.css('[id="OK"]')).click().then(()=>{
+      expect(page.getH1()).toEqual('Tus condominios:');
+    });
   });
 
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
-  });
 });

@@ -43,7 +43,8 @@ export class EstadoCuentaComponent implements OnInit {
         Validators.required
       ]],
       monto: ['', [
-        Validators.required
+        Validators.required,
+        Validators.pattern("[-+]?[0-9]*[.]?[0-9]+")
       ]],
       date: ['', [
         Validators.required
@@ -94,6 +95,35 @@ export class EstadoCuentaComponent implements OnInit {
     this.Gasto.idgrupo = this.idgrupo;
     this.dataService.addGasto(this.Gasto).subscribe();
     this.closeModal(id);
+  }
+
+  format(str: string){
+    if(str.length == 1){
+      this.gasto.get('monto').setValue('0.0'+str);
+    }
+    if(str.slice(1,2) == '.' && str.slice(0,1) == '0' && str.length > 4){
+      var str1: string;
+      str1 = str.slice(2);
+      str1 = str1.slice(0,1) + '.' + str1.slice(1);
+      this.gasto.get('monto').setValue(str1);
+    }
+    if(str.length > 4 && str.slice(0,1) != '0'){
+      var str3: string;
+      str3 =  str.slice(0,str.length-4) + str.slice(str.length-3);
+      str3 = str3.slice(0,str3.length-2)+ '.' + str3.slice(str3.length-2);
+      this.gasto.get('monto').setValue(str3);
+    }
+    if(str.slice(str.length-2,str.length-1) == '.'){
+      var str4: string;
+      str4 = str.slice(0,str.length-2) + str.slice(str.length-1);
+      str4 = str4.slice(0,str4.length-2)+ '.' + str4.slice(str4.length-2);
+      this.gasto.get('monto').setValue(str4);
+    }
+    if(str.length == 3){
+      var str2: string;
+      str2 = '0.' + str.slice(0,1) + str.slice(2);
+      this.gasto.get('monto').setValue(str2);
+    }
   }
   
   cierreMes(){

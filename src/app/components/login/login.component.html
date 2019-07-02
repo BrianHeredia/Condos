@@ -5,6 +5,7 @@
   <form > 
     E-mail: <br> <input class="textin" type="email" name="email" [(ngModel)]="email"> 
     Contraseña: <br> <input class="textin" type="password" name="contraseña" [(ngModel)]="password">
+    <p id="checking" >{{this.message}}</p>
     <button id="OK" (click)="onSubmitLogIn()">OK</button>
   </form>
   <p class="text">¿No tienes cuenta? <br> <a routerLink="/signup"> Registrate</a> </p>

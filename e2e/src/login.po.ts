@@ -13,8 +13,9 @@ export class LoginPage {
     element(by.css('[name="contraseña"]')).sendKeys('v12421226');
   }
 
-  getH1(){
-    return element(by.css('app-dashboard h1')).getText();
+  async getMessage(){
+    await element(by.css('[id="OK"]')).click();
+    return element(by.css('[id="checking"]')).getText();
   }
 
 

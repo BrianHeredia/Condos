@@ -2,7 +2,7 @@ import { browser, by, element } from 'protractor';
 
 export class LoginPage {
   navigateTo() {
-    return browser.get(browser.baseUrl) as Promise<any>;
+    return browser.get("/login") as Promise<any>;
   }
 
   inputEmail(){
@@ -13,9 +13,11 @@ export class LoginPage {
     element(by.css('[name="contraseña"]')).sendKeys('v12421226');
   }
 
-  async getMessage(){
-    await element(by.css('[id="OK"]')).click();
-    return element(by.css('[id="checking"]')).getText();
+   getMessage(){
+      element(by.css('[id="OK"]')).click().then(()=>{
+        return element(by.css('[id="checking"]')).getText();
+      });
+      
   }
 
 

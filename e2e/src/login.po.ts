@@ -6,16 +6,19 @@ export class LoginPage {
   }
 
   inputEmail(){
-    element(by.css(' [name="email"] ')).sendKeys('brianheredia@gmail.com');
+    element(by.name('email')).sendKeys('brianheredia@gmail.com');
   }
 
   inputPassword(){
-    element(by.css('[name="contraseña"]')).sendKeys('v12421226');
-  }
+    element(by.name('contraseña')).sendKeys('v12421226');
+  } 
 
    getMessage(){
-      element(by.css('[id="OK"]')).click().then(()=>{
-        return element(by.css('[id="checking"]')).getText();
+      element(by.id('OK')).click().then(()=>{
+        browser.waitForAngular();
+        const checking = element(by.id('condos'));
+        browser.waitForAngular();
+        return checking.getText();
       });
       
   }

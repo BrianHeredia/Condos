@@ -26,12 +26,9 @@ export class LoginComponent implements OnInit {
   }
   
   async onSubmitLogIn(){
-    
+    this.message = 'Has inicado sesión correctamente!';
     await this.authService.loginEmail(this.email, this.password)
     .then((res)=>{
-      if(res){
-         this.message = 'Has inicado sesión correctamente!';
-      }
       this.flashMensaje.show('Bienvenido a Condos',
       {cssClass: '', timeout: 3000});
       this.router.navigate(['/'+res]);

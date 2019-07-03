@@ -11,7 +11,6 @@ describe('login E2E Test', () => {
 
    it('should do login right', () => {
     page.navigateTo();
-    element(by.css('[routerLink="/login"]')).click();
     page.inputEmail();
     page.inputPassword();
     expect(page.getMessage()).toEqual('Has inicado sesión correctamente!');

@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   }
   
   async onSubmitLogIn(){
-    this.message = 'Has inicado sesión correctamente!';
+    this.message = 'OK';
     await this.authService.loginEmail(this.email, this.password)
     .then((res)=>{
       this.flashMensaje.show('Bienvenido a Condos',

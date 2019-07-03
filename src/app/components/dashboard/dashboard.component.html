@@ -3,6 +3,7 @@
     <img class="logo" src="../../../assets/icons/Condo.png" alt="logo" >
     <a routerLink="/" (click)="onClickLogout()"> <img src="../../../assets/icons/icons8-salida-32.png" alt="logout"></a>
   </header>
+  <h1 id="condos">Condominios</h1>
   <div class="nogroup" *ngIf="this.condos.length == 0">No pertences a ningún grupo aún, crea uno o únete a uno en el botón <span>+</span> </div>
   <div *ngIf="this.condos.length > 0" class="tarjetero">
     <div *ngFor="let condo of condos; index as i" >

@@ -26,9 +26,10 @@ export class LoginComponent implements OnInit {
   }
   
   async onSubmitLogIn(){
-    this.message = 'OK';
+    
     await this.authService.loginEmail(this.email, this.password)
     .then((res)=>{
+      this.message = 'OK';
       this.flashMensaje.show('Bienvenido a Condos',
       {cssClass: '', timeout: 3000});
       this.router.navigate(['/'+res]);

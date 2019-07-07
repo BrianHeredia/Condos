@@ -13,7 +13,7 @@ describe('login E2E Test', () => {
     page.navigateTo();
     page.inputEmail();
     page.inputPassword();
-    expect(page.getMessage()).toEqual(undefined);
+    expect(page.getMessage()).toEqual("OK");
   });
 
 });

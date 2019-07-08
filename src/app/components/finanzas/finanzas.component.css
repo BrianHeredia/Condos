@@ -46,11 +46,8 @@
 }
 
 #payment{
-    display: flex;           
-    flex-direction: column;  
-    justify-content: center; 
-    align-items: center; 
     height: 30px;
+    width: 280px;
     color: #eeeeee;
     padding-left: 5px;
     padding-right: 5px;
@@ -108,13 +105,18 @@ select::-ms-expand {
 select option {
     font-weight:normal;
 }
+
 @media screen and (max-width:505px){
     #payment{
-        width: 280px;
+       width: 100px;
     }
 
     #pay{
         zoom: 80%;
+    }
+
+    #money{
+        font-size: 36px;
     }
 
 }

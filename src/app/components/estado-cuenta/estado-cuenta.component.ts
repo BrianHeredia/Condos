@@ -5,6 +5,7 @@ import { Gasto } from '../../models/gasto';
 import { Recibos } from '../../models/recibos';
 import { DataService } from '../../services/data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-estado-cuenta',
@@ -25,11 +26,16 @@ export class EstadoCuentaComponent implements OnInit {
   private balance;
   private positivo: boolean = true;
   private admin: boolean = false;
+  private selectedMonth;
+  private selectedYear;
+  private currentYear;
+  private lastYear;
   constructor(
     private route: ActivatedRoute,
     public modalService: ModalService,
     private dataService: DataService,
-    private fb : FormBuilder
+    private fb : FormBuilder,
+    public router: Router
   ) { }
 
   ngOnInit() {
@@ -38,6 +44,9 @@ export class EstadoCuentaComponent implements OnInit {
     this.dataService.getUserGrupo(this.idgrupo).subscribe( user =>{
       this.admin = user.admin;
     });
+    const fecha = new Date();
+    this.currentYear = fecha.getFullYear();
+    this.lastYear = this.currentYear - 1;
     this.gasto = this.fb.group({
       desc: ['', [
         Validators.required
@@ -46,8 +55,12 @@ export class EstadoCuentaComponent implements OnInit {
         Validators.required,
         Validators.pattern("[-+]?[0-9]*[.]?[0-9]+")
       ]],
-      date: ['', [
+      month: ['', [
         Validators.required
+      ]],
+      year: ['', [
+        Validators.required,
+
       ]]
     });
     this.mes = this.fb.group({
@@ -63,15 +76,27 @@ export class EstadoCuentaComponent implements OnInit {
     this.modalService.close(id);
   }
 
+  selectedYM(){
+    const fecha = new Date();
+    this.selectedMonth = parseInt(this.mes.value.month);
+    console.log(this.selectedMonth);
+    if(fecha.getMonth() + 1 >= this.selectedMonth){
+      this.selectedYear = fecha.getFullYear();
+    }else{
+      this.selectedYear = fecha.getFullYear() - 1;
+    }
+    console.log(this.selectedYear);
+  }
+
   getEntradas(){
-    this.dataService.getPagos(this.idgrupo,this.mes.value.month).subscribe(pagos =>{
+    this.dataService.getPagos(this.idgrupo,this.mes.value.month,this.selectedYear).subscribe(pagos =>{
       this.pagos = pagos;
       console.log(pagos);
       this.pagosTotal = 0;
       for (let index = 0; index < this.pagos.length; index++) {
         this.pagosTotal = this.pagosTotal + parseFloat(this.pagos[index].monto);
         }
-      this.dataService.getGastos(this.idgrupo,this.mes.value.month).subscribe( gastos=>{
+      this.dataService.getGastos(this.idgrupo,this.selectedMonth,this.selectedYear).subscribe( gastos=>{
         this.gastos = gastos;
         console.log(gastos);
         this.gastosTotal = 0;
@@ -93,7 +118,20 @@ export class EstadoCuentaComponent implements OnInit {
     this.Gasto = this.gasto.value;
     this.Gasto.uid = this.uid;
     this.Gasto.idgrupo = this.idgrupo;
-    this.dataService.addGasto(this.Gasto).subscribe();
+    this.dataService.addGasto(this.Gasto).subscribe((res)=>{
+      console.log('res:', res);
+      console.log('this.mes.value.month',this.mes.value.month);
+      console.log('this.Gasto.month', this.Gasto.month);
+      if(res && parseInt(this.mes.value.month) == this.Gasto.month){
+        this.gastos.push(res);
+        this.balance = this.balance - parseInt(res.monto);
+        if(this.balance < 0){
+          this.positivo = false;
+        }else{
+          this.positivo = true;
+        }
+      }
+    });
     this.closeModal(id);
   }
 
@@ -131,21 +169,6 @@ export class EstadoCuentaComponent implements OnInit {
     this.dataService.getUserAlicuota(this.idgrupo).subscribe(users=>{
       console.log(users);
       usuarios = users;
-      var mes; var año; var dia;
-      const fecha = new Date();
-      if((fecha.getMonth())<10){
-         mes = '0' + (fecha.getMonth()).toString();
-      }else if((fecha.getMonth()) == 0){
-        mes = '12';
-      }else{
-         mes = (fecha.getMonth()).toString();
-      }if((fecha.getDate())<10){
-         dia = '0' + (fecha.getDate()).toString();
-      }else{
-         dia = (fecha.getDate()).toString();
-      }
-      año = fecha.getFullYear().toString();
-      const date  = año+'-'+mes+'-'+dia;
       this.recibos = new Array(usuarios.length);
       for (let index = 0; index < usuarios.length; index++) {
         this.recibos[index] = new Recibos;
@@ -154,11 +177,16 @@ export class EstadoCuentaComponent implements OnInit {
       for (let index = 0; index < usuarios.length; index++) {
         this.recibos[index].uid = usuarios[index].usuarioUid;
         this.recibos[index].monto = (this.gastosTotal * (parseFloat(usuarios[index].alicuota)/100)).toFixed(2);
-        this.recibos[index].date = date;
+        this.recibos[index].month = this.selectedMonth;
+        this.recibos[index].year = this.selectedYear;
       }
       console.log(this.recibos);
       for (let index = 0; index < this.recibos.length; index++) {
-        this.dataService.addRecibos(this.recibos[index]).subscribe();
+        this.dataService.addRecibos(this.recibos[index]).subscribe((res)=>{
+          if(res && (index == this.recibos.length - 1)){
+            this.router.navigate(['/'+this.uid+'/finanzas/'+this.idgrupo]);
+          }
+        });
       }
     });
   }

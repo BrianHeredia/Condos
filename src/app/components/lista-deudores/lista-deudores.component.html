@@ -6,7 +6,7 @@
 <div class="tarjetero">
 <h2>Lista del mes:</h2>
   <form [formGroup]="mes">
-    <select id="mes" formControlName="month" (change)="getEntradas()" >
+    <select id="mes" formControlName="month" (change)="selectedYM()" (change)="getEntradas()" >
       <option value="01">Enero</option>
       <option value="02">Febrero</option>
       <option value="03">Marzo</option>
@@ -22,15 +22,15 @@
     </select>
   </form>
 <div *ngFor="let persona of personas; index as i" class="tarjetero">
-    <div *ngIf="personas[i].monto != null" class="tarjeta" id="deuda">
+    <div *ngIf="personas[i].pagado == 1" class="tarjeta" id="deuda">
         <p id="contenido">{{personas[i].first}} {{personas[i].last}}</p>
         <p id="contenido">{{personas[i].unit}}</p>
-        <p class="monto" id="noDebt">{{personas[i].monto}}</p>
+        <p class="monto" id="noDebt">Pagado: {{personas[i].monto}}</p>
       </div>
-  <div *ngIf="personas[i].monto == null" class="tarjeta" id="deuda">
+  <div *ngIf="personas[i].pagado == 0" class="tarjeta" id="deuda">
     <p id="contenido">{{personas[i].first}} {{personas[i].last}}</p>
     <p id="contenido">{{personas[i].unit}}</p>
-    <p class="monto" id="debt">Por pagar</p>
+    <p class="monto" id="debt">Por pagar: {{personas[i].monto}}</p>
   </div>
 </div>
 </div>

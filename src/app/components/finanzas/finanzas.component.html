@@ -16,10 +16,10 @@
   </a>
   <h2 class="Title2">Deuda actual</h2>
   <div *ngIf="this.deudaActual == '0'" id="balanceVerde" class="tarjeta">
-      <h2 id="money">Bs. {{this.deudaActual}}</h2>
+      <h2 id="money">Bs. {{this.stringDeuda}}</h2>
   </div>
   <div *ngIf="this.deudaActual != '0'" id="balanceRojo" class="tarjeta">
-      <h2 id="money">Bs. {{this.deudaActual}}</h2>
+      <h2 id="money">Bs. {{this.stringDeuda}}</h2>
   </div>
   <h2 class="Title2">Mis Recibos recientes</h2>
   <div  class="tarjeta" id="no" *ngIf="recibos.length == 0">
@@ -27,10 +27,11 @@
   </div>
   <div *ngFor="let recibo of recibos; index as i" class="tarjeta" id="recibo">
     <div id="nameDate">
-      <p id="contenido">Fecha: {{recibos[i].date}} </p> 
-      <button id="payment" *ngIf="recibos[i].pagado == 0" (click)="selectRecibo(recibos[i].id)" (click)="openModal('pay')">Pagar</button>
+      <p id="contenido">Fecha: {{recibos[i].month}}/{{recibos[i].year}} </p> 
+      <button id="payment" *ngIf="recibos[i].pagado == 0" (click)="selectRecibo(recibos[i].id,i)" (click)="openModal('pay')">Pagar</button>
     </div>
-      <p class="monto"id="pago">Bs. {{recibos[i].monto}}</p>
+      <p class="monto" *ngIf="recibos[i].pagado == 1" id="pago">Bs. {{recibos[i].monto}}</p>
+      <p class="monto" *ngIf="recibos[i].pagado == 0" id="debt">Bs. {{recibos[i].monto}}</p>
   </div>
   <h2 class="Title2">Mis Pagos recientes</h2>
   <div  class="tarjeta" id="no" *ngIf="pagos.length == 0">

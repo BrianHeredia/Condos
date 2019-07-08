@@ -25,6 +25,8 @@ export class EstadoCuentaComponent implements OnInit {
   private balance;
   private positivo: boolean = true;
   private admin: boolean = false;
+  private selectedMonth;
+  private selectedYear;
   constructor(
     private route: ActivatedRoute,
     public modalService: ModalService,
@@ -46,7 +48,10 @@ export class EstadoCuentaComponent implements OnInit {
         Validators.required,
         Validators.pattern("[-+]?[0-9]*[.]?[0-9]+")
       ]],
-      date: ['', [
+      month: ['', [
+        Validators.required
+      ]],
+      year: ['', [
         Validators.required
       ]]
     });
@@ -63,15 +68,27 @@ export class EstadoCuentaComponent implements OnInit {
     this.modalService.close(id);
   }
 
+  selectedYM(){
+    const fecha = new Date();
+    this.selectedMonth = parseInt(this.mes.value.month);
+    console.log(this.selectedMonth);
+    if(fecha.getMonth() + 1 >= this.selectedMonth){
+      this.selectedYear = fecha.getFullYear();
+    }else{
+      this.selectedYear = fecha.getFullYear() - 1;
+    }
+    console.log(this.selectedYear);
+  }
+
   getEntradas(){
-    this.dataService.getPagos(this.idgrupo,this.mes.value.month).subscribe(pagos =>{
+    this.dataService.getPagos(this.idgrupo,this.mes.value.month,this.selectedYear).subscribe(pagos =>{
       this.pagos = pagos;
       console.log(pagos);
       this.pagosTotal = 0;
       for (let index = 0; index < this.pagos.length; index++) {
         this.pagosTotal = this.pagosTotal + parseFloat(this.pagos[index].monto);
         }
-      this.dataService.getGastos(this.idgrupo,this.mes.value.month).subscribe( gastos=>{
+      this.dataService.getGastos(this.idgrupo,this.selectedMonth,this.selectedYear).subscribe( gastos=>{
         this.gastos = gastos;
         console.log(gastos);
         this.gastosTotal = 0;
@@ -131,21 +148,6 @@ export class EstadoCuentaComponent implements OnInit {
     this.dataService.getUserAlicuota(this.idgrupo).subscribe(users=>{
       console.log(users);
       usuarios = users;
-      var mes; var año; var dia;
-      const fecha = new Date();
-      if((fecha.getMonth())<10){
-         mes = '0' + (fecha.getMonth()).toString();
-      }else if((fecha.getMonth()) == 0){
-        mes = '12';
-      }else{
-         mes = (fecha.getMonth()).toString();
-      }if((fecha.getDate())<10){
-         dia = '0' + (fecha.getDate()).toString();
-      }else{
-         dia = (fecha.getDate()).toString();
-      }
-      año = fecha.getFullYear().toString();
-      const date  = año+'-'+mes+'-'+dia;
       this.recibos = new Array(usuarios.length);
       for (let index = 0; index < usuarios.length; index++) {
         this.recibos[index] = new Recibos;
@@ -154,7 +156,8 @@ export class EstadoCuentaComponent implements OnInit {
       for (let index = 0; index < usuarios.length; index++) {
         this.recibos[index].uid = usuarios[index].usuarioUid;
         this.recibos[index].monto = (this.gastosTotal * (parseFloat(usuarios[index].alicuota)/100)).toFixed(2);
-        this.recibos[index].date = date;
+        this.recibos[index].month = this.selectedMonth;
+        this.recibos[index].year = this.selectedYear;
       }
       console.log(this.recibos);
       for (let index = 0; index < this.recibos.length; index++) {

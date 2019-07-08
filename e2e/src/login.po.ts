@@ -13,12 +13,11 @@ export class LoginPage {
     element(by.name('contraseña')).sendKeys('v12421226');
   } 
 
-   getMessage(){
-      element(by.id('OK')).click().then(()=>{
-        browser.waitForAngular();
-        const checking = element(by.id('condos'));
-        browser.waitForAngular();
-        return checking.getText();
+   async getMessage(){
+      await element(by.id('OK')).click().then(()=>{
+        browser.waitForAngular().then(()=>{
+            return element(by.id('checking')).getText();
+        });
       });
       
   }

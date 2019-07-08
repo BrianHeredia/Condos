@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { ModalService } from '../../services/modal.service';
 import { DataService } from '../../services/data.service';
 import { ActivatedRoute, Params} from '@angular/router';
-import { reject } from 'q';
 import { UserChanged } from '../../models/userChanged';
 
 @Component({
@@ -14,9 +13,12 @@ import { UserChanged } from '../../models/userChanged';
 })
 export class DashboardComponent implements OnInit {
   
+  
+
   private uid;
   private userChanged: UserChanged;
   private condos = [];
+  private selected: number;
   constructor(
     public authService: AuthService,
     private route: ActivatedRoute,
@@ -29,7 +31,12 @@ export class DashboardComponent implements OnInit {
     this.uid = this.route.snapshot.params['uid'];
     this.dataService.getUserGrupos().subscribe(condos=>{
       this.condos = condos;
+      console.log(this.condos);
     });
+    if(localStorage.joinGroup != undefined){
+      this.condos.push(localStorage.joinGroup); 
+      localStorage.joinGroup = undefined;
+    }
   }
 
   onClickLogout(){
@@ -37,11 +44,25 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  deleteFromGroup(idgrupo: number){
+  selectedCondo(s: number){
+    this.selected = s;
+  }
+
+  deleteFromGroup(){
     this.userChanged = new UserChanged;
-    this.userChanged.idgrupo = idgrupo;
+    this.userChanged.idgrupo = this.selected;
     this.userChanged.uid = this.uid;
-    this.dataService.deleteUserGrupos(this.userChanged).subscribe();
+    this.dataService.deleteUserGrupos(this.userChanged).subscribe(res=>{
+      if(res){
+        let i: number;
+        for (let index = 0; index <this.condos.length; index++) {
+          if(this.condos[index].idgrupo == this.selected ){
+            i = index;
+          }
+        }
+        this.condos[i] = undefined;
+      }
+    });
   }
 
 

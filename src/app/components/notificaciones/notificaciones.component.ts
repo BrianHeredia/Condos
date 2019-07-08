@@ -63,7 +63,11 @@ export class NotificacionesComponent implements OnInit {
     this.Notificacion.idgrupo = this.idgrupo;
     this.Notificacion.uid = this.uid;  
     console.log(this.Notificacion); 
-    this.dataService.addNotificaciones(this.Notificacion).subscribe();
+    this.dataService.addNotificaciones(this.Notificacion).subscribe( res => {
+      if( res ){
+        this.notificaciones.push(res); 
+      }
+    });
     this.closeModal(id);
   }
 

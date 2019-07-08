@@ -13,6 +13,7 @@ import { DataService } from '../../services/data.service';
 export class LoginComponent implements OnInit {
   public email: string;
   public password: string;
+  private message: string = '';
   constructor(
     public authService: AuthService,
     public router: Router,
@@ -23,10 +24,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
   }
-  onSubmitLogIn(){
+  
+  async onSubmitLogIn(){
     
-    this.authService.loginEmail(this.email, this.password)
+    await this.authService.loginEmail(this.email, this.password)
     .then((res)=>{
+      this.message = 'OK';
       this.flashMensaje.show('Bienvenido a Condos',
       {cssClass: '', timeout: 3000});
       this.router.navigate(['/'+res]);

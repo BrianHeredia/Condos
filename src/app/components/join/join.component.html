@@ -3,16 +3,15 @@
   <h2 class="Title2">Unirse a un Grupo</h2>
   <div class="empty"> </div>
 </header>
-
 <form class="container"  [formGroup]="join">
   Código: <input class="textin" type="text" formControlName="codigo">
   <p id="texto">Pregúntale a un miembro de tu Junta de Condominio o Asociación de Vecinos el código del grupo</p> 
   <h2>Agrega tu información de residente:</h2>
-  Alícuota: <br> <input class="textin" type="text"  formControlName="alicuota">
-  <p >Ingresa la alícuota correspondiente a tu unidad residencial</p>
-  Unidad: <br> <input class="textin" type="text"  formControlName="unit">
+  Alícuota: <br> <input class="textin" type="text" placeholder="0.00" formControlName="alicuota" (keyup)="format(this.join.value.alicuota)">
+  <p >Ingresa la alícuota correspondiente a tu unidad residencial (porcentaje que pagas del total del condominio)</p>
+  Unidad: <br> <input class="textin" type="text" placeholder="Ejs: A-43, Quinta Jasmin" formControlName="unit">
   <p >Aquí debes ingresar el numero de apartamento/casa de manera de poder distingirla con las demás</p>
-  <button (click)="ToDataBase()" id="OK">OK</button>
+  <button (click)="ToDataBase()" [disabled]="join.invalid" id="OK">OK</button>
 </form>
 
    

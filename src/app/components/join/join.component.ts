@@ -29,12 +29,33 @@ export class JoinComponent implements OnInit {
         Validators.required
       ]],
       alicuota: ['', [
-        Validators.required
+        Validators.required,
+        Validators.pattern("^[0-9](\.[0-9]+)?$")
       ]],
       unit: ['', [
         Validators.required
       ]]
     });
+  }
+
+  format(str: string){
+    if(str.length == 1){
+      this.join.get('alicuota').setValue('0.0'+str);
+    }
+    if(str.slice(1,2) == '.' && str.slice(0,1) == '0' && str.length > 4){
+      var str1: string;
+      str1 = str.slice(2);
+      str1 = str1.slice(0,1) + '.' + str1.slice(1);
+      this.join.get('alicuota').setValue(str1);
+    }
+    if(str.length > 4 && str.slice(0,1) != '0'){
+      this.join.get('alicuota').setValue(str.slice(0,4));
+    }
+    if(str.length == 3){
+      var str2: string;
+      str2 = '0.' + str.slice(0,1) + str.slice(2);
+      this.join.get('alicuota').setValue(str2);
+    }
   }
 
   ToDataBase() {
@@ -43,19 +64,10 @@ export class JoinComponent implements OnInit {
     this.dataService.userGroup.alicuota = this.join.value.alicuota;
     this.dataService.userGroup.unit = this.join.value.unit;
     this.dataService.userGroup.uid = localStorage.currentUserID;
-    this.dataService.joinGroup(this.dataService.userGroup).subscribe();
-    this.router.navigate(['/'+this.uid]);
-  }
-
-  get alicuota() {
-    return this.join.get('alicuota');
-  }
-
-  get unit() {
-    return this.join.get('unit');
-  }
-
-  get codigo() {
-    return this.join.get('nombre');
+    this.dataService.joinGroup(this.dataService.userGroup).subscribe( res => {
+      if( res ){
+        this.router.navigate(['/'+this.uid]);
+      }
+    });
   }
 }

@@ -72,7 +72,10 @@
   <form [formGroup]="gasto">
     Monto: <br> <input type="text" placeholder="0.00" (keyup)="format(this.gasto.value.monto)" formControlName="monto">
     Descripción: <br> <input type="text"  formControlName="desc">
-    Año: <br> <input type="text" formControlName="year">
+    Año: <select id="mes" formControlName="year">
+      <option value="{{this.lastYear}}">{{this.lastYear}}</option>
+      <option value="{{this.currentYear}}">{{this.currentYear}}</option>
+    </select>
     Mes: <select id="mes" formControlName="month">
       <option value="1">Enero</option>
       <option value="2">Febrero</option>

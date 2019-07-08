@@ -20,8 +20,10 @@ export class FinanzasComponent implements OnInit {
   private recibos = [];
   private pagos = [];
   private currentPago;
+  private currentRecibo;
   private idRecibo: Recibos;
   private deudaActual: number;
+  private stringDeuda: string;
   constructor(
     private route: ActivatedRoute,
     public modalService: ModalService,
@@ -98,9 +100,12 @@ export class FinanzasComponent implements OnInit {
     this.idRecibo.id = this.currentPago;
     this.dataService.addPago(this.Pago).subscribe(pago =>{
       if( pago ){
-        this.pagos.push(pago); 
-      }
-      this.dataService.updateRecibo(this.idRecibo).subscribe();
+        this.pagos.push(pago);
+        this.recibos[this.currentRecibo].pagado = 1;
+        this.deudaActual = this.deudaActual - parseFloat(this.recibos[this.currentRecibo].monto); 
+        this.stringDeuda = this.deudaActual.toFixed(2);
+        this.dataService.updateRecibo(this.idRecibo).subscribe();
+      }  
     });
     this.closeModal(id);
   }
@@ -114,7 +119,7 @@ export class FinanzasComponent implements OnInit {
           this.deudaActual = this.deudaActual + parseFloat(this.recibos[index].monto);
         }
       }
-      this.deudaActual.toFixed(2);
+      this.stringDeuda = this.deudaActual.toFixed(2);
     });
   }
 
@@ -124,8 +129,9 @@ export class FinanzasComponent implements OnInit {
     });
   }
 
-  selectRecibo(id: number){
+  selectRecibo(id: number, index: number){
     this.currentPago = id;
+    this.currentRecibo = index;
   }
 
 }

@@ -5,6 +5,7 @@ import { Gasto } from '../../models/gasto';
 import { Recibos } from '../../models/recibos';
 import { DataService } from '../../services/data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-estado-cuenta',
@@ -27,11 +28,14 @@ export class EstadoCuentaComponent implements OnInit {
   private admin: boolean = false;
   private selectedMonth;
   private selectedYear;
+  private currentYear;
+  private lastYear;
   constructor(
     private route: ActivatedRoute,
     public modalService: ModalService,
     private dataService: DataService,
-    private fb : FormBuilder
+    private fb : FormBuilder,
+    public router: Router
   ) { }
 
   ngOnInit() {
@@ -40,6 +44,9 @@ export class EstadoCuentaComponent implements OnInit {
     this.dataService.getUserGrupo(this.idgrupo).subscribe( user =>{
       this.admin = user.admin;
     });
+    const fecha = new Date();
+    this.currentYear = fecha.getFullYear();
+    this.lastYear = this.currentYear - 1;
     this.gasto = this.fb.group({
       desc: ['', [
         Validators.required
@@ -52,7 +59,8 @@ export class EstadoCuentaComponent implements OnInit {
         Validators.required
       ]],
       year: ['', [
-        Validators.required
+        Validators.required,
+
       ]]
     });
     this.mes = this.fb.group({
@@ -110,7 +118,20 @@ export class EstadoCuentaComponent implements OnInit {
     this.Gasto = this.gasto.value;
     this.Gasto.uid = this.uid;
     this.Gasto.idgrupo = this.idgrupo;
-    this.dataService.addGasto(this.Gasto).subscribe();
+    this.dataService.addGasto(this.Gasto).subscribe((res)=>{
+      console.log('res:', res);
+      console.log('this.mes.value.month',this.mes.value.month);
+      console.log('this.Gasto.month', this.Gasto.month);
+      if(res && parseInt(this.mes.value.month) == this.Gasto.month){
+        this.gastos.push(res);
+        this.balance = this.balance - parseInt(res.monto);
+        if(this.balance < 0){
+          this.positivo = false;
+        }else{
+          this.positivo = true;
+        }
+      }
+    });
     this.closeModal(id);
   }
 
@@ -161,7 +182,11 @@ export class EstadoCuentaComponent implements OnInit {
       }
       console.log(this.recibos);
       for (let index = 0; index < this.recibos.length; index++) {
-        this.dataService.addRecibos(this.recibos[index]).subscribe();
+        this.dataService.addRecibos(this.recibos[index]).subscribe((res)=>{
+          if(res && (index == this.recibos.length - 1)){
+            this.router.navigate(['/'+this.uid+'/finanzas/'+this.idgrupo]);
+          }
+        });
       }
     });
   }

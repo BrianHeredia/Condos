@@ -28,7 +28,6 @@ export class DataService {
   private usuarioGrupoUrl = 'http://localhost:3000/api/user_grupo';  // URL to web api
   private personasUrl = 'http://localhost:3000/api/personas';  // URL to web api
   private pagosUrl = 'http://localhost:3000/api/pagos';  // URL to web api
-  private pagosUserUrl = 'http://localhost:3000/api/pagos/user';  // URL to web api
   private gastosUrl = 'http://localhost:3000/api/gastos';  // URL to web api
   private deudoresUrl = 'http://localhost:3000/api/deudores';  // URL to web api
   private recibosUrl = 'http://localhost:3000/api/recibos';  // URL to web api
@@ -120,13 +119,13 @@ export class DataService {
     return this.http.post<Pago>(this.pagosUrl, body, httpOptions);
   }
 
-  getPagos(idgrupo: number, mes: number): Observable<Pago[]> {
-    const url = `${this.pagosUrl}/${idgrupo}/${mes}`;
+  getPagos(idgrupo: number, mes: number, año: number): Observable<Pago[]> {
+    const url = `${this.pagosUrl}/${idgrupo}/${mes}/${año}`;
     return this.http.get<Pago[]>(url);
   }
 
   getPagosUser(idgrupo: number, uid: string):Observable<Pago[]>{
-    const url = `${this.pagosUserUrl}/${idgrupo}/${uid}`;
+    const url = `${this.pagosUrl}/${idgrupo}/${uid}`;
     return this.http.get<Pago[]>(url);
   }
 
@@ -137,13 +136,13 @@ export class DataService {
     return this.http.post<Pago>(this.gastosUrl , body, httpOptions);
   }
 
-  getGastos(idgrupo: number, mes: number): Observable<Gasto[]> {
-    const url = `${this.gastosUrl}/${idgrupo}/${mes}`;
+  getGastos(idgrupo: number, mes: number, año: number): Observable<Gasto[]> {
+    const url = `${this.gastosUrl}/${idgrupo}/${mes}/${año}`;
     return this.http.get<Gasto[]>(url);
   }
 
-  getDeudores(idgrupo: number, mes: number): Observable<PagoUser[]> {
-    const url = `${this.deudoresUrl}/${idgrupo}/${mes}`;
+  getDeudores(idgrupo: number, mes: number, year: number): Observable<PagoUser[]> {
+    const url = `${this.deudoresUrl}/${idgrupo}/${mes}/${year}`;
     return this.http.get<PagoUser[]>(url);
   }
 

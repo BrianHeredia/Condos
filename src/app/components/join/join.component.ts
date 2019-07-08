@@ -66,10 +66,8 @@ export class JoinComponent implements OnInit {
     this.dataService.userGroup.uid = localStorage.currentUserID;
     this.dataService.joinGroup(this.dataService.userGroup).subscribe( res => {
       if( res ){
-        localStorage.joinGroup = res;
+        this.router.navigate(['/'+this.uid]);
       }
     });
-    this.router.navigate(['/'+this.uid]);
   }
-
 }

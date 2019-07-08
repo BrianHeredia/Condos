@@ -14,6 +14,8 @@ export class ListaDeudoresComponent implements OnInit {
   private idgrupo;
   private uid;
   private mes: FormGroup;
+  private selectedMonth;
+  private selectedYear;
   private personas = [];
   constructor(
     private route: ActivatedRoute,
@@ -31,10 +33,22 @@ export class ListaDeudoresComponent implements OnInit {
   }
 
   getEntradas(){
-    this.dataService.getDeudores(this.idgrupo, this.mes.value.month).subscribe( array =>{
+    this.dataService.getDeudores(this.idgrupo, this.selectedMonth, this.selectedYear).subscribe( array =>{
       this.personas = array;
       console.log(array);
     });
+  }
+
+  selectedYM(){
+    const fecha = new Date();
+    this.selectedMonth = parseInt(this.mes.value.month);
+    console.log(this.selectedMonth);
+    if(fecha.getMonth() + 1 >= this.selectedMonth){
+      this.selectedYear = fecha.getFullYear();
+    }else{
+      this.selectedYear = fecha.getFullYear() - 1;
+    }
+    console.log(this.selectedYear);
   }
 
   openModal(id: string) {

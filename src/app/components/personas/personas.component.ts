@@ -107,19 +107,24 @@ export class PersonasComponent implements OnInit {
     this.userChanged.uid = uid;
     this.userChanged.admin = (!admin);
     this.userChanged.idgrupo = idgrupo;
-    console.log(this.userChanged);
   }
 
   move(id: string){
-    this.dataService.updateUserGrupos(this.userChanged).subscribe();
+    this.dataService.updateUserGrupos(this.userChanged).subscribe((res)=>{
+      if(res){
+        this.router.navigate(['/'+this.uid+'/menu/'+this.idgrupo]);
+      }
+    });
     this.closeModal(id);
-    this.ngOnInit();
   }
 
   delete(id: string){
-    this.dataService.deleteUserGrupos(this.userChanged).subscribe();
+    this.dataService.deleteUserGrupos(this.userChanged).subscribe((res)=>{
+      if(res){
+        this.router.navigate(['/'+this.uid+'/menu/'+this.idgrupo]);
+      }
+    });
     this.closeModal(id);
-    this.ngOnInit();
   }
   
 }

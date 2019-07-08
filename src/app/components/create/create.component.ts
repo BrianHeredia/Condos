@@ -81,9 +81,13 @@ export class CreateComponent implements OnInit {
         if( group ){
           localStorage.joinGroup = group;
         }
-      this.dataService.addUserGrupos(this.dataService.userGroup).subscribe();
+      this.dataService.addUserGrupos(this.dataService.userGroup).subscribe((group)=>{
+        this.dataService.userGroup.idgrupo = group.idgrupo;
+          if( group ){
+            this.router.navigate(['/'+this.uid]);
+          }
+        });
     });
-    this.router.navigate(['/'+this.uid]);
   }
 
 }

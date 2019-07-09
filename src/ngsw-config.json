@@ -6,7 +6,7 @@
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/favicon.png",
+          "/assets/icons/condoslogo.png",
           "/index.html",
           "/*.css",
           "/*.js"

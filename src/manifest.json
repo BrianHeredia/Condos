@@ -7,6 +7,6 @@
   "scope": "/",
   "start_url": "/",
   "icons": [
-    "src/favicon.png"
+    "src/assets/icons/condoslogo.png"
     ]
 }

@@ -1,5 +1,5 @@
 export class Propuesta {
-    decripcion?: string;
+    descripcion?: string;
     titulo?: string;
     presupuesto?: string;
     uid?: string;

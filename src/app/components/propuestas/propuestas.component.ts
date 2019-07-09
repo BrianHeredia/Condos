@@ -13,22 +13,22 @@ import { DataService } from '../../services/data.service';
 })
 export class PropuestasComponent implements OnInit {
 
-  private idgrupo;
-  private uid;
-  private propuesta: FormGroup;
-  private Propuesta: Propuesta;
-  private pro: Propuesta;
-  private propuestas = [];
-  private liked: Like;
-  private admin: boolean = false;
-  private isLiked: boolean = false;
-  private likes: number;
-  private dislikes: number;
+  public idgrupo;
+  public uid;
+  public propuesta: FormGroup;
+  public Propuesta: Propuesta;
+  public pro: Propuesta;
+  public propuestas = [];
+  public liked: Like;
+  public admin: boolean = false;
+  public isLiked: boolean = false;
+  public likes: number;
+  public dislikes: number;
   constructor(
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     public modalService: ModalService,
-    private fb: FormBuilder,
-    private dataService: DataService
+    public fb: FormBuilder,
+    public dataService: DataService
   ) { }
 
   async ngOnInit() {

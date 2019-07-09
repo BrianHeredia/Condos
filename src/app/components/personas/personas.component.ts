@@ -13,16 +13,16 @@ import { UserChanged } from '../../models/userChanged';
 })
 export class PersonasComponent implements OnInit {
 
-  private usuarios = [];
-  private admins = [];
-  private residentes = [];
-  private idgrupo;
-  private userChanged: UserChanged;
-  private uid;
-  private isadmin: boolean;
+  public usuarios = [];
+  public admins = [];
+  public residentes = [];
+  public idgrupo;
+  public userChanged: UserChanged;
+  public uid;
+  public isadmin: boolean;
   constructor(
     public authService: AuthService,
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     public router: Router,
     public modalService: ModalService,
     public dataService: DataService

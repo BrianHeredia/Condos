@@ -12,14 +12,14 @@ import { UsuarioGrupo } from '../../models/usuario-grupo';
   styleUrls: ['./join.component.css']
 })
 export class JoinComponent implements OnInit {
-  private uid;
+  public uid;
   join: FormGroup;
   constructor(
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
+    public fb: FormBuilder,
+    public route: ActivatedRoute,
     public router: Router,
     public flashMensaje: FlashMessagesService,
-    private dataService: DataService
+    public dataService: DataService
   ) { }
 
   ngOnInit() {

@@ -15,10 +15,10 @@
     </div> 
   </a>
   <h2 class="Title2">Deuda actual</h2>
-  <div *ngIf="this.deudaActual == '0'" id="balanceVerde" class="tarjeta">
+  <div *ngIf="this.deudaActual == 0" id="balanceVerde" class="tarjeta">
       <h2 id="money">Bs. {{this.stringDeuda}}</h2>
   </div>
-  <div *ngIf="this.deudaActual != '0'" id="balanceRojo" class="tarjeta">
+  <div *ngIf="this.deudaActual != 0" id="balanceRojo" class="tarjeta">
       <h2 id="money">Bs. {{this.stringDeuda}}</h2>
   </div>
   <h2 class="Title2">Mis Recibos recientes</h2>

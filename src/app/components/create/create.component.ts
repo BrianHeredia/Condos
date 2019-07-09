@@ -16,13 +16,13 @@ export class CreateComponent implements OnInit {
   
   group: FormGroup;
   groupUser: FormGroup;
-  private uid;
+  public uid;
   constructor(
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
+    public fb: FormBuilder,
+    public route: ActivatedRoute,
     public router: Router,
     public flashMensaje: FlashMessagesService,
-    private dataService: DataService
+    public dataService: DataService
   ) { }
 
   ngOnInit() {

@@ -1,0 +1,126 @@
+{
+  "configVersion": 1,
+  "timestamp": 1562687683438,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "CondosApp",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/es2015-polyfills.c5dd28b362270c767b34.js",
+        "/favicon.png",
+        "/index.html",
+        "/main.3f8128895d6e4c83d17c.js",
+        "/polyfills.8bbb231b43165d65d357.js",
+        "/runtime.26209474bfa8dc87a77c.js",
+        "/styles.27a7d49999b2a26ba1be.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/Comunicacion.jpeg",
+        "/assets/icons/Comunicacion2.jpeg",
+        "/assets/icons/Condo.png",
+        "/assets/icons/Finanzas.jpeg",
+        "/assets/icons/Finanzas2.jpg",
+        "/assets/icons/Finanzas3.jpeg",
+        "/assets/icons/Finanzas4.jpeg",
+        "/assets/icons/Proposiciones.jpeg",
+        "/assets/icons/Propuestas.jpeg",
+        "/assets/icons/Seguridad.jpeg",
+        "/assets/icons/documentos.jpeg",
+        "/assets/icons/downvote 48.png",
+        "/assets/icons/edificio.jpg",
+        "/assets/icons/edificio2.jpg",
+        "/assets/icons/icons8-basura-48.png",
+        "/assets/icons/icons8-eliminar-42 (1).png",
+        "/assets/icons/icons8-eliminar-48.png",
+        "/assets/icons/icons8-grupos-de-usuarios-32.png",
+        "/assets/icons/icons8-menú-2-filled-24.png",
+        "/assets/icons/icons8-menú-2-filled-48.png",
+        "/assets/icons/icons8-más-filled-64.png",
+        "/assets/icons/icons8-open-view-48.png",
+        "/assets/icons/icons8-pencil-filled-48.png",
+        "/assets/icons/icons8-salida-32.png",
+        "/assets/icons/icons8-usuario-de-género-neutro-filled-64.png",
+        "/assets/icons/inactive.jpg",
+        "/assets/icons/upvote 48.png",
+        "/assets/icons/vecindario.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "condos3",
+      "patterns": [
+        "https:\\/\\/www\\.condos3\\.herokuapp\\.com\\/api\\/[^/]*"
+      ],
+      "strategy": "performance",
+      "maxSize": 10000,
+      "maxAge": 21600000,
+      "timeoutMs": 5000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/assets/icons/Comunicacion.jpeg": "cde5115d662a5825e37bdb4c7082074b41e25ff0",
+    "/assets/icons/Comunicacion2.jpeg": "55a2d297afb9b98b3fe055bd058072eb8bd8c6c3",
+    "/assets/icons/Condo.png": "4cf268ff59dc28214d7fedc976e42e1fedd88685",
+    "/assets/icons/Finanzas.jpeg": "03e2554248813181015d5d656abd60ae71f318e5",
+    "/assets/icons/Finanzas2.jpg": "8b75c366b769833af323e0be4ecd06826012fe15",
+    "/assets/icons/Finanzas3.jpeg": "495038e7839a2d9bc6d0c6b4b5e9ba353467d7d4",
+    "/assets/icons/Finanzas4.jpeg": "ac64a45d59d1c67f05be3fbd4c093a36fb46e984",
+    "/assets/icons/Proposiciones.jpeg": "248b6696517940ff6a292143b56fd66d2b55090d",
+    "/assets/icons/Propuestas.jpeg": "eb75f053549bb9f8d21322c92359cf55cf5e134d",
+    "/assets/icons/Seguridad.jpeg": "89f09182c3f46f88ffde18af789f34d9d9fd7817",
+    "/assets/icons/documentos.jpeg": "f1b39533bd90f1dc427d8d89b5777701f10412e5",
+    "/assets/icons/downvote 48.png": "7a53f6fd9f09528663ab04275cb69d07a6558ae4",
+    "/assets/icons/edificio.jpg": "67a543bfcea559b181300e28e1d5893c03735f43",
+    "/assets/icons/edificio2.jpg": "3fd30a93fe48828fbf6aba2499d2035ad8e352c8",
+    "/assets/icons/icons8-basura-48.png": "58bb0ae0ee86852495b19b2ed190a2bed5ff0a58",
+    "/assets/icons/icons8-eliminar-42 (1).png": "0fb9d495794c59afe4a93e108226153d26dd3c72",
+    "/assets/icons/icons8-eliminar-48.png": "9eee43fec188e9be649df38ebcba9b6021bc89fa",
+    "/assets/icons/icons8-grupos-de-usuarios-32.png": "af2721bd09a85ca8b5655d22d32438a64437fd7a",
+    "/assets/icons/icons8-menú-2-filled-24.png": "e53616e1f1e6c2e03870fff68855bbede792e472",
+    "/assets/icons/icons8-menú-2-filled-48.png": "0795f2f4100bffb7e14cc0c2b42cce333975a114",
+    "/assets/icons/icons8-más-filled-64.png": "38ea88baf158befd3e5c2597848f6b0c0c88e5eb",
+    "/assets/icons/icons8-open-view-48.png": "6ba9af87245db29333c0f0af0ebb20f5a04863de",
+    "/assets/icons/icons8-pencil-filled-48.png": "423f4ce5b2592518af00ad4e4b3d7ffb36954f57",
+    "/assets/icons/icons8-salida-32.png": "42ba4ece53bc352ca9fb3d11ff8a958f72dc4424",
+    "/assets/icons/icons8-usuario-de-género-neutro-filled-64.png": "f159b00a2f9872309105858866a10177f8a873c0",
+    "/assets/icons/inactive.jpg": "99ae41537c52eacf324236e7053ec72473b1d86b",
+    "/assets/icons/upvote 48.png": "116681b11d4780085b5147797e31be5dd4e6217b",
+    "/assets/icons/vecindario.jpg": "49fb483f5dd686ca7d4d3a03eb755bed456473f3",
+    "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
+    "/favicon.png": "766df19c2d58577b30781dd351f34b0a682fe897",
+    "/index.html": "18014e8b7f384b4872eb3707ca84bad10994e941",
+    "/main.3f8128895d6e4c83d17c.js": "3c4d1129a4780ef7c7aa8950ca340e9d726eb8b1",
+    "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
+    "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/styles.27a7d49999b2a26ba1be.css": "4e162c028965398b17b02465df74ed4f2b5f53d1"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

@@ -13,28 +13,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./estado-cuenta.component.css']
 })
 export class EstadoCuentaComponent implements OnInit {
-  private idgrupo;
-  private uid;
-  private Gasto: Gasto;
-  private gasto: FormGroup;
-  private gastos = [];
-  private pagos = [];
-  private recibos = [];
-  private mes: FormGroup;
-  private gastosTotal: number;
-  private pagosTotal: number;
-  private balance;
-  private positivo: boolean = true;
-  private admin: boolean = false;
-  private selectedMonth;
-  private selectedYear;
-  private currentYear;
-  private lastYear;
+  public idgrupo;
+  public uid;
+  public Gasto: Gasto;
+  public gasto: FormGroup;
+  public gastos = [];
+  public pagos = [];
+  public recibos = [];
+  public mes: FormGroup;
+  public gastosTotal: number;
+  public pagosTotal: number;
+  public balance;
+  public positivo: boolean = true;
+  public admin: boolean = false;
+  public selectedMonth;
+  public selectedYear;
+  public currentYear;
+  public lastYear;
   constructor(
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     public modalService: ModalService,
-    private dataService: DataService,
-    private fb : FormBuilder,
+    public dataService: DataService,
+    public fb : FormBuilder,
     public router: Router
   ) { }
 

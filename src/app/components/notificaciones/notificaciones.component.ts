@@ -12,17 +12,17 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./notificaciones.component.css']
 })
 export class NotificacionesComponent implements OnInit {
-  private idgrupo;
-  private uid;
-  private noti: Notificacion;
-  private notificacion: FormGroup;
-  private Notificacion: Notificacion;
-  private notificaciones = [];
+  public idgrupo;
+  public uid;
+  public noti: Notificacion;
+  public notificacion: FormGroup;
+  public Notificacion: Notificacion;
+  public notificaciones = [];
   constructor(
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     public modalService: ModalService,
-    private dataService: DataService,
-    private fb: FormBuilder 
+    public dataService: DataService,
+    public fb: FormBuilder 
   ) {  }
 
   ngOnInit() {

@@ -17,11 +17,11 @@ export class SignupComponent implements OnInit {
 
   user: FormGroup;
   constructor(
-    private fb: FormBuilder,
+    public fb: FormBuilder,
     public authService: AuthService,
     public router: Router,
     public flashMensaje: FlashMessagesService,
-    private dataService: DataService
+    public dataService: DataService
   ) { }
 
   ngOnInit() {

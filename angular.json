@@ -19,9 +19,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-            
               "src/favicon.png",
-              "src/assets/icons/Condo.png",
               "src/assets",
               "src/manifest.json"
             ],
@@ -89,7 +87,7 @@
             ],
             "scripts": [],
             "assets": [
-              "src/assets/icons/Condo.png",
+              "src/favicon.png",
               "src/assets",
               "src/manifest.json"
             ]

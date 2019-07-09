@@ -2,11 +2,11 @@
   "index": "/index.html",
   "assetGroups": [
     {
-      "name": "app",
+      "name": "CondosApp",
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/favicon.ico",
+          "/favicon.png",
           "/index.html",
           "/*.css",
           "/*.js"
@@ -21,6 +21,20 @@
           "/assets/**",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
+      }
+    }
+  ],
+  "dataGroups":[
+    {
+      "name": "condos3",
+      "urls":[
+        "https://www.condos3.herokuapp.com/api/*"
+      ],
+      "cacheConfig":{
+        "strategy": "performance",
+        "maxSize": 10000,
+        "maxAge": "6h",
+        "timeout": "5s"
       }
     }
   ]

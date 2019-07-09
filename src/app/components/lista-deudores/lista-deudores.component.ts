@@ -11,17 +11,17 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ListaDeudoresComponent implements OnInit {
   
-  private idgrupo;
-  private uid;
-  private mes: FormGroup;
-  private selectedMonth;
-  private selectedYear;
-  private personas = [];
+  public idgrupo;
+  public uid;
+  public mes: FormGroup;
+  public selectedMonth;
+  public selectedYear;
+  public personas = [];
   constructor(
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     public modalService: ModalService,
-    private dataService: DataService,
-    private fb : FormBuilder
+    public dataService: DataService,
+    public fb : FormBuilder
   ) { }
 
   ngOnInit() {

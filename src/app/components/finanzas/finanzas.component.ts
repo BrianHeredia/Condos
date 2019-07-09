@@ -13,22 +13,22 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./finanzas.component.css']
 })
 export class FinanzasComponent implements OnInit {
-  private idgrupo;
-  private uid;
-  private pago: FormGroup;
-  private Pago: Pago;
-  private recibos = [];
-  private pagos = [];
-  private currentPago;
-  private currentRecibo;
-  private idRecibo: Recibos;
-  private deudaActual: number;
-  private stringDeuda: string;
+  public idgrupo;
+  public uid;
+  public pago: FormGroup;
+  public Pago: Pago;
+  public recibos = [];
+  public pagos = [];
+  public currentPago;
+  public currentRecibo;
+  public idRecibo: Recibos;
+  public deudaActual: number;
+  public stringDeuda: string;
   constructor(
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     public modalService: ModalService,
-    private fb: FormBuilder,
-    private dataService: DataService
+    public fb: FormBuilder,
+    public dataService: DataService
 ) { }
 
   ngOnInit() {

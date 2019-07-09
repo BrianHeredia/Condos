@@ -1,8 +1,10 @@
 export class Notificacion {
     id?: number;
-    título?: string;
+    titulo?: string;
     mensaje?: string;
     isAR?: boolean;
     uid?: string;
     idgrupo?: number;
+    first?: string;
+    last?:string;
 }

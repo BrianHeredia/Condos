@@ -15,13 +15,13 @@ export class DashboardComponent implements OnInit {
   
   
 
-  private uid;
-  private userChanged: UserChanged;
-  private condos = [];
-  private selected: number;
+  public uid;
+  public userChanged: UserChanged;
+  public condos = [];
+  public selected: number;
   constructor(
     public authService: AuthService,
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     public router: Router,
     public modalService: ModalService,
     public dataService: DataService

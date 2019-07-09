@@ -13,7 +13,7 @@ import { DataService } from '../../services/data.service';
 export class LoginComponent implements OnInit {
   public email: string;
   public password: string;
-  private message: string = '';
+  public message: string = '';
   constructor(
     public authService: AuthService,
     public router: Router,

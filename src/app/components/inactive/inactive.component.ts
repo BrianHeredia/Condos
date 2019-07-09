@@ -7,10 +7,10 @@ import { ActivatedRoute, Params} from '@angular/router';
   styleUrls: ['./inactive.component.css']
 })
 export class InactiveComponent implements OnInit {
-  private idgrupo;
-  private uid;
+  public idgrupo;
+  public uid;
   constructor(
-    private route: ActivatedRoute) { }
+    public route: ActivatedRoute) { }
 
   ngOnInit() {
     this.uid = this.route.snapshot.params['uid'];

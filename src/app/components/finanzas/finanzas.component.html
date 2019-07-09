@@ -52,10 +52,10 @@
     <form [formGroup]="pago">
         Número de referencia: <br> <input type="text"  formControlName="ref">
         Banco: <br> <select formControlName="banco">
-          <option value="1">Banco Provincial</option>
-          <option value="2">Banesco</option>
-          <option value="3">Mercantil</option>
-          <option value="4">Banplus</option>
+          <option value="2">Banco Provincial</option>
+          <option value="12">Banesco</option>
+          <option value="22">Mercantil</option>
+          <option value="32">Banplus</option>
         </select>
         Monto: <br> <input type="text"  placeholder="0.00" (keyup)="format(this.pago.value.monto)" formControlName="monto" >
         Fecha: <br> <input type="date" formControlName="date">

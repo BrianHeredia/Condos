@@ -46,3 +46,9 @@ select::-ms-expand {
 select option {
     font-weight:normal;
 }
+
+@media screen and (max-width:505px){
+    #noDebt, #debt{
+        font-size: 28px;
+    }
+}

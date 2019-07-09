@@ -23,19 +23,19 @@ const httpOptions = {
 export class DataService {
   public user: Usuario;
   public userGroup: UsuarioGrupo;
-  private usuariosUrl = 'http://localhost:3000/api/usuarios';  // URL to web api
-  private gruposUrl = 'http://localhost:3000/api/grupo';  // URL to web api
-  private usuarioGrupoUrl = 'http://localhost:3000/api/user_grupo';  // URL to web api
-  private personasUrl = 'http://localhost:3000/api/personas';  // URL to web api
-  private pagosUrl = 'http://localhost:3000/api/pagos';  // URL to web api
-  private gastosUrl = 'http://localhost:3000/api/gastos';  // URL to web api
-  private deudoresUrl = 'http://localhost:3000/api/deudores';  // URL to web api
-  private recibosUrl = 'http://localhost:3000/api/recibos';  // URL to web api
-  private userAlicuotasUrl = 'http://localhost:3000/api/user_grupo/users';  // URL to web api
-  private propuestasUrl = 'http://localhost:3000/api/propuestas';  // URL to web api
-  private notificacionesUrl = 'http://localhost:3000/api/notificaciones';  // URL to web api
-  private likesUrl = 'http://localhost:3000/api/likes';  // URL to web api
-  private findLikesUrl = 'http://localhost:3000/api/likes/find';  // URL to web api
+  private usuariosUrl = 'https://condos3.herokuapp.com/api/usuarios';  // URL to web api
+  private gruposUrl = 'https://condos3.herokuapp.com/api/grupo';  // URL to web api
+  private usuarioGrupoUrl = 'https://condos3.herokuapp.com/api/user_grupo';  // URL to web api
+  private personasUrl = 'https://condos3.herokuapp.com/api/personas';  // URL to web api
+  private pagosUrl = 'https://condos3.herokuapp.com/api/pagos';  // URL to web api
+  private gastosUrl = 'https://condos3.herokuapp.com/api/gastos';  // URL to web api
+  private deudoresUrl = 'https://condos3.herokuapp.com/api/deudores';  // URL to web api
+  private recibosUrl = 'https://condos3.herokuapp.com/api/recibos';  // URL to web api
+  private userAlicuotasUrl = 'https://condos3.herokuapp.com/api/user_grupo/users';  // URL to web api
+  private propuestasUrl = 'https://condos3.herokuapp.com/api/propuestas';  // URL to web api
+  private notificacionesUrl = 'https://condos3.herokuapp.com/api/notificaciones';  // URL to web api
+  private likesUrl = 'https://condos3.herokuapp.com/api/likes';  // URL to web api
+  private findLikesUrl = 'https://condos3.herokuapp.com/api/likes/find';  // URL to web api
 
   constructor( 
     private http: HttpClient

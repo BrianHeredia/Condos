@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1562687683438,
+  "timestamp": 1562692810982,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -8,8 +8,8 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
+        "/assets/icons/condoslogo.png",
         "/es2015-polyfills.c5dd28b362270c767b34.js",
-        "/favicon.png",
         "/index.html",
         "/main.3f8128895d6e4c83d17c.js",
         "/polyfills.8bbb231b43165d65d357.js",
@@ -79,6 +79,7 @@
     "/assets/icons/Proposiciones.jpeg": "248b6696517940ff6a292143b56fd66d2b55090d",
     "/assets/icons/Propuestas.jpeg": "eb75f053549bb9f8d21322c92359cf55cf5e134d",
     "/assets/icons/Seguridad.jpeg": "89f09182c3f46f88ffde18af789f34d9d9fd7817",
+    "/assets/icons/condoslogo.png": "f9dfbff9bf7a3edddb2d87957d8ef7986393136d",
     "/assets/icons/documentos.jpeg": "f1b39533bd90f1dc427d8d89b5777701f10412e5",
     "/assets/icons/downvote 48.png": "7a53f6fd9f09528663ab04275cb69d07a6558ae4",
     "/assets/icons/edificio.jpg": "67a543bfcea559b181300e28e1d5893c03735f43",
@@ -98,8 +99,7 @@
     "/assets/icons/upvote 48.png": "116681b11d4780085b5147797e31be5dd4e6217b",
     "/assets/icons/vecindario.jpg": "49fb483f5dd686ca7d4d3a03eb755bed456473f3",
     "/es2015-polyfills.c5dd28b362270c767b34.js": "b7a81c61d32b0b12737f0c13f45973ba391cd7f9",
-    "/favicon.png": "766df19c2d58577b30781dd351f34b0a682fe897",
-    "/index.html": "18014e8b7f384b4872eb3707ca84bad10994e941",
+    "/index.html": "5d85b97a51c123e8c8748461594f05dd5908e1a5",
     "/main.3f8128895d6e4c83d17c.js": "3c4d1129a4780ef7c7aa8950ca340e9d726eb8b1",
     "/polyfills.8bbb231b43165d65d357.js": "ffa449995bf2eba2ccd0a002417214f7eb75e7b5",
     "/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
